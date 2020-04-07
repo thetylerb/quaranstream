@@ -1,0 +1,46 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  h1 {
+      color:white;
+  }
+
+  input, input:focus { 
+    color: white;
+}
+    
+    label {
+    color: white;
+    }
+
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    }
+
+    .select-dropdown{
+    color: white;
+    }
+
+  main {
+    flex: 1 0 auto;
+    padding-bottom:10px;
+  }
+
+  nav {
+      background-color:#FFC312;
+  }
+
+  footer, .page-footer {
+      background-color:#282828;
+  }
+
+  body {
+    background: url("https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") no-repeat center center fixed; 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+ }
