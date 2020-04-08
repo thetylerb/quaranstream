@@ -1,161 +1,184 @@
 <!DOCTYPE html>
-	<html lang="en">
-	
-	<head>
-	   <!-- Compiled and minified CSS -->
-	   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-	   <!--Import Google Icon Font-->
-     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css?family=Just+Another+Hand&display=swap" rel="stylesheet">
-	   <!--Let browser know website is optimized for mobile-->
-	   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-     <link rel="stylesheet" type="text/css" href="stylesheets/questionaire.css">
-     <title>Questionaire</title>
-	</head>
-	
-		<body>
-			<nav>
-				<div class="nav-wrapper heads">
-				  <a href="index.html" class="brand-logo center">Quaranstream</a>
-				  <ul id="nav-mobile" class="left hide-on-med-and-down">
-				  </ul>
-				</div>
-			</nav>
-			
-            <main>
-				<div class="container">
-				  <!-- Page Content goes here -->
-				  <h1>Quaranstream</h1>
-					<form>
-                    <label for="Placeholder"></label>
-					<input type="text" id="5" placeholder="What's your name or an alias that you like to go by?"><br>
-						<div class="control">
-							<select class="input" id="1" type="text">
-								  <option value='0'>What console do you use?</option> 
-                  <option value='1'>Playstation 4</option> 
-                  <option value='2'>Xbox One</option> 
-                  <option value='3'>Nintendo Wii</option> 
-                  <option value='4'>Nintendo Switch</option> 
-                  <option value='5'>PC</option>    
-							</select>
-                          </div>
-                          <div class="control">
-							<select class="input" id="2" type="text">
-								  <option value='0'>What's your favorite video game genre?</option> 
-                  <option value='1'>Point and Click</option> 
-                  <option value='2'>Fighting</option> 
-                  <option value='3'>Shooter</option> 
-                  <option value='4'>Music</option> 
-                  <option value='6'>Platform</option>
-                  <option value='7'>Puzzle</option>    
-                  <option value='8'>Racing</option>
-                  <option value='9'>Real Time Strategy</option>    
-                  <option value='10'>Role Playing Game</option>    
-                  <option value='11'>Simulator</option>    
-                  <option value='12'>Sport</option>
-                  <option value='13'>Strategy</option>    
-                  <option value='14'>Turn Based Strategy</option>    
-                  <option value='15'>Horror</option>    
-                  <option value='16'>Tactical</option>
-                  <option value='17'>Hack and Slash/Beat Em Up</option>
-                  <option value='18'>Quiz/Trivia</option>
-                  <option value='19'>Pinball</option>
-                  <option value='20'>Adventure</option>
-                  <option value='21'>Indie</option>
-                  <option value='22'>Arcade</option>
-                  <option value='23'>Visual Novel</option>
-							</select>
-                          </div>
-                          <div class="control">
-							<select class="input" id="3" type="text">
-								  <option value='0'>What's your favorite television or movie genre?</option> 
-                  <option value='1'>Action</option> 
-                  <option value='2'>Adventure</option> 
-                  <option value='3'>Animation</option> 
-                  <option value='4'>Anime</option> 
-                  <option value='6'>Comedy</option>
-                  <option value='7'>Crime</option>    
-                  <option value='8'>Disaster</option>
-                  <option value='9'>Documentary</option>    
-                  <option value='10'>Family</option>    
-                  <option value='11'>Fan Film</option>    
-                  <option value='12'>Film Noir</option>
-                  <option value='13'>History</option>    
-                  <option value='14'>Holiday</option>    
-                  <option value='15'>Horror</option>    
-                  <option value='16'>Indie</option>
-                  <option value='17'>Western</option>
-                  <option value='18'>War</option>
-                  <option value='19'>Sports</option>
-                  <option value='20'>Short</option>
-                  <option value='21'>Mystery</option>
-                  <option value='22'>Musical</option>
-							</select>
-                          </div>
-                          <div class="control">
-							<select class="input" id="4" type="text">
-								  <option value='0'>What's your favorite genre of music?</option> 
-                  <option value='1'>Rock</option> 
-                  <option value='2'>Pop</option> 
-                  <option value='3'>Jazz</option> 
-                  <option value='4'>Blues</option> 
-                  <option value='5'>Metal</option>
-                  <option value='6'>Raggae</option>
-                  <option value='7'>Hip Hop</option>    
-                  <option value='8'>Rap</option>
-                  <option value='9'>Country</option>    
-                  <option value='10'>Classical</option>    
-                  <option value='11'>Funk</option>    
-                  <option value='12'>Dubstep</option>
-                  <option value='13'>Soul</option>    
-                  <option value='14'>Disco</option>    
-                  <option value='15'>Techno</option>    
-                  <option value='16'>Instrumental</option>
-                  <option value='17'>Electro</option>
-                  <option value='18'>Ballad</option>
-                  <option value='19'>Opera</option>
-                  <option value='20'>Orchestra</option>
-							</select>
-						  </div>
-					</form>
-					<button type="button" class="btn waves-effect waves-light" id="submitBtn">Submit</button>
-          
+<html lang="en">
 
-	
-                </div>
-            </main>
-	
-			<footer class="page-footer">
-				<div class="container">
-					<div class="row">
-					<div class="col l6 s12">
-					  <h5 class="white-text">Quaranstream</h5>
-					  <p class="grey-text text-lighten-4 summary">Stuck at your home? Spending countless hours on Netflix trying to find the right show? Need new song suggestions now that you're stuck at home, bored, like many others around the world? Well fear no more, Quaranstream is here! Connect with people stuck in the same boat as you and discover more of your favorite entertainment!</p>
-					</div>
-					<div class="col l4 offset-l2 s12">
-					  <h5 class="white-text">API Links</h5>
-					  <ul>
-						<li><a class="grey-text text-lighten-3" href="">Television & Movie API</a></li>
-						<li><a class="grey-text text-lighten-3" href="">Video Game API</a></li>
-						<li><a class="grey-text text-lighten-3" href="">Music API</a></li>
-					  </ul>
-					</div>
-				  </div>
-				</div>
-				<div class="footer-copyright">
-				  <div class="container">
-				  © 2020 Copyright Text
-				  <a class="grey-text text-lighten-4 right" href="https://github.com/thetylerb/quarantstream/">UNC Bootcamp: Project 2 - Team 2</a>
-				  </div>
-				</div>
-			</footer>
-	
+<head>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Just+Another+Hand&display=swap" rel="stylesheet">
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/questionaire.css">
+  <title>Questionaire</title>
+</head>
 
-	  <!--Scripts: JavaScript at end of body for optimized loading-->
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	  <!-- Compiled and minified JavaScript -->
-	  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-	  <script src="js/questionaire.js"></script>
-	</body>
-	
-	</html>
+<body>
+  <nav>
+    <div class="nav-wrapper heads">
+      <a href="index.html" class="brand-logo center">Quaranstream</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <!-- Page Content goes here -->
+      <h1>Quaranstream</h1>
+      <form>
+        <label for="Placeholder"></label>
+        <input type="text" id="alias" placeholder="What's your name or an alias that you like to go by?"><br>
+        <div class="control">
+          <select class="input" id="console" type="text">
+            <option value='0'>What console or gaming platform do you use?</option>
+            <option value='(34)' data-name = "Android">Android</option>
+            <option value='(23)' data-name = "Dreamcast">Dreamcast</option>
+            <option value='(14)' data-name = "Mac">Mac</option>
+            <option value='(130)' data-name = "Nintendo Switch">Nintendo Switch</option>
+            <option value='(6)' data-name = "PC">PC</option>
+            <option value='(9)' data-name = "Playstation 3">Playstation 3</option>
+            <option value='(48)' data-name = "Playstation 4">Playatation 4</option>
+            <option value='(12)' data-name = "Xbox 360">Xbox 360</option>
+            <option value='(49)' data-name = "Xbox One">Xbox One</option>
+          </select>
+        </div>
+        <div class="control">
+          <select class="input" id="gameGenre" type="text">
+            <option value='0'>What's your favorite video game genre?</option>
+            <option value='31' data-name = "Adventure">Adventure</option>
+            <option value='33' data-name = "Arcade">Arcade</option>
+            <option value='4' data-name = "Fightinge">Fighting</option>
+            <option value='25' data-name = "Hack and Slash/Beat Em Up">Hack and Slash/Beat Em Up</option>
+            <option value='5' data-name = "Horror">Horror</option>
+            <option value='32' data-name = "Indie">Indie</option>
+            <option value='8' data-name = "Platform">Platform</option>
+            <option value='9' data-name = "Puzzle">Puzzle</option>
+            <option value='10' data-name = "Racing">Racing</option>
+            <option value='12' data-name = "Role Playing Game">Role Playing Game</option>
+            <option value='5' data-name = "Shooter">Shooter</option>
+            <option value='13' data-name = "Simulator">Simulator</option>
+            <option value='14' data-name = "Sport">Sport</option>
+            <option value='15' data-name = "Strategy">Strategy</option>
+            <option value='24' data-name = "Tactical">Tactical</option>
+          </select>
+        </div>
+        <div class="control">
+          <select class="input" id="videoGenre" type="text">
+            <option value='0'>What's your favorite television or movie genre?</option>
+            <option value='Action'>Action</option>
+            <option value='Adventure'>Adventure</option>
+            <option value='Animation'>Animation</option>
+            <option value='Anime'>Anime</option>
+            <option value='Comedy'>Comedy</option>
+            <option value='Crime'>Crime</option>
+            <option value='Documentary'>Documentary</option>
+            <option value='Drama'>Drama</option>
+            <option value='Family'>Family</option>
+            <option value='Fantasy'>Fantasy</option>
+            <option value='History'>History</option>
+            <option value='Holiday'>Holiday</option>
+            <option value='Musical'>Musical</option>
+            <option value='Mystery'>Mystery</option>
+            <option value='Romance'>Romance</option>
+            <option value='Science Fiction'>Science Fiction</option>
+            <option value='Short'>Short</option>
+            <option value='Superhero'>Superhero</option>
+            <option value='Suspense'>Suspense</option>
+            <option value='Thriller'>Thriller</option>
+            <option value='War'>War</option>
+            <option value='Western'>Western</option>
+          </select>
+        </div>
+        <div class="control">
+          <select class="input" id="musicGenre" type="text">
+            <option value='0'>What's your favorite genre of music?</option>
+
+            <option value='80s'>80s</option>
+            <option value='90s'>90s</option>
+            <option value='Acoustic'>Acoustic</option>
+            <option value='Alternative'>Alternative</option>
+            <option value='Alternative Rock'>Alternative Rock</option>
+            <option value='Ambient'>Ambient</option>
+            <option value='Blues'>Blues</option>
+            <option value='Classic Rock'>Classic Rock</option>
+            <option value='Classical'>Classical</option>
+            <option value='Country'>Country</option>
+            <option value='Dance'>Dance</option>
+            <option value='Electronic'>Electronic</option>
+            <option value='Electronica'>Electronica</option>
+            <option value='Experimental'>Experimental</option>
+            <option value='Folk'>Folk</option>
+            <option value='Funk'>Funk</option>
+            <option value='Hard Rock'>Hard Rock</option>
+            <option value='Heavy Metal'>Heavy Metal</option>
+            <option value='Hip-Hop'>Hip-Hop</option>
+            <option value='Indie'>Indie</option>
+            <option value='Indie Rock'>Indie Rock</option>
+            <option value='Industrial'>Industrial</option>
+            <option value='Instrumental'>Instrumental</option>
+            <option value='Jazz'>Jazz</option>
+            <option value='Metal'>Metal</option>
+            <option value='New Wave'>New Wave</option>
+            <option value='Pop'>Pop</option>
+            <option value='Progressive Rock'>Progressive Rock</option>
+            <option value='Psychedelic'>Psychedelic</option>
+            <option value='Punk'>Punk</option>
+            <option value='Rap'>Rap</option>
+            <option value='Reggae'>Reggae</option>
+            <option value='Rock'>Rock</option>
+            <option value='Soul'>Soul</option>
+            <option value='Trance'>Trance</option>
+            
+          </select>
+        </div>
+      </form>
+      <button type="button" class="btn waves-effect waves-light" id="submitBtn">Submit</button>
+
+
+
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Quaranstream</h5>
+          <p class="grey-text text-lighten-4 summary">Stuck at your home? Spending countless hours on Netflix trying to
+            find the right show? Need new song suggestions now that you're stuck at home, bored, like many others around
+            the world? Well fear no more, Quaranstream is here! Connect with people stuck in the same boat as you and
+            discover more of your favorite entertainment!</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">API Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="">Television & Movie API</a></li>
+            <li><a class="grey-text text-lighten-3" href="">Video Game API</a></li>
+            <li><a class="grey-text text-lighten-3" href="">Music API</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        © 2020 Copyright Text
+        <a class="grey-text text-lighten-4 right" href="https://github.com/thetylerb/quarantstream/">UNC Bootcamp:
+          Project 2 - Team 2</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--Scripts: JavaScript at end of body for optimized loading-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="js/questionaire.js"></script>
+  <script src="js/game_api.js"></script>
+  <script src="js/music_api.js"></script>
+  <script src="js/video_api.js"></script>
+
+</body>
+
+</html>
