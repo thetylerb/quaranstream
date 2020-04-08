@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
     const FavMovieGenre = sequelize.define('FavMovieGenre', {
       movieGenres: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.STRING,
         allowNull: false
       } 
     });

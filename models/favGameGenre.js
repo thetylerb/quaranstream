@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
     const FavGameGenre = sequelize.define('FavGameGenre', {
       gameGenres: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.STRING,
         allowNull: false
       } 
     });

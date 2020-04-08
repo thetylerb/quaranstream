@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
     const FavMusicGenre = sequelize.define('FavMusicGenre', {
       musicGenres: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.STRING,
         allowNull: false
       } 
     });

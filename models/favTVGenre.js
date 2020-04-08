@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
     const FavTVGenre = sequelize.define('FavTVGenre', {
       tVGenres: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.STRING,
         allowNull: false
       } 
     });
