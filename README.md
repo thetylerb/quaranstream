@@ -8,7 +8,7 @@ email: keshav.s.avva@gmail.com
 
 ## Description
 
-This application automatically generates a README for your project based off of user inputs.
+This application supplies users with activities to occupy their time during the Corona Virus Quarantine.
 
 
 ## Table of Contents
