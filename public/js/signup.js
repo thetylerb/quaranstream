@@ -8,17 +8,22 @@ $(document).ready(function() {
   signUpForm.on("submit", function(event) {
     event.preventDefault();
     var userData = {
-      email: emailInput.val().trim(),
-      password: passwordInput.val().trim()
+      email: $("input#email-input")
+        .val()
+        .trim(),
+      password: $("input#password-input")
+        .val()
+        .trim()
     };
+    console.log(userData);
 
     if (!userData.email || !userData.password) {
       return;
     }
     // If we have an email and password, run the signUpUser function
     signUpUser(userData.email, userData.password);
-    emailInput.val("");
-    passwordInput.val("");
+    $("input#email-input").val("");
+    $("input#password-input").val("");
   });
 
   // Does a post to the signup route. If successful, we are redirected to the members page
@@ -30,6 +35,7 @@ $(document).ready(function() {
     })
       .then(function(data) {
         window.location.replace("/members");
+        console.log(data.email, data.password);
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);
