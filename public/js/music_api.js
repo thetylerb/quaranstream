@@ -26,11 +26,12 @@ function getPopularArtists() {
     } else {
       var res = response.data.artists.artist;
     }
-    // console.log(res);
-    for (var i = 0; i < res.length; i++) {
-      console.log(res[i].name);
-      console.log(res[i].url);
-    }
+    console.log(res);
+    return res;
+    // for (var i = 0; i < res.length; i++) {
+    //   console.log(res[i].name);
+    //   console.log(res[i].url);
+    // }
   });
 }
 
@@ -49,9 +50,10 @@ function artistInfo(artist) {
     method: "GET"
   }).then(function(response) {
     var res = response.data.artist;
-    // console.log(res);
-    console.log(res.url);
-    console.log(res.bio.summary);
-    console.log(res.similar.artist);
+    console.log(res);
+    return res;
+    // console.log(res.url);
+    // console.log(res.bio.summary);
+    // console.log(res.similar.artist);
   });
 }
