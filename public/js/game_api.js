@@ -7,12 +7,11 @@ require("dotenv").config();
 var gameGenreId = "";
 var gameGenreId = 14;
 var platformId = "(48)";
-// var platformId = 48;
 getPopularGames(gameGenreId, platformId);
 
 function getPopularGames(genreId, platformId) {
   criteria =
-    "fields aggregated_rating,aggregated_rating_count,category,collection,first_release_date,genres,name,platforms,player_perspectives,popularity,pulse_count,rating,rating_count,release_dates,screenshots,similar_games,slug,summary,total_rating,total_rating_count; limit 5; sort popularity desc; where rating > 75 & rating_count > 0 & first_release_date > 1436883200";
+    "fields aggregated_rating,genres,name,platforms,rating,similar_games,summary; limit 25; sort popularity desc; where rating > 75 & rating_count > 0 & first_release_date > 1436883200";
   if (genreId) {
     criteria += " & genres = " + genreId;
   }
@@ -35,25 +34,28 @@ function getPopularGames(genreId, platformId) {
     .then(function(response) {
       res = response.data;
       console.log(res);
-      for (var i = 0; i < res.length; i++) {
-        console.log("Name: " + res[i].name);
-        console.log("summary: " + res[i].summary);
-        console.log("********************************************************");
-      }
+      return res;
+
+      // for (var i = 0; i < res.length; i++) {
+      //   // popularGamesObject[i].name = res[i].name;
+      //   // popularGamesObject[i].summary = res[i].summary;
+      //   console.log("Name: " + res[i].name);
+      //   console.log("summary: " + res[i].summary);
+      //   console.log("********************************************************");
+      //other relevant outputs = genre, platform, rating, similar games id
+      // }
     })
     .catch(function(err) {
       console.error(err);
     });
-
-  //other relevant outputs = genre, platform, rating, similar games id
 }
 
 //search for users input and then output options
 var gameName = "grand theft auto";
-gameName = gameName.split(" ").join("_");
-// findGameId(gameName);
+findGameId(gameName);
 
 function findGameId(gameName) {
+  gameName = gameName.split(" ").join("_");
   var gameUrl = "https://api-v3.igdb.com/games/?search=";
   gameUrl += gameName + "&fields=id,name";
 
@@ -70,7 +72,8 @@ function findGameId(gameName) {
 
       console.log(response.data);
       var gameObject = response.data;
-      console.log(gameObject[0].name);
+      return gameObject;
+      // console.log(gameObject[0].name);
     })
     .catch(function(err) {
       console.error(err);
@@ -79,12 +82,13 @@ function findGameId(gameName) {
 
 //have user confirm which game they want and search its id
 var gameId = 19459;
-// getGameById(gameId);
+getGameById(gameId);
 
 function getGameById(gameId) {
   var criteria =
-    "fields aggregated_rating,aggregated_rating_count,category,collection,first_release_date,genres,name,platforms,player_perspectives,popularity,pulse_count,rating,rating_count,release_dates,screenshots,similar_games,slug,summary,total_rating,total_rating_count; limit 1; where id = 19459;";
+    "fields screenshots.*,aggregated_rating,genres,name,platforms,rating,screenshots,similar_games,slug,summary,total_rating,total_rating_count; limit 1;";
   criteria += " where id = " + gameId + ";";
+  console.log(criteria);
 
   axios({
     url: "https://api-v3.igdb.com/games/",
@@ -97,14 +101,20 @@ function getGameById(gameId) {
   })
     .then(function(response) {
       var res = response.data;
-      // console.log(res);
-      console.log("Name: " + res[0].name);
-      console.log("Rating: " + res[0].rating);
-      console.log("Genre Id's: " + res[0].genres);
-      console.log("Platform Id's: " + res[0].platforms);
-      console.log("summary: " + res[0].summary);
-      console.log("Similar Games: " + res[0].similar_games);
-      console.log("************************************");
+      console.log(res);
+      console.log(
+        "https://images.igdb.com/igdb/image/upload/t_screenshot_huge/" +
+          res[0].screenshots[0].image_id +
+          ".jpg"
+      );
+      return res;
+      //   console.log("Name: " + res[0].name);
+      //   console.log("Rating: " + res[0].rating);
+      //   console.log("Genre Id's: " + res[0].genres);
+      //   console.log("Platform Id's: " + res[0].platforms);
+      //   console.log("summary: " + res[0].summary);
+      //   console.log("Similar Games: " + res[0].similar_games);
+      //   console.log("************************************");
     })
     .catch(function(err) {
       console.error(err);

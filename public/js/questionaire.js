@@ -18,9 +18,21 @@ $(document).ready(function() {
         .find(":selected")
         .data("name")
     );
-    // getPopularArtists($("#musicGenre").val());
-    // getPopularGames($("#gameGenre").val());
-    // getPopularVideos($("#videoGenre").val(), "movie");
-    // getPopularVideos($("#videoGenre").val(), "show");
+
+    var newUser = {
+      Username: $("#alias").val(),
+      MusicGenres: $("#videoGenre").val(),
+      MovieGenres: $("#videoGenre").val(),
+      tVGenres: $("#musicGenre").val(),
+      gameGenres: $("#gameGenre").val()
+    };
+
+    // Send the POST request.
+    // $.ajax("/api/userInfo", {
+    //   type: "POST",
+    //   data: newUser
+    // }).then(() => {
+    //   location.reload();
+    // });
   });
 });

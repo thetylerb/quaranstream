@@ -34,7 +34,7 @@ $(document).ready(function() {
       password: password
     })
       .then(function(data) {
-        window.location.replace("/members");
+        window.location.replace("/questionaire");
         console.log(data.email, data.password);
         // If there's an error, handle it by throwing up a bootstrap alert
       })
@@ -42,7 +42,10 @@ $(document).ready(function() {
   }
 
   function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
+    console.log(err.responseJSON.errors[0].message);
+    console.log(err.responseJSON);
+
+    $("#alert .msg").text(err.responseJSON.errors[0].message);
     $("#alert").fadeIn(500);
   }
 });

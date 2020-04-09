@@ -38,23 +38,25 @@ function getPopularVideos(genreId, type) {
       // console.log('Status:', this.status);
       // console.log('Headers:', this.getAllResponseHeaders());
       // console.log('Body:', this.responseText);
-      response = JSON.parse(this.responseText);
-      for (var i = 0; i < response.length; i++) {
-        if (type === "movie") {
-          console.log(
-            i +
-              1 +
-              ") " +
-              response[i].movie.title +
-              " " +
-              response[i].movie.year
-          );
-        } else if (type === "show") {
-          console.log(
-            i + 1 + ") " + response[i].show.title + " " + response[i].show.year
-          );
-        }
-      }
+      var res = JSON.parse(this.responseText);
+      console.log(res);
+      return res;
+      // for (var i = 0; i < res.length; i++) {
+      //   if (type === "movie") {
+      //     console.log(
+      //       i +
+      //         1 +
+      //         ") " +
+      //         res[i].movie.title +
+      //         " " +
+      //         res[i].movie.year
+      //     );
+      //   } else if (type === "show") {
+      //     console.log(
+      //       i + 1 + ") " + res[i].show.title + " " + res[i].show.year
+      //     );
+      //   }
+      // }
     }
   };
   request.send();
@@ -95,15 +97,17 @@ function videoInfo(name, type) {
       // console.log("Body:", this.responseText);
       var response = JSON.parse(this.responseText);
       if (type === "show") {
-        var re = response[0].show;
+        var res = response[0].show;
       } else if (type === "movie") {
-        var re = response[0].movie;
+        var res = response[0].movie;
       }
-      console.log("Title: " + re.title);
-      console.log("Year: " + re.year);
-      console.log("Summary: " + re.overview);
-      console.log(" Rating: " + re.rating);
-      console.log(" Trailer: " + re.trailer);
+      console.log(res);
+      return res;
+      // console.log("Title: " + re.title);
+      // console.log("Year: " + re.year);
+      // console.log("Summary: " + re.overview);
+      // console.log(" Rating: " + re.rating);
+      // console.log(" Trailer: " + re.trailer);
     }
   };
 
