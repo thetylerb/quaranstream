@@ -1,5 +1,11 @@
 $(document).ready(function() {
   $("select").formSelect();
+  var id;
+
+  $.get("/api/user_data", function(info) {
+    console.log(info);
+    id = info.id;
+  });
 
   $("#submitBtn").on("click", function() {
     event.preventDefault();
@@ -34,13 +40,15 @@ $(document).ready(function() {
       return;
     }
 
+    console.log(id);
     addUserPref(
       newUser.userName,
       newUser.avatarImg,
       newUser.enjoyMovie,
       newUser.enjoyMusic,
       newUser.enjoyTV,
-      newUser.enjoyGame
+      newUser.enjoyGame,
+      id
     );
     // Send the POST request.
     // $.ajax("/api/userInfo", {
@@ -57,7 +65,8 @@ $(document).ready(function() {
     enjoyMovie,
     enjoyMusic,
     enjoyTV,
-    enjoyGame
+    enjoyGame,
+    userId
   ) {
     $.post("/api/userprefs", {
       userName: userName,
@@ -65,7 +74,8 @@ $(document).ready(function() {
       enjoyMovie: enjoyMovie,
       enjoyMusic: enjoyMusic,
       enjoyTV: enjoyTV,
-      enjoyGame: enjoyGame
+      enjoyGame: enjoyGame,
+      UserId: userId
     }).then(function(data) {
       // window.location.replace("/questionaire");
       console.log(data.userName, data.enjoyMovie);
