@@ -30,6 +30,17 @@ module.exports = function(app) {
       });
   });
 
+  app.post("/api/userprefs", function(req, res) {
+    db.UserPref.create(req.body)
+      .then(function() {
+        // res.redirect(307, "/api/login");
+        console.log("Success!");
+      })
+      .catch(function(err) {
+        res.status(401).json(err);
+      });
+  });
+
   // Route for logging user out
   app.get("/logout", function(req, res) {
     req.logout();
