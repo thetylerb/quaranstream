@@ -1,7 +1,7 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
-var isAuthenticated = require("../config/middleware/isAuthenticated");
+// var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -31,16 +31,28 @@ module.exports = function(app) {
       });
   });
 
-  app.post("/api/userPrefs", isAuthenticated, function(req, res) {
-    console.log(req.body);
-    db.UserPrefs.create(res.json(req.body))
-      .then(function(data) {
-        res.json(data);
-        console.log("success");
+  // app.post("/api/userPrefs", isAuthenticated, function(req, res) {
+  //   console.log(req.body);
+  //   db.UserPrefs.create(res.json(req.body))
+  //     .then(function(data) {
+  //       res.json(data);
+  //       console.log("success");
+  app.post("/api/userPreferences", function(req, res) {
+    db.UserPref.create(req.body)
+      .then(function() {
+        // res.redirect(307, "/api/login");
+        console.log("Success!" + eq.body);
       })
       .catch(function(err) {
         res.status(401).json(err);
       });
+  });
+
+  app.get("/api/userPreferences", function(req, res) {
+    db.UserPref.findAll({}).then(results => {
+      res.json(results);
+      console.log(req);
+    });
   });
 
   // Route for logging user out
