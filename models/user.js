@@ -17,26 +17,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     }
-    // userName: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false
-    // },
-    // enjoyMovie: {
-    //   type: DataTypes.BOOLEAN,
-    //   allowNull: false
-    // },
-    // enjoyMusic: {
-    //   type: DataTypes.BOOLEAN,
-    //   allowNull: false
-    // },
-    // enjoyTV: {
-    //   type: DataTypes.BOOLEAN,
-    //   allowNull: false
-    // },
-    // enjoyGame: {
-    //   type: DataTypes.BOOLEAN,
-    //   allowNull: false
-    // }
   });
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   User.prototype.validPassword = function(password) {
@@ -52,29 +32,17 @@ module.exports = function(sequelize, DataTypes) {
     );
   });
 
-  // User.associate = function(models) {
-  //   User.hasMany(models.FavGameGenre, {
-  //     onDelete: "cascade"
-  //   });
-  // };
+  User.associate = function(models) {
+    User.hasMany(models.Genre, {
+      onDelete: "cascade"
+    });
+  };
 
-  // User.associate = function(models) {
-  //   User.hasMany(models.FavMusicGenre, {
-  //     onDelete: "cascade"
-  //   });
-  // };
-
-  // User.associate = function(models) {
-  //   User.hasMany(models.FavTVGenre, {
-  //     onDelete: "cascade"
-  //   });
-  // };
-
-  // User.associate = function(models) {
-  //   User.hasMany(models.FavMovieGenre, {
-  //     onDelete: "cascade"
-  //   });
-  // };
+  User.associate = function(models) {
+    User.hasMany(models.UserPref, {
+      onDelete: "cascade"
+    });
+  };
 
   return User;
 };
