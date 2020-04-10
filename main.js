@@ -1,13 +1,14 @@
-// const axios = require("axios");
-// $.get("/api/gameGenreInfo", function(req, res) {
-//   console.log(JSON.parse(req.body));
-// });
+const axios = require("axios");
+require("dotenv").config();
 // & first_release_date > 1436883200
 // var gameGenreId = "";
+// var gameGenreId = 14;
+// var platformId = "(48)";
+// getPopularGames(gameGenreId, platformId);
 
-function getPopularGames(genreId, platformId, cb) {
+function getPopularGames(genreId, platformId) {
   criteria =
-    "fields aggregated_rating,genres,name,platforms,rating,similar_games,summary; limit 5; sort popularity desc; where rating > 60 & rating_count > 0 ";
+    "fields aggregated_rating,genres,name,platforms,rating,similar_games,summary; limit 25; sort popularity desc; where rating > 60 & rating_count > 0 ";
   if (genreId) {
     criteria += " & genres = " + genreId;
   }
@@ -18,19 +19,19 @@ function getPopularGames(genreId, platformId, cb) {
 
   console.log(criteria);
 
-  $.ajax({
+  axios({
     url: "https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/games",
     method: "POST",
     headers: {
       Accept: "application/json",
-      "user-key": "898f9a6bd19c44b6ab2b68966a66df4b"
+      "user-key": process.env.gameApiKey
     },
     data: criteria
   })
     .then(function(response) {
       res = response;
       console.log(res);
-      cb(res);
+      return res;
 
       // for (var i = 0; i < res.length; i++) {
       //   // popularGamesObject[i].name = res[i].name;

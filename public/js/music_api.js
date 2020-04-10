@@ -1,33 +1,34 @@
-var axios = require("axios");
-require("dotenv").config();
+// var axios = require("axios");
+// require("dotenv").config();
+// var genre = "";
+// genre = "indie";
 
-var genre = "";
-genre = "indie";
-
-getPopularArtists(genre);
+// getPopularArtists(genre);
 //top artists
-function getPopularArtists() {
+function getPopularArtists(genre, cb) {
   var queryURL =
     "http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=" +
-    process.env.musicApiKey +
+    "eb468e00eb576b259b24d5682bafa312" +
     "&format=json";
   if (genre) {
     queryURL = "http://ws.audioscrobbler.com/2.0/?method=tag.gettopartists";
     queryURL += "&tag=" + genre;
-    queryURL += "&api_key=" + process.env.musicApiKey + "&format=json";
+    queryURL +=
+      "&api_key=" + "eb468e00eb576b259b24d5682bafa312" + "&format=json";
   }
+  console.log(queryURL);
 
-  axios({
+  $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function(response) {
     if (genre) {
-      var res = response.data.topartists.artist;
+      var res = response.topartists.artist;
     } else {
-      var res = response.data.artists.artist;
+      var res = response.artists.artist;
     }
-    console.log(res);
-    return res;
+    // console.log(res);
+    cb(res);
     // for (var i = 0; i < res.length; i++) {
     //   console.log(res[i].name);
     //   console.log(res[i].url);
@@ -37,8 +38,8 @@ function getPopularArtists() {
 
 //
 //get artist info
-var artist = "the postal service";
-artistInfo(artist);
+// var artist = "the postal service";
+// artistInfo(artist);
 
 function artistInfo(artist) {
   var queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo";

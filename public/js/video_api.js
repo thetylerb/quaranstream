@@ -1,5 +1,5 @@
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-require("dotenv").config();
+// var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+// require("dotenv").config();
 
 //can replace 'trending' with 'popular'
 //trending = Returns all shows being watched right now. Shows with the most users are returned first.
@@ -7,69 +7,80 @@ require("dotenv").config();
 // var MovieUrl = 'https://api.trakt.tv/movies/popular?limit=25&genres=drama';
 
 //necessary passed in values
-var genreId = "";
-type = "movie";
-getPopularVideos(genreId, type);
+// var genreId = "";
+// type = "movie";
+// getPopularVideos(genreId, type);
 
-genreId = "comedy";
-type = "show";
-getPopularVideos(genreId, type);
+// genreId = "comedy";
+// type = "show";
+// getPopularVideos(genreId, type, function(result){
+//   console.log(result);
+// });
 
 //Gets a list of popular movies or tv shows by genre if a genreId value was passed
-function getPopularVideos(genreId, type) {
-  var url =
-    "https://api.trakt.tv/" + type + "s/trending?limit=25&extended=full";
+function getPopularVideos(genreId, type, cb) {
+  var url = "https://api.trakt.tv/" + type + "s/trending?limit=5&extended=full";
   if (genreId) {
     url += "&genres=" + genreId;
   }
+  console.log(url);
 
   var request = new XMLHttpRequest();
 
-  request.open("GET", url);
+  request.open("GET", url, false);
 
   request.setRequestHeader("Content-Type", "application/json");
   request.setRequestHeader("trakt-api-version", "2");
-  request.setRequestHeader("trakt-api-key", process.env.videoApiKey);
+  request.setRequestHeader(
+    "trakt-api-key",
+    "d2fda7b3aa19f98b6e6247cb2d5574011b431d8a41de201f4ee1de3cf0da3763"
+  );
 
-  request.onreadystatechange = function() {
-    if (this.readyState === 4) {
-      console.log(type.toUpperCase());
-      console.log("--------------------------------");
-      // console.log('Status:', this.status);
-      // console.log('Headers:', this.getAllResponseHeaders());
-      // console.log('Body:', this.responseText);
-      var res = JSON.parse(this.responseText);
-      console.log(res);
-      return res;
-      // for (var i = 0; i < res.length; i++) {
-      //   if (type === "movie") {
-      //     console.log(
-      //       i +
-      //         1 +
-      //         ") " +
-      //         res[i].movie.title +
-      //         " " +
-      //         res[i].movie.year
-      //     );
-      //   } else if (type === "show") {
-      //     console.log(
-      //       i + 1 + ") " + res[i].show.title + " " + res[i].show.year
-      //     );
-      //   }
-      // }
-    }
-  };
   request.send();
+  request.onreadystatechange = alertContents;
+  function alertContents() {
+    if (request.readyState === XMLHttpRequest.DONE) {
+      if (request.status === 200) {
+        var response = JSON.parse(request.responseText);
+        alert(response.computedString);
+        console.log(response);
+      } else {
+        alert("There was a problem with the request.");
+      }
+    }
+  }
+  // request.onreadystatechange = function() {
+  //   if (request.readyState == 4 && request.status == 200) {
+  //     console.log(request.responseText);
+  //     cb(request.responseText);
+  //   }
+  // };
+  // for (var i = 0; i < res.length; i++) {
+  //   if (type === "movie") {
+  //     console.log(
+  //       i +
+  //         1 +
+  //         ") " +
+  //         res[i].movie.title +
+  //         " " +
+  //         res[i].movie.year
+  //     );
+  //   } else if (type === "show") {
+  //     console.log(
+  //       i + 1 + ") " + res[i].show.title + " " + res[i].show.year
+  //     );
+  //   }
+  // }
 }
 
 //necessary passed in values
 type = "show";
 name = "the OfFicE";
-videoInfo(name, type);
+// videoInfo(name, type);
 
 type = "movie";
 name = "the lobster";
-videoInfo(name, type);
+// videoInfo(name, type);
 
 //Get detailed info for 1 movie or show
 function videoInfo(name, type) {
