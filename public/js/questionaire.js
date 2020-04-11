@@ -60,14 +60,15 @@ $(document).ready(function() {
     //     .find(":selected")
     //     .data("name")
     // );
+    
 
     var newUser = {
-      userName: "username",
+      userName: $("#alias").val().trim(),
       avatarImg: "photo",
-      enjoyMovieTV: 1,
-      enjoyMusic: 1,
-      enjoyGame: 1,
-      platform: "playStation",
+      enjoyMovieTV: $("#movieCheck").is(":checked"),
+      enjoyMusic: $("#musicCheck").is(":checked"),
+      enjoyGame: $("#gameCheck").is(":checked"),
+      platform: $("#console").val(),
       play1: "Arcade",
       play2: "Adventure",
       play3: "Platform",
