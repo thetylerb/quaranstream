@@ -33,12 +33,6 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   User.associate = function(models) {
-    User.hasMany(models.Genre, {
-      onDelete: "cascade"
-    });
-  };
-
-  User.associate = function(models) {
     User.hasMany(models.UserPref, {
       onDelete: "cascade"
     });
