@@ -29,71 +29,55 @@
       <form>
         <label for="Placeholder"></label>
         <input type="text" id="alias" placeholder="What's your name or an alias that you like to go by?"><br>
-        <div class="control">
-          <select class="input" id="console" type="text">
-            <option value='0'>What console or gaming platform do you use?</option>
-            <option value='(34)' data-name = "Android">Android</option>
-            <option value='(23)' data-name = "Dreamcast">Dreamcast</option>
-            <option value='(14)' data-name = "Mac">Mac</option>
-            <option value='(130)' data-name = "Nintendo Switch">Nintendo Switch</option>
-            <option value='(6)' data-name = "PC">PC</option>
-            <option value='(9)' data-name = "Playstation 3">Playstation 3</option>
-            <option value='(48)' data-name = "Playstation 4">Playatation 4</option>
-            <option value='(12)' data-name = "Xbox 360">Xbox 360</option>
-            <option value='(49)' data-name = "Xbox One">Xbox One</option>
+        <p>
+          <label>
+            <input type="checkbox" class="filled-in" id="gameCheck" />
+            <span>Do you want video game results?</span>
+          </label>
+        </p>
+        <div class="control invis" id="prefDrop">
+          <select multiple class="input" id="console" type="text">
+            <option value="" disabled>What consoles do you use?</option>
+            <option value='(34)' data-name="Android">Android</option>
+            <option value='(23)' data-name="Dreamcast">Dreamcast</option>
+            <option value='(14)' data-name="Mac">Mac</option>
+            <option value='(130)' data-name="Nintendo Switch">Nintendo Switch</option>
+            <option value='(6)' data-name="PC">PC</option>
+            <option value='(9)' data-name="Playstation 3">Playstation 3</option>
+            <option value='(48)' data-name="Playstation 4">Playatation 4</option>
+            <option value='(12)' data-name="Xbox 360">Xbox 360</option>
+            <option value='(49)' data-name="Xbox One">Xbox One</option>
           </select>
         </div>
-        <div class="control">
-          <select class="input" id="gameGenre" type="text">
-            <option value='0'>What's your favorite video game genre?</option>
-            <option value='31' data-name = "Adventure">Adventure</option>
-            <option value='33' data-name = "Arcade">Arcade</option>
-            <option value='4' data-name = "Fightinge">Fighting</option>
-            <option value='25' data-name = "Hack and Slash/Beat Em Up">Hack and Slash/Beat Em Up</option>
-            <option value='5' data-name = "Horror">Horror</option>
-            <option value='32' data-name = "Indie">Indie</option>
-            <option value='8' data-name = "Platform">Platform</option>
-            <option value='9' data-name = "Puzzle">Puzzle</option>
-            <option value='10' data-name = "Racing">Racing</option>
-            <option value='12' data-name = "Role Playing Game">Role Playing Game</option>
-            <option value='5' data-name = "Shooter">Shooter</option>
-            <option value='13' data-name = "Simulator">Simulator</option>
-            <option value='14' data-name = "Sport">Sport</option>
-            <option value='15' data-name = "Strategy">Strategy</option>
-            <option value='24' data-name = "Tactical">Tactical</option>
+        <div class="control invis" id="gameDrop">
+          <select multiple class="input" id="gameGenre" type="text">
+            <option value='' disabled>What's your top 3 video game genres?</option>
+            <option value='31' data-name="Adventure">Adventure</option>
+            <option value='33' data-name="Arcade">Arcade</option>
+            <option value='4' data-name="Fightinge">Fighting</option>
+            <option value='25' data-name="Hack and Slash/Beat Em Up">Hack and Slash/Beat Em Up</option>
+            <option value='5' data-name="Horror">Horror</option>
+            <option value='32' data-name="Indie">Indie</option>
+            <option value='8' data-name="Platform">Platform</option>
+            <option value='9' data-name="Puzzle">Puzzle</option>
+            <option value='10' data-name="Racing">Racing</option>
+            <option value='12' data-name="Role Playing Game">Role Playing Game</option>
+            <option value='5' data-name="Shooter">Shooter</option>
+            <option value='13' data-name="Simulator">Simulator</option>
+            <option value='14' data-name="Sport">Sport</option>
+            <option value='15' data-name="Strategy">Strategy</option>
+            <option value='24' data-name="Tactical">Tactical</option>
           </select>
         </div>
-        <div class="control">
-          <select class="input" id="videoGenre" type="text">
-            <option value='0'>What's your favorite television or movie genre?</option>
-            <option value='Action'>Action</option>
-            <option value='Adventure'>Adventure</option>
-            <option value='Animation'>Animation</option>
-            <option value='Anime'>Anime</option>
-            <option value='Comedy'>Comedy</option>
-            <option value='Crime'>Crime</option>
-            <option value='Documentary'>Documentary</option>
-            <option value='Drama'>Drama</option>
-            <option value='Family'>Family</option>
-            <option value='Fantasy'>Fantasy</option>
-            <option value='History'>History</option>
-            <option value='Holiday'>Holiday</option>
-            <option value='Musical'>Musical</option>
-            <option value='Mystery'>Mystery</option>
-            <option value='Romance'>Romance</option>
-            <option value='Science Fiction'>Science Fiction</option>
-            <option value='Short'>Short</option>
-            <option value='Superhero'>Superhero</option>
-            <option value='Suspense'>Suspense</option>
-            <option value='Thriller'>Thriller</option>
-            <option value='War'>War</option>
-            <option value='Western'>Western</option>
-          </select>
-        </div>
-        <div class="control">
-          <select class="input" id="musicGenre" type="text">
-            <option value='0'>What's your favorite genre of music?</option>
-
+        <p>
+          <label>
+            <input type="checkbox" class="filled-in" id="musicCheck" />
+            <span>Do you want music results?</span>
+          </label>
+        </p>
+        <div class="control invis" id="musicDrop">
+          <select multiple class="input" id="musicGenre" type="text">
+            <option value='' disabled>What's your top 3 favorite genres of music?</option>
             <option value='80s'>80s</option>
             <option value='90s'>90s</option>
             <option value='Acoustic'>Acoustic</option>
@@ -121,7 +105,39 @@
             <option value='Rock'>Rock</option>
             <option value='Soul'>Soul</option>
             <option value='Trance'>Trance</option>
-            
+          </select>
+        </div>
+        <p>
+          <label>
+            <input type="checkbox" class="filled-in" id="movieCheck" />
+            <span>Do you want movie and television results?</span>
+          </label>
+        </p>
+        <div class="control invis" id="teleDrop">
+          <select multiple class="input " id="videoGenre" type="text">
+            <option value='' disabled>What's your top 3 television or movie genres?</option>
+            <option value='Action'>Action</option>
+            <option value='Adventure'>Adventure</option>
+            <option value='Animation'>Animation</option>
+            <option value='Anime'>Anime</option>
+            <option value='Comedy'>Comedy</option>
+            <option value='Crime'>Crime</option>
+            <option value='Documentary'>Documentary</option>
+            <option value='Drama'>Drama</option>
+            <option value='Family'>Family</option>
+            <option value='Fantasy'>Fantasy</option>
+            <option value='History'>History</option>
+            <option value='Holiday'>Holiday</option>
+            <option value='Musical'>Musical</option>
+            <option value='Mystery'>Mystery</option>
+            <option value='Romance'>Romance</option>
+            <option value='Science Fiction'>Science Fiction</option>
+            <option value='Short'>Short</option>
+            <option value='Superhero'>Superhero</option>
+            <option value='Suspense'>Suspense</option>
+            <option value='Thriller'>Thriller</option>
+            <option value='War'>War</option>
+            <option value='Western'>Western</option>
           </select>
         </div>
       </form>
@@ -155,7 +171,7 @@
     <div class="footer-copyright">
       <div class="container">
         © 2020 Copyright Text
-        <a class="grey-text text-lighten-4 right" href="https://github.com/thetylerb/quaranstream/">UNC Bootcamp:
+        <a class="grey-text text-lighten-4 right" href="https://github.com/thetylerb/quarantstream/">UNC Bootcamp:
           Project 2 - Team 2</a>
       </div>
     </div>
@@ -167,10 +183,6 @@
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="js/questionaire.js"></script>
-  <!-- <script src="js/game_api.js"></script>
-  <script src="js/music_api.js"></script>
-  <script src="js/video_api.js"></script> -->
-
 </body>
 
 </html>
