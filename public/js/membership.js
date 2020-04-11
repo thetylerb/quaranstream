@@ -10,32 +10,50 @@ $(document).ready(function() {
     fullWidth: true,
     indicators: true
   });
-  
+
   for (var i = 0; i < 5; i++) {
     var carouselDiv = $("<div>").addClass("carousel-item");
     var cardDiv = $("<div>").addClass("card");
-    var imgDiv = $("<div>").addClass("card-image waves-effect waves-block waves-light");
-    var newImg = $("<img>").addClass("activator").attr('src', 'https://images.pexels.com/photos/160699/girl-dandelion-yellow-flowers-160699.jpeg?h=350&auto=compress&cs=tinysrgb');
+    var imgDiv = $("<div>").addClass(
+      "card-image waves-effect waves-block waves-light"
+    );
+    var newImg = $("<img>")
+      .addClass("activator")
+      .attr(
+        "src",
+        "https://images.pexels.com/photos/160699/girl-dandelion-yellow-flowers-160699.jpeg?h=350&auto=compress&cs=tinysrgb"
+      );
     imgDiv.append(newImg);
     var contentDiv = $("<div>").addClass("card-content");
-    var  newSpan = $("<span>").addClass("card-title activator grey-text text-darken-4").html("INSERT NAME");
-    var newI = $("<i>").addClass("material-icons right").html("more_vert");
+    var newSpan = $("<span>")
+      .addClass("card-title activator grey-text text-darken-4")
+      .html("INSERT NAME");
+    var newI = $("<i>")
+      .addClass("material-icons right")
+      .html("more_vert");
     var newP = $("<p>");
-    var newLink = $("<a>").attr("href", "#").html("this is a link");
+    var newLink = $("<a>")
+      .attr("href", "#")
+      .html("this is a link");
     newSpan.append(newI);
     newP.append(newLink);
     contentDiv.append(newSpan, newP);
     var newReveal = $("<div>").addClass("card-reveal");
-    var revSpan = $("<span>").addClass("card-title grey-text text-darken-4").html("CARD TITLE");
-    var revI = $("<i>").addClass("material-icons right").html("close");
-    var newText = $("<p>").html("Here is some more informationabout this product that is only revealed once clicked on");
+    var revSpan = $("<span>")
+      .addClass("card-title grey-text text-darken-4")
+      .html("CARD TITLE");
+    var revI = $("<i>")
+      .addClass("material-icons right")
+      .html("close");
+    var newText = $("<p>").html(
+      "Here is some more informationabout this product that is only revealed once clicked on"
+    );
     revSpan.append(revI);
     newReveal.append(revSpan, newText);
     cardDiv.append(imgDiv, contentDiv, newReveal);
     carouselDiv.append(cardDiv);
     $(".carousel").append(carouselDiv);
   }
-
 
   const images = [
     { id: "f0heeiu-Ec0", caption: "Flower #1" },
