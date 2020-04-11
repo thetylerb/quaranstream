@@ -35,4 +35,51 @@ $(document).ready(function() {
     //   location.reload();
     // });
   });
+<<<<<<< Updated upstream
 });
+=======
+
+  function addUserPref(
+    userName,
+    avatarImg,
+    enjoyMovieTV,
+    enjoyMusic,
+    enjoyGame,
+    platform,
+    play1,
+    play2,
+    play3,
+    watch1,
+    watch2,
+    watch3,
+    listen1,
+    listen2,
+    listen3,
+    UserId
+  ) {
+    $.post("/api/userprefs", {
+      userName: userName,
+      avatarImg: avatarImg,
+      enjoyMovieTV: enjoyMovieTV,
+      enjoyMusic: enjoyMusic,
+      enjoyGame: enjoyGame,
+      platform: platform,
+      play1: play1,
+      play2: play2,
+      play3: play3,
+      watch1: watch1,
+      watch2: watch2,
+      watch3: watch3,
+      listen1: listen1,
+      listen2: listen2,
+      listen3: listen3,
+      UserId: UserId
+    }).then(function(data) {
+      // window.location.replace("/questionaire");
+      console.log(data.userName, data.enjoyMovieTV);
+      // If there's an error, handle it by throwing up a bootstrap alert
+    });
+    // .catch(handleLoginErr);
+  }
+});
+>>>>>>> Stashed changes
