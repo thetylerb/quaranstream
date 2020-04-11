@@ -1,0 +1,53 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  .card-image.img
+{
+  height:150px !important;
+}
+
+.material-icons.md1::before{
+  content:"search"; 
+}
+
+.material-icons.md1:hover::before{
+  content:"navigate_next"; 
+}
+
+.kappa {
+    height:200px;
+    width: 50%;
+    background-color:black !important;
+}
+
+.collection-item {
+  background-color: black;
+}
+
+.star {
+  text-align:center;
+}
+
+body {
+    background: url("https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") no-repeat center center fixed; 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+ }
+
+ main {
+    flex: 1 0 auto;
+    padding-bottom:10px;
+  }
+
+ nav {
+    background-color:#FFC312;
+}
+
+footer, .page-footer {
+    background-color:#282828;
+}
