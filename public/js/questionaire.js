@@ -46,6 +46,12 @@ $(document).ready(function() {
     id = info.id;
   });
 
+  $("#resultsBtn").on("click", function() {
+    event.preventDefault();
+    console.log("button press!");
+    window.location.replace("/membership");
+  });
+
   $("#submitBtn").on("click", function() {
     event.preventDefault();
     // console.log($("#alias").val());
@@ -118,6 +124,8 @@ $(document).ready(function() {
       newUser.listen3,
       newUser.UserId
     );
+    // If there's an error, handle it by throwing up a bootstrap alert
+
     // Send the POST request.
     // $.ajax("/api/userInfo", {
     //   type: "POST",
@@ -162,11 +170,13 @@ $(document).ready(function() {
       listen2: listen2,
       listen3: listen3,
       UserId: UserId
-    }).then(function(data) {
-      // window.location.replace("/questionaire");
-      console.log(data.userName, data.enjoyMovieTV);
-      // If there's an error, handle it by throwing up a bootstrap alert
     });
-    // .catch(handleLoginErr);
+    // .then(function(data) {
+    //   console.log("the then part works");
+    //   window.location.replace("/membership");
+    //   console.log(data.userName, data.enjoyMovieTV);
+    //   // If there's an error, handle it by throwing up a bootstrap alert
+    // });
+    // .catch(error);
   }
 });
