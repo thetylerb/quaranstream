@@ -3,35 +3,39 @@ $(document).ready(function() {
 
   $("#gameCheck").on("change", function() {
     if ($(this).is(":checked")) {
-      $("#gameDrop").removeClass("invis");
+      $("#gameDrop1").removeClass("invis");
+      $("#gameDrop2").removeClass("invis");
+      $("#gameDrop3").removeClass("invis");
       $("#prefDrop").removeClass("invis");
     } else {
-      $("#gameDrop").addClass("invis");
+      $("#gameDrop1").addClass("invis");
+      $("#gameDrop2").addClass("invis");
+      $("#gameDrop3").addClass("invis");
       $("#prefDrop").addClass("invis");
     }
   });
 
   $("#musicCheck").on("change", function() {
     if ($(this).is(":checked")) {
-      $("#musicDrop").removeClass("invis");
+      $("#musicDrop1").removeClass("invis");
+      $("#musicDrop2").removeClass("invis");
+      $("#musicDrop3").removeClass("invis");
     } else {
-      $("#musicDrop").addClass("invis");
-    }
-  });
-
-  $("#teleCheck").on("change", function() {
-    if ($(this).is(":checked")) {
-      $("#teleDrop").removeClass("invis");
-    } else {
-      $("#teleDrop").addClass("invis");
+      $("#musicDrop1").addClass("invis");
+      $("#musicDrop2").addClass("invis");
+      $("#musicDrop3").addClass("invis");
     }
   });
 
   $("#movieCheck").on("change", function() {
     if ($(this).is(":checked")) {
-      $("#teleDrop").removeClass("invis");
+      $("#teleDrop1").removeClass("invis");
+      $("#teleDrop2").removeClass("invis");
+      $("#teleDrop3").removeClass("invis");
     } else {
-      $("#teleDrop").addClass("invis");
+      $("#teleDrop1").addClass("invis");
+      $("#teleDrop2").addClass("invis");
+      $("#teleDrop3").addClass("invis");
     }
   });
 
@@ -60,24 +64,33 @@ $(document).ready(function() {
     //     .find(":selected")
     //     .data("name")
     // );
-    
 
     var newUser = {
-      userName: $("#alias").val().trim(),
+      userName: $("#alias")
+        .val()
+        .trim(),
       avatarImg: "photo",
       enjoyMovieTV: $("#movieCheck").is(":checked"),
       enjoyMusic: $("#musicCheck").is(":checked"),
       enjoyGame: $("#gameCheck").is(":checked"),
-      platform: $("#console").val(),
-      play1: "Arcade",
-      play2: "Adventure",
-      play3: "Platform",
-      watch1: "Arcade",
-      watch2: "Adventure",
-      watch3: "Platform",
-      listen1: "Country",
-      listen2: "Rock",
-      listen3: "Wubstep",
+      platform: $("#console")
+        .find(":selected")
+        .data("name"),
+      play1: $("#gameGenre1")
+        .find(":selected")
+        .data("name"),
+      play2: $("#gameGenre2")
+        .find(":selected")
+        .data("name"),
+      play3: $("#gameGenre3")
+        .find(":selected")
+        .data("name"),
+      watch1: $("#videoGenre1").val(),
+      watch2: $("#videoGenre2").val(),
+      watch3: $("#videoGenre3").val(),
+      listen1: $("#musicGenre1").val(),
+      listen2: $("#musicGenre2").val(),
+      listen3: $("#musicGenre3").val(),
       UserId: id
     };
 
