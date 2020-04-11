@@ -2,36 +2,60 @@ $(document).ready(function() {
   $("select").formSelect();
 
   $("#gameCheck").on("change", function() {
+    if ($(this).is(':checked')) {
+      $("#gameDrop1").removeClass("invis");
+      $("#gameDrop2").removeClass("invis");
+      $("#gameDrop3").removeClass("invis");
     if ($(this).is(":checked")) {
       $("#gameDrop").removeClass("invis");
       $("#prefDrop").removeClass("invis");
     } else {
-      $("#gameDrop").addClass("invis");
+      $("#gameDrop1").addClass("invis");
+      $("#gameDrop2").addClass("invis");
+      $("#gameDrop3").addClass("invis");
       $("#prefDrop").addClass("invis");
     }
   });
 
   $("#musicCheck").on("change", function() {
+    if ($(this).is(':checked')) {
+      $("#musicDrop1").removeClass("invis");
+      $("#musicDrop2").removeClass("invis");
+      $("#musicDrop3").removeClass("invis");
     if ($(this).is(":checked")) {
       $("#musicDrop").removeClass("invis");
     } else {
-      $("#musicDrop").addClass("invis");
+      $("#musicDrop1").addClass("invis");
+      $("#musicDrop2").addClass("invis");
+      $("#musicDrop3").addClass("invis");
     }
   });
 
   $("#teleCheck").on("change", function() {
+    if ($(this).is(':checked')) {
+      $("#teleDrop1").removeClass("invis");
+      $("#teleDrop2").removeClass("invis");
+      $("#teleDrop3").removeClass("invis");
     if ($(this).is(":checked")) {
       $("#teleDrop").removeClass("invis");
     } else {
-      $("#teleDrop").addClass("invis");
+      $("#teleDrop1").addClass("invis");
+      $("#teleDrop2").addClass("invis");
+      $("#teleDrop3").addClass("invis");
     }
   });
 
   $("#movieCheck").on("change", function() {
+    if ($(this).is(':checked')) {
+      $("#teleDrop1").removeClass("invis");
+      $("#teleDrop2").removeClass("invis");
+      $("#teleDrop3").removeClass("invis");
     if ($(this).is(":checked")) {
       $("#teleDrop").removeClass("invis");
     } else {
-      $("#teleDrop").addClass("invis");
+      $("#teleDrop1").addClass("invis");
+      $("#teleDrop2").addClass("invis");
+      $("#teleDrop3").addClass("invis");
     }
   });
 
