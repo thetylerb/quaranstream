@@ -1,36 +1,34 @@
 $(document).ready(function() {
   $("select").formSelect();
 
-
   $("#gameCheck").on("change", function() {
-    if ($(this).is(':checked')) {
+    if ($(this).is(":checked")) {
       $("#gameDrop").removeClass("invis");
       $("#prefDrop").removeClass("invis");
     } else {
       $("#gameDrop").addClass("invis");
       $("#prefDrop").addClass("invis");
-  
     }
   });
-  
+
   $("#musicCheck").on("change", function() {
-    if ($(this).is(':checked')) {
+    if ($(this).is(":checked")) {
       $("#musicDrop").removeClass("invis");
     } else {
       $("#musicDrop").addClass("invis");
     }
   });
-  
+
   $("#teleCheck").on("change", function() {
-    if ($(this).is(':checked')) {
+    if ($(this).is(":checked")) {
       $("#teleDrop").removeClass("invis");
     } else {
       $("#teleDrop").addClass("invis");
     }
   });
-  
+
   $("#movieCheck").on("change", function() {
-    if ($(this).is(':checked')) {
+    if ($(this).is(":checked")) {
       $("#teleDrop").removeClass("invis");
     } else {
       $("#teleDrop").addClass("invis");
