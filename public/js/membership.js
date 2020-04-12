@@ -11,7 +11,15 @@ document.addEventListener('DOMContentLoaded', function() {
         indicators: true
       });
 
-        
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.collapsible');
+  var instances = M.Collapsible.init(elems, options);
+});        
+
+$(document).ready(function(){
+  $('.collapsible').collapsible();
+});
 
 const images = [
     {id: 'f0heeiu-Ec0', caption: 'Flower #1'},
@@ -64,3 +72,4 @@ const images = [
   });
   });
 });
+
