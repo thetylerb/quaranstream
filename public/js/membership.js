@@ -114,6 +114,7 @@ $(document).ready(function() {
     jQuery("#the-carousel").html(build());
     jQuery("#the-carousel").carousel(carouselOptions);
     jQuery(".materialboxed").materialbox(materialBoxOptions);
+    $('.collapsible').collapsible();
 
     $(".carousel").carousel({
       dist: 0,
