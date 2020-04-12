@@ -1,59 +1,77 @@
-document.addEventListener("DOMContentLoaded", function() {
-  var elems = document.querySelectorAll(".slider");
-  var instances = M.Slider.init(elems, options);
-});
-
 $(document).ready(function() {
-  $(".slider").slider();
-
-  $(".carousel.carousel-slider").carousel({
-    fullWidth: true,
-    indicators: true
+  $(".carousel").carousel({
+    dist: -50,
+    shift: 0,
+    padding: 20
   });
 
-  for (var i = 0; i < 5; i++) {
-    var carouselDiv = $("<div>").addClass("carousel-item");
-    var cardDiv = $("<div>").addClass("card");
-    var imgDiv = $("<div>").addClass(
-      "card-image waves-effect waves-block waves-light"
-    );
-    var newImg = $("<img>")
-      .addClass("activator")
-      .attr(
-        "src",
-        "https://images.pexels.com/photos/160699/girl-dandelion-yellow-flowers-160699.jpeg?h=350&auto=compress&cs=tinysrgb"
+  let set;
+
+  $.get("/api/users", function(data) {
+    console.log(data);
+  }).then(data => {
+    set = data;
+  });
+
+  setTimeout(function() {
+    for (var i = 0; i < 5; i++) {
+      var alias = set[i].userName;
+      var profPic = set[i].avatarImg;
+      var info = "I love ";
+      if (set[i].enjoyMovieTV) {
+        info += `${set[i].watch1} shows and films, `;
+      }
+      if (set[i].enjoyMusic) {
+        info += `${set[i].listen1} music, `;
+      }
+      if (set[i].enjoyGame) {
+        info += `and ${set[i].play1} games!`;
+      }
+      console.log(alias);
+      console.log(info);
+      var carouselDiv = $("<div>").addClass("carousel-item");
+      var cardDiv = $("<div>").addClass("card");
+      var imgDiv = $("<div>").addClass(
+        "card-image waves-effect waves-block waves-light"
       );
-    imgDiv.append(newImg);
-    var contentDiv = $("<div>").addClass("card-content");
-    var newSpan = $("<span>")
-      .addClass("card-title activator grey-text text-darken-4")
-      .html("INSERT NAME");
-    var newI = $("<i>")
-      .addClass("material-icons right")
-      .html("more_vert");
-    var newP = $("<p>");
-    var newLink = $("<a>")
-      .attr("href", "#")
-      .html("this is a link");
-    newSpan.append(newI);
-    newP.append(newLink);
-    contentDiv.append(newSpan, newP);
-    var newReveal = $("<div>").addClass("card-reveal");
-    var revSpan = $("<span>")
-      .addClass("card-title grey-text text-darken-4")
-      .html("CARD TITLE");
-    var revI = $("<i>")
-      .addClass("material-icons right")
-      .html("close");
-    var newText = $("<p>").html(
-      "Here is some more informationabout this product that is only revealed once clicked on"
-    );
-    revSpan.append(revI);
-    newReveal.append(revSpan, newText);
-    cardDiv.append(imgDiv, contentDiv, newReveal);
-    carouselDiv.append(cardDiv);
-    $(".carousel").append(carouselDiv);
-  }
+      var newImg = $("<img>")
+        .addClass("activator")
+        .attr(
+          "src",
+          "https://images.pexels.com/photos/160699/girl-dandelion-yellow-flowers-160699.jpeg?h=350&auto=compress&cs=tinysrgb"
+        );
+      imgDiv.append(newImg);
+      var contentDiv = $("<div>").addClass("card-content");
+      var newSpan = $("<span>")
+        .addClass("card-title activator grey-text text-darken-4")
+        .html(alias);
+      var newI = $("<i>")
+        .addClass("material-icons right")
+        .html("more_vert");
+      var newP = $("<p>");
+      var newLink = $("<a>")
+        .attr("href", "#")
+        .html("this is a link");
+      newSpan.append(newI);
+      newP.append(newLink);
+      contentDiv.append(newSpan, newP);
+      var newReveal = $("<div>").addClass("card-reveal");
+      var revSpan = $("<span>")
+        .addClass("card-title grey-text text-darken-4")
+        .html("About Me");
+      var revI = $("<i>")
+        .addClass("material-icons right")
+        .html("close");
+      var newText = $("<p>").html(info);
+      revSpan.append(revI);
+      newReveal.append(revSpan, newText);
+      cardDiv.append(imgDiv, contentDiv, newReveal);
+      carouselDiv.append(cardDiv);
+      $(".carousel").append(carouselDiv);
+      $(".carousel").removeClass("initialized");
+      $(".carousel").carousel();
+    }
+  }, 300);
 
   const images = [
     { id: "f0heeiu-Ec0", caption: "Flower #1" },
