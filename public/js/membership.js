@@ -5,6 +5,8 @@ $(document).ready(function() {
     padding: 20
   });
 
+  $('.sidenav').sidenav();
+
   let set;
 
   $.get("/api/users", function(data) {

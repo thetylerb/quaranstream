@@ -1,53 +1,77 @@
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
 
-  .card-image.img
+.card-image.img
 {
-  height:150px !important;
+height:150px !important;
 }
 
 .material-icons.md1::before{
-  content:"search"; 
+content:"search"; 
 }
 
 .material-icons.md1:hover::before{
-  content:"navigate_next"; 
+content:"navigate_next"; 
 }
 
 .kappa {
-    height:200px;
-    width: 50%;
-    background-color:black !important;
+height:200px;
+width: 50%;
+background-color:black !important;
+}
+
+p, h4, .title {
+color:white;
 }
 
 .collection-item {
-  background-color: black;
+background-color: rgba(0,0,0,0.5) !important;
+}
+
+.collection-header {
+background-color: rgba(0,0,0,0.5) !important;
+}
+
+.carousel .carousel-item {
+width:300px !important;
+height:300px !important;
 }
 
 .star {
-  text-align:center;
+text-align:center;
 }
 
 body {
-    background: url("https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") no-repeat center center fixed; 
+  background: url("https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") no-repeat center center fixed; 
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
 background-size: cover;
- }
+}
 
- main {
-    flex: 1 0 auto;
-    padding-bottom:10px;
-  }
+main {
+  flex: 1 0 auto;
+  padding-bottom:10px;
+}
 
- nav {
-    background-color:#FFC312;
+.trans {
+  background-color: rgba(0,0,0,0.5) !important;
+}
+
+nav {
+  background-color:#FFC312;
 }
 
 footer, .page-footer {
-    background-color:#282828;
+  background-color:#282828;
+}
+
+@media only screen and (max-width: 767px) {
+/* For mobile: */
+.col-6 {
+  width: 100% !important;
+}
 }
