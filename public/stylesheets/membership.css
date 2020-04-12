@@ -1,11 +1,14 @@
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
 
-  .card-image.img
-{
+html {
+  overflow-y: scroll;
+}
+
+.card-image.img {
   height:150px !important;
 }
 
@@ -18,9 +21,9 @@ body {
 }
 
 .kappa {
-    height:200px;
-    width: 50%;
-    background-color:black !important;
+  height:200px;
+  width: 50%;
+  background-color:black !important;
 }
 
 .collection-item {
@@ -32,11 +35,11 @@ body {
 }
 
 body {
-    background: url("https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") no-repeat center center fixed; 
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
+  background: url("https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 main {
@@ -67,6 +70,11 @@ p, span {
 
 nav {
   background-color:#FFC312;
+}
+
+.card-image {
+  margin-left: auto;
+  vertical-align: middle;
 }
 
 footer, .page-footer {
