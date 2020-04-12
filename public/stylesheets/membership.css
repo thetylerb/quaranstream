@@ -37,15 +37,36 @@ body {
 -moz-background-size: cover;
 -o-background-size: cover;
 background-size: cover;
- }
+}
 
- main {
-    flex: 1 0 auto;
+main {
+  flex: 1 0 auto;
     padding-bottom:10px;
-  }
+}
 
- nav {
-    background-color:#FFC312;
+p, span {
+  color: white;
+}
+
+.collection-item {
+  background-color: rgba(0,0,0,0.5) !important;
+}
+  
+.collection-header {
+  background-color: rgba(0,0,0,0.5) !important;
+}
+  
+.collapsible-header {
+  background-color: rgba(0,0,0,0.5) !important;
+    color: white;
+}
+    
+.collapsible-body {
+  background-color: rgba(0,0,0,0.5) !important;
+}
+
+nav {
+  background-color:#FFC312;
 }
 
 footer, .page-footer {
