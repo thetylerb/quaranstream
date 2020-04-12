@@ -3,3 +3,7 @@ html, body, header,
   height: 100%;
   min-height: 100%;
 }
+
+.navbar {    
+  background-color: black;
+}
