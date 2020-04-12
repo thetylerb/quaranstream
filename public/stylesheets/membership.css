@@ -64,6 +64,10 @@ main {
   background-color: rgba(0,0,0,0.5) !important;
 }
 
+.title, .bio, .link, .tagline, .year, .rating, .trailer, .overview, .platform, .summary {
+  color:white;
+}
+
 nav {
   background-color:#FFC312;
 }
