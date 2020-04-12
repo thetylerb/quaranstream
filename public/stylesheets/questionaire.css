@@ -11,6 +11,11 @@ h1 {
 input, input:focus { 
   color: white;
 }
+
+.logo {
+width:200px;
+height:200px;
+}
   
 .input-field input[type=text]:focus + label {
 color: #000;
@@ -28,6 +33,10 @@ color: #000;
   color: white;
   }
 
+  label {
+    color:white;
+  }
+
 main {
   flex: 1 0 auto;
   padding-bottom:10px;
@@ -35,6 +44,11 @@ main {
 
 .invis {
   display:none;
+}
+
+.avatar {
+  max-width:50px;
+  max-height:50px;
 }
 
 nav {
