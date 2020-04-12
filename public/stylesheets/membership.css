@@ -9,7 +9,7 @@ body {
 height:150px !important;
 }
 
-#caroInfo {
+#caroInfo, .cardText {
   color:black;
 }
 .material-icons.md1::before{
