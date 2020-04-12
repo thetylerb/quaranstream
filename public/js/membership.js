@@ -31,20 +31,11 @@ $(document).ready(function() {
 
   setTimeout(function() {
     $("#caroTitle").html(mySet.userName);
-    // $("#caroInfo").html(mySet.watch1);
+    $("#caroInfo").html(mySet.bio);
     for (var i = 0; i < 5; i++) {
       var alias = set[i].userName;
       var profPic = set[i].avatarImg;
-      var info = "I love ";
-      if (set[i].enjoyMovieTV) {
-        info += `${set[i].watch1} shows and films, `;
-      }
-      if (set[i].enjoyMusic) {
-        info += `${set[i].listen1} music, `;
-      }
-      if (set[i].enjoyGame) {
-        info += `and ${set[i].play1} games!`;
-      }
+      var info = set[i].bio;
       // console.log(alias);
       // console.log(info);
       var carouselDiv = $("<div>").addClass("carousel-item");
@@ -80,7 +71,9 @@ $(document).ready(function() {
       var revI = $("<i>")
         .addClass("material-icons right")
         .html("close");
-      var newText = $("<p>").html(info);
+      var newText = $("<p>")
+        .addClass("cardText")
+        .html(info);
       revSpan.append(revI);
       newReveal.append(revSpan, newText);
       cardDiv.append(imgDiv, contentDiv, newReveal);
