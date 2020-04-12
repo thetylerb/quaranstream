@@ -9,6 +9,9 @@ module.exports = (sequelize, DataTypes) => {
       avatarImg: {
         type: DataTypes.STRING
       },
+      bio: {
+        type: DataTypes.STRING
+      },
       enjoyMovieTV: {
         type: DataTypes.BOOLEAN,
         allowNull: false

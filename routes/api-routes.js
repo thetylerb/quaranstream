@@ -35,6 +35,7 @@ module.exports = function(app) {
       .then(function() {
         // res.redirect(307, "/api/login");
         console.log("Success!");
+        res.json(data);
       })
       .catch(function(err) {
         res.status(401).json(err);
@@ -50,6 +51,13 @@ module.exports = function(app) {
   app.get("/api/users", function(req, res) {
     db.UserPref.findAll({ raw: true }).then(users => {
       res.json(users);
+    });
+  });
+
+  app.get("/api/mydata/:id", function(req, res) {
+    console.log(req.params.id);
+    db.UserPref.findOne({ where: { UserId: req.params.id } }).then(data => {
+      res.json(data);
     });
   });
 

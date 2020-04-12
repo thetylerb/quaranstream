@@ -5,17 +5,33 @@ $(document).ready(function() {
     padding: 20
   });
 
-  $('.sidenav').sidenav();
+  $(".sidenav").sidenav();
 
   let set;
+  let mySet;
+  let myID;
 
   $.get("/api/users", function(data) {
     console.log(data);
   }).then(data => {
     set = data;
   });
+  $.get("/api/user_data", function(data) {
+    console.log(data);
+  }).then(data => {
+    myID = data;
+  });
+  setTimeout(function() {
+    $.get(`/api/mydata/${myID.id}`, function(data) {
+      console.log(data);
+    }).then(data => {
+      mySet = data;
+    });
+  }, 150);
 
   setTimeout(function() {
+    $("#caroTitle").html(mySet.userName);
+    // $("#caroInfo").html(mySet.watch1);
     for (var i = 0; i < 5; i++) {
       var alias = set[i].userName;
       var profPic = set[i].avatarImg;
@@ -29,8 +45,8 @@ $(document).ready(function() {
       if (set[i].enjoyGame) {
         info += `and ${set[i].play1} games!`;
       }
-      console.log(alias);
-      console.log(info);
+      // console.log(alias);
+      // console.log(info);
       var carouselDiv = $("<div>").addClass("carousel-item");
       var cardDiv = $("<div>").addClass("card");
       var imgDiv = $("<div>").addClass(
