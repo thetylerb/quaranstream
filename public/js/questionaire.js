@@ -76,6 +76,9 @@ $(document).ready(function() {
         .val()
         .trim(),
       avatarImg: "photo",
+      bio: $("#bio")
+        .val()
+        .trim(),
       enjoyMovieTV: $("#movieCheck").is(":checked"),
       enjoyMusic: $("#musicCheck").is(":checked"),
       enjoyGame: $("#gameCheck").is(":checked"),
@@ -106,6 +109,7 @@ $(document).ready(function() {
     addUserPref(
       newUser.userName,
       newUser.avatarImg,
+      newUser.bio,
       newUser.enjoyMovieTV,
       newUser.enjoyMusic,
       newUser.enjoyGame,
@@ -135,6 +139,7 @@ $(document).ready(function() {
   function addUserPref(
     userName,
     avatarImg,
+    bio,
     enjoyMovieTV,
     enjoyMusic,
     enjoyGame,
@@ -153,6 +158,7 @@ $(document).ready(function() {
     $.post("/api/userprefs", {
       userName: userName,
       avatarImg: avatarImg,
+      bio: bio,
       enjoyMovieTV: enjoyMovieTV,
       enjoyMusic: enjoyMusic,
       enjoyGame: enjoyGame,
@@ -167,13 +173,12 @@ $(document).ready(function() {
       listen2: listen2,
       listen3: listen3,
       UserId: UserId
+    }).then(function(data) {
+      console.log("the then part works");
+      window.location.replace("/membership");
+      console.log(data.userName, data.enjoyMovieTV);
+      // If there's an error, handle it by throwing up a bootstrap alert
     });
-    // .then(function(data) {
-    //   console.log("the then part works");
-    //   window.location.replace("/membership");
-    //   console.log(data.userName, data.enjoyMovieTV);
-    //   // If there's an error, handle it by throwing up a bootstrap alert
-    // });
     // .catch(error);
   }
 });
