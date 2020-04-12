@@ -1,5 +1,6 @@
 $(document).ready(function() {
   $("select").formSelect();
+  
 
   $("#gameCheck").on("change", function() {
     if ($(this).is(":checked")) {
