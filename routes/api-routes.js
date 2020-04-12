@@ -47,6 +47,12 @@ module.exports = function(app) {
     res.redirect("/");
   });
 
+  app.get("/api/users", function(req, res) {
+    db.UserPref.findAll({ raw: true }).then(users => {
+      res.json(users);
+    });
+  });
+
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", function(req, res) {
     if (!req.user) {

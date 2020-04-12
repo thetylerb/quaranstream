@@ -101,9 +101,6 @@ $(document).ready(function() {
     };
 
     console.log(newUser);
-    if (!newUser.userName || !newUser.avatarImg) {
-      return;
-    }
 
     console.log(id);
     addUserPref(
