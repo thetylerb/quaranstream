@@ -1,40 +1,36 @@
-const axios = require("axios");
-require("dotenv").config();
-//2-point and click,4-fighting,5-shooter,7-music,8-platform,9-puzzle,10-racing,11-real time strategy,12-role playing game,13-simulator,14-sport,15-strategy,16-turn based strategy,24-tactical,25-hack and slash/beat em up,26-quiz/trivia,30-pinball,31-adventure,32-indie,33-arcade,34-visual novel
-
+// const axios = require("axios");
+// $.get("/api/gameGenreInfo", function(req, res) {
+//   console.log(JSON.parse(req.body));
+// });
 // & first_release_date > 1436883200
+// var gameGenreId = "";
 
-var gameGenreId = "";
-var gameGenreId = 14;
-var platformId = "(48)";
-getPopularGames(gameGenreId, platformId);
-
-function getPopularGames(genreId, platformId) {
+function getPopularGames(genreId, platformId, cb) {
   criteria =
-    "fields aggregated_rating,genres,name,platforms,rating,similar_games,summary; limit 25; sort popularity desc; where rating > 75 & rating_count > 0 & first_release_date > 1436883200";
-  if (genreId) {
+    "fields aggregated_rating,genres,name,platforms,rating,similar_games,summary; limit 5; sort popularity desc; where rating > 50;";
+  if (genreId !== "0") {
     criteria += " & genres = " + genreId;
   }
-  if (platformId) {
+  if (platformId !== "0") {
     criteria += " & platforms = " + platformId;
   }
   criteria += ";";
 
   console.log(criteria);
 
-  axios({
-    url: "https://api-v3.igdb.com/games",
+  $.ajax({
+    url: "https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/games",
     method: "POST",
     headers: {
       Accept: "application/json",
-      "user-key": process.env.gameApiKey
+      "user-key": ""
     },
     data: criteria
   })
     .then(function(response) {
-      res = response.data;
+      res = response;
       console.log(res);
-      return res;
+      cb(res);
 
       // for (var i = 0; i < res.length; i++) {
       //   // popularGamesObject[i].name = res[i].name;
@@ -51,8 +47,8 @@ function getPopularGames(genreId, platformId) {
 }
 
 //search for users input and then output options
-var gameName = "grand theft auto";
-findGameId(gameName);
+// var gameName = "grand theft auto";
+// findGameId(gameName);
 
 function findGameId(gameName) {
   gameName = gameName.split(" ").join("_");
@@ -64,7 +60,7 @@ function findGameId(gameName) {
     method: "POST",
     headers: {
       Accept: "application/json",
-      "user-key": process.env.gameApiKey
+      "user-key": ""
     }
   })
     .then(function(response) {
@@ -81,8 +77,8 @@ function findGameId(gameName) {
 }
 
 //have user confirm which game they want and search its id
-var gameId = 19459;
-getGameById(gameId);
+// var gameId = 19459;
+// getGameById(gameId);
 
 function getGameById(gameId) {
   var criteria =
@@ -95,7 +91,7 @@ function getGameById(gameId) {
     method: "POST",
     headers: {
       Accept: "application/json",
-      "user-key": process.env.gameApiKey
+      "user-key": ""
     },
     data: criteria
   })
