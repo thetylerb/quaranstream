@@ -1,6 +1,4 @@
-$(document).ready(function () {
-
-
+$(document).ready(function() {
   var dataObj = JSON.parse(localStorage.getItem("dataObj"));
   var gameGenre1 = localStorage.getItem("gameGenre1");
   var gameGenre2 = localStorage.getItem("gameGenre2");
@@ -8,20 +6,20 @@ $(document).ready(function () {
   var platform = localStorage.getItem("platform");
   console.log(dataObj);
 
-  getPopularArtists(dataObj.listen1, function (result) {
+  getPopularArtists(dataObj.listen1, function(result) {
     const musicDataAll = result;
     musicData = musicDataAll.slice(0, 5);
     buildMusic(musicData);
   });
-  getPopularGames(gameGenre1, platform, function (result) {
+  getPopularGames(gameGenre1, platform, function(result) {
     gameData = result;
     buildGames(gameData);
   });
-  getPopularVideos(dataObj.watch1.toLowerCase(), "movie", function (result) {
+  getPopularVideos(dataObj.watch1.toLowerCase(), "movie", function(result) {
     movieData = result;
     buildMovies(movieData);
   });
-  getPopularVideos(dataObj.watch1.toLowerCase(), "show", function (result) {
+  getPopularVideos(dataObj.watch1.toLowerCase(), "show", function(result) {
     showData = result;
     buildShows(showData);
   });
@@ -32,7 +30,9 @@ $(document).ready(function () {
     }
     for (let i = 0; i < 5; i++) {
       $(`#artist${i + 1}`).text(":  " + musicData[i].name);
-      $(`#artistLink${i + 1}`).html(`<a href = "${musicData[i].url}">:  Artist Radio Link</a>`);
+      $(`#artistLink${i + 1}`).html(
+        `<a href = "${musicData[i].url}">:  Artist Radio Link</a>`
+      );
     }
     console.log(musicData);
   }
@@ -48,8 +48,12 @@ $(document).ready(function () {
       $(`#movie${i + 1}`).text(":  " + movieData[i].movie.title);
       $(`#movieTag${i + 1}`).text(":  " + movieData[i].movie.overview);
       $(`#movieYear${i + 1}`).text(":  " + movieData[i].movie.year);
-      $(`#movieRating${i + 1}`).text(":  " + movieData[i].movie.rating.toFixed(2));
-      $(`#movieTrailer${i + 1}`).html(`<a href = "${movieData[i].movie.trailer}">:  Movie Trailer Link</a>`);
+      $(`#movieRating${i + 1}`).text(
+        ":  " + movieData[i].movie.rating.toFixed(2)
+      );
+      $(`#movieTrailer${i + 1}`).html(
+        `<a href = "${movieData[i].movie.trailer}">:  Movie Trailer Link</a>`
+      );
     }
   }
 
@@ -63,43 +67,33 @@ $(document).ready(function () {
       $(`#showTag${i + 1}`).text(":  " + showData[i].show.overview);
       $(`#showYear${i + 1}`).text(":  " + showData[i].show.year);
       $(`#showRating${i + 1}`).text(":  " + showData[i].show.rating.toFixed(2));
-      $(`#showTrailer${i + 1}`).html(`<a href = "${showData[i].show.trailer}">:  TV Show Trailer Link</a>`);
+      $(`#showTrailer${i + 1}`).html(
+        `<a href = "${showData[i].show.trailer}">:  TV Show Trailer Link</a>`
+      );
     }
   }
 
-
   function buildGames(gameData) {
     console.log(gameData);
-    var gd1 =gameData[1].rating;
+    var gd1 = gameData[1].rating;
     console.log(gd1);
     console.log(gd1.toFixed(2));
     if (gameGenre1 !== "0") {
-      $("#gameGenre").text("Top Game Picks - " + dataObj.play1).css('color', 'black');
-    }
-    else {
-      $("#gameGenre").text("Top Game Picks").css('color', 'black');
+      $("#gameGenre")
+        .text("Top Game Picks - " + dataObj.play1)
+        .css("color", "black");
+    } else {
+      $("#gameGenre")
+        .text("Top Game Picks")
+        .css("color", "black");
     }
     for (let i = 0; i < 5; i++) {
       $(`#game${i + 1}`).text(gameData[i].name);
       $(`#gameRating${i + 1}`).text(":  " + gameData[i].rating.toFixed(2));
       $(`#gameSummary${i + 1}`).text(":  " + gameData[i].summary);
-      $()
+      $();
     }
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   $(".carousel").carousel({
     dist: -50,
     shift: 0,
@@ -107,33 +101,70 @@ $(document).ready(function () {
   });
 
   $(".sidenav").sidenav();
-  $('.collapsible').collapsible();
+  $(".collapsible").collapsible();
 
   let set;
   let mySet;
   let myID;
 
-  $.get("/api/users", function (data) {
+  $.get("/api/users", function(data) {
     console.log(data);
   }).then(data => {
     set = data;
   });
-  $.get("/api/user_data", function (data) {
+  $.get("/api/user_data", function(data) {
     console.log(data);
   }).then(data => {
     myID = data;
   });
-  setTimeout(function () {
-    $.get(`/api/mydata/${myID.id}`, function (data) {
+  setTimeout(function() {
+    $.get(`/api/mydata/${myID.id}`, function(data) {
       console.log(data);
     }).then(data => {
       mySet = data;
     });
   }, 150);
 
-  setTimeout(function () {
+  
+  var genGenre = function(navId, title, bool, data) {
+    if (bool) {
+      $(navId).html(`Favorite ${title} Genre(s):`);
+      var newOl = $("<ol>");
+      for (i = 0; i < 3; i++) {
+        if (data[i]) {
+          var newLi = $("<li>").html(data[i]);
+          newOl.append(newLi);
+        }
+      }
+      $(navId).append(newOl);
+    } else {
+      if(title === "Music") {
+        $(navId).html(`I dont like music.`);
+      } else if (title === "Movie and Show") {
+        $(navId).html(`I dont like movies or shows.`);
+      } else {
+        $(navId).html(`I dont like playing games.`);
+      }
+    }
+  };
+  setTimeout(function() {
+    genreData = {
+      listenBool: mySet.enjoyMusic,
+      watchBool: mySet.enjoyMovieTV,
+      playBool: mySet.enjoyGame,
+      listenGenre: [mySet.listen1, mySet.listen2, mySet.listen3],
+      watchGenre: [mySet.watch1, mySet.watch2, mySet.watch3],
+      playGenre: [mySet.play1, mySet.play2, mySet.play3]
+    };
     $("#caroTitle").html(mySet.userName);
     $("#caroInfo").html(mySet.bio);
+    // $("#navPic").attr("src", mySet.avatarImg);
+    $("#navName").html(mySet.userName);
+    $("#navEmail").html(myID.email);
+    genGenre("#navMusic", "Music", genreData.listenBool, genreData.listenGenre);
+    genGenre("#navVideo", "Movie and Show", genreData.watchBool, genreData.watchGenre);
+    genGenre("#navGame", "Video Game", genreData.playBool, genreData.playGenre);
+    $("#navInfo").html(mySet.bio);
     for (var i = 0; i < 5; i++) {
       var alias = set[i].userName;
       var profPic = set[i].avatarImg;
