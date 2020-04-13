@@ -18,10 +18,10 @@
     "dot-notation": "error",
     "eqeqeq": "error",
     "no-empty-function": "error",
-    "no-multi-spaces": "error",
+    "no-multi-spaces": "warn",
     "no-unused-vars": "warn",
     "camelcase": "error",
-    "indent": ["warning", 2],
+    "indent": ["warn", 2],
     "quotes": ["error", "double"],
     "semi": ["error", "always"],
     "prettier/prettier": "warn"
