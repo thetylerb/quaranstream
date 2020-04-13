@@ -160,11 +160,11 @@ $(document).ready(function () {
         .addClass("material-icons right")
         .html("more_vert");
       var newP = $("<p>");
-      var newLink = $("<a>")
-        .attr("href", "#")
-        .html("this is a link");
+      // var newLink = $("<a>")
+      //   .attr("href", "#")
+      //   .html("this is a link");
       newSpan.append(newI);
-      newP.append(newLink);
+      // newP.append(newLink);
       contentDiv.append(newSpan, newP);
       var newReveal = $("<div>").addClass("card-reveal");
       var revSpan = $("<span>")
