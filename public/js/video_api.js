@@ -1,5 +1,5 @@
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-require("dotenv").config();
+// var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+// require("dotenv").config();
 
 //can replace 'trending' with 'popular'
 //trending = Returns all shows being watched right now. Shows with the most users are returned first.
@@ -7,21 +7,21 @@ require("dotenv").config();
 // var MovieUrl = 'https://api.trakt.tv/movies/popular?limit=25&genres=drama';
 
 //necessary passed in values
-var genreId = "";
-type = "movie";
-getPopularVideos(genreId, type);
+// var genreId = "";
+// type = "movie";
+// getPopularVideos(genreId, type);
 
-genreId = "comedy";
-type = "show";
-getPopularVideos(genreId, type);
+// genreId = "comedy";
+// type = "show";
+// getPopularVideos(genreId, type, cb);
 
 //Gets a list of popular movies or tv shows by genre if a genreId value was passed
-function getPopularVideos(genreId, type) {
-  var url =
-    "https://api.trakt.tv/" + type + "s/trending?limit=25&extended=full";
-  if (genreId) {
+function getPopularVideos(genreId, type, cb) {
+  var url = `https://api.trakt.tv/${type}s/trending?limit=5&extended=full`;
+  if (genreId !== "0") {
     url += "&genres=" + genreId;
   }
+  console.log(url);
 
   var request = new XMLHttpRequest();
 
@@ -29,18 +29,19 @@ function getPopularVideos(genreId, type) {
 
   request.setRequestHeader("Content-Type", "application/json");
   request.setRequestHeader("trakt-api-version", "2");
-  request.setRequestHeader("trakt-api-key", process.env.videoApiKey);
+  request.setRequestHeader(
+    "trakt-api-key",
+    "d2fda7b3aa19f98b6e6247cb2d5574011b431d8a41de201f4ee1de3cf0da3763"
+  );
 
   request.onreadystatechange = function() {
     if (this.readyState === 4) {
-      console.log(type.toUpperCase());
-      console.log("--------------------------------");
-      // console.log('Status:', this.status);
-      // console.log('Headers:', this.getAllResponseHeaders());
-      // console.log('Body:', this.responseText);
+      // console.log("Status:", this.status);
+      // console.log("Headers:", this.getAllResponseHeaders());
+      // console.log("Body:", this.responseText);
       var res = JSON.parse(this.responseText);
-      console.log(res);
-      return res;
+      // console.log(res);
+      cb(res);
       // for (var i = 0; i < res.length; i++) {
       //   if (type === "movie") {
       //     console.log(
@@ -63,13 +64,13 @@ function getPopularVideos(genreId, type) {
 }
 
 //necessary passed in values
-type = "show";
-name = "the OfFicE";
-videoInfo(name, type);
+// type = "show";
+// name = "the OfFicE";
+// videoInfo(name, type);
 
-type = "movie";
-name = "the lobster";
-videoInfo(name, type);
+// type = "movie";
+// name = "the lobster";
+// videoInfo(name, type);
 
 //Get detailed info for 1 movie or show
 function videoInfo(name, type) {

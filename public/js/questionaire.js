@@ -46,11 +46,6 @@ $(document).ready(function() {
     id = info.id;
   });
 
-  $("#resultsBtn").on("click", function() {
-    event.preventDefault();
-    console.log("button press!");
-    window.location.replace("/membership");
-  });
 
   $("#submitBtn").on("click", function() {
     event.preventDefault();
@@ -104,8 +99,13 @@ $(document).ready(function() {
     };
 
     console.log(newUser);
-
     console.log(id);
+    localStorage.setItem("gameGenre1", $("#gameGenre1").val());
+    localStorage.setItem("gameGenre2", $("#gameGenre2").val());
+    localStorage.setItem("gameGenre3", $("#gameGenre3").val());
+    console.log($("#console").val());
+    localStorage.setItem("platform", $("#console").val());
+
     addUserPref(
       newUser.userName,
       newUser.avatarImg,
@@ -125,15 +125,6 @@ $(document).ready(function() {
       newUser.listen3,
       newUser.UserId
     );
-    // If there's an error, handle it by throwing up a bootstrap alert
-
-    // Send the POST request.
-    // $.ajax("/api/userInfo", {
-    //   type: "POST",
-    //   data: newUser
-    // }).then(() => {
-    //   location.reload();
-    // });
   });
 
   function addUserPref(
@@ -175,10 +166,12 @@ $(document).ready(function() {
       UserId: UserId
     }).then(function(data) {
       console.log("the then part works");
-      window.location.replace("/membership");
+      window.location = "/membership";
+      localStorage.setItem("dataObj", JSON.stringify(data));
       console.log(data.userName, data.enjoyMovieTV);
-      // If there's an error, handle it by throwing up a bootstrap alert
+    })
+    .catch(function(error) {
+      console.log(error);
     });
-    // .catch(error);
   }
 });

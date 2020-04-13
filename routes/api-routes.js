@@ -32,7 +32,7 @@ module.exports = function(app) {
 
   app.post("/api/userprefs", function(req, res) {
     db.UserPref.create(req.body)
-      .then(function() {
+      .then(function(data) {
         // res.redirect(307, "/api/login");
         console.log("Success!");
         res.json(data);

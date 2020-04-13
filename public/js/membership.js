@@ -1,4 +1,105 @@
-$(document).ready(function() {
+$(document).ready(function () {
+
+
+  var dataObj = JSON.parse(localStorage.getItem("dataObj"));
+  var gameGenre1 = localStorage.getItem("gameGenre1");
+  var gameGenre2 = localStorage.getItem("gameGenre2");
+  var gameGenre3 = localStorage.getItem("gameGenre3");
+  var platform = localStorage.getItem("platform");
+  console.log(dataObj);
+
+  getPopularArtists(dataObj.listen1, function (result) {
+    const musicDataAll = result;
+    musicData = musicDataAll.slice(0, 5);
+    buildMusic(musicData);
+  });
+  getPopularGames(gameGenre1, platform, function (result) {
+    gameData = result;
+    buildGames(gameData);
+  });
+  getPopularVideos(dataObj.watch1.toLowerCase(), "movie", function (result) {
+    movieData = result;
+    buildMovies(movieData);
+  });
+  getPopularVideos(dataObj.watch1.toLowerCase(), "show", function (result) {
+    showData = result;
+    buildShows(showData);
+  });
+
+  function buildMusic(musicData) {
+    if (dataObj.listen1 !== "0") {
+      $("#musicGenre").text(" - " + dataObj.listen1);
+    }
+    for (let i = 0; i < 5; i++) {
+      $(`#artist${i + 1}`).text(":  " + musicData[i].name);
+      $(`#artistLink${i + 1}`).html(`<a href = "${musicData[i].url}">:  Artist Radio Link</a>`);
+    }
+    console.log(musicData);
+  }
+
+  console.log(dataObj);
+  function buildMovies(movieData) {
+    console.log(dataObj.watch1);
+    console.log(movieData);
+    if (dataObj.watch1 !== "0") {
+      $("#movieGenre").text(" - " + dataObj.watch1);
+    }
+    for (let i = 0; i < 5; i++) {
+      $(`#movie${i + 1}`).text(":  " + movieData[i].movie.title);
+      $(`#movieTag${i + 1}`).text(":  " + movieData[i].movie.overview);
+      $(`#movieYear${i + 1}`).text(":  " + movieData[i].movie.year);
+      $(`#movieRating${i + 1}`).text(":  " + movieData[i].movie.rating.toFixed(2));
+      $(`#movieTrailer${i + 1}`).html(`<a href = "${movieData[i].movie.trailer}">:  Movie Trailer Link</a>`);
+    }
+  }
+
+  function buildShows(showData) {
+    console.log(showData);
+    if (dataObj.watch1 !== "0") {
+      $("#showGenre").text(" - " + dataObj.watch1);
+    }
+    for (let i = 0; i < 5; i++) {
+      $(`#show${i + 1}`).text(":  " + showData[i].show.title);
+      $(`#showTag${i + 1}`).text(":  " + showData[i].show.overview);
+      $(`#showYear${i + 1}`).text(":  " + showData[i].show.year);
+      $(`#showRating${i + 1}`).text(":  " + showData[i].show.rating.toFixed(2));
+      $(`#showTrailer${i + 1}`).html(`<a href = "${showData[i].show.trailer}">:  TV Show Trailer Link</a>`);
+    }
+  }
+
+
+  function buildGames(gameData) {
+    console.log(gameData);
+    var gd1 =gameData[1].rating;
+    console.log(gd1);
+    console.log(gd1.toFixed(2));
+    if (gameGenre1 !== "0") {
+      $("#gameGenre").text("Top Game Picks - " + dataObj.play1).css('color', 'black');
+    }
+    else {
+      $("#gameGenre").text("Top Game Picks").css('color', 'black');
+    }
+    for (let i = 0; i < 5; i++) {
+      $(`#game${i + 1}`).text(gameData[i].name);
+      $(`#gameRating${i + 1}`).text(":  " + gameData[i].rating.toFixed(2));
+      $(`#gameSummary${i + 1}`).text(":  " + gameData[i].summary);
+      $()
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   $(".carousel").carousel({
     dist: -50,
     shift: 0,
@@ -12,25 +113,25 @@ $(document).ready(function() {
   let mySet;
   let myID;
 
-  $.get("/api/users", function(data) {
+  $.get("/api/users", function (data) {
     console.log(data);
   }).then(data => {
     set = data;
   });
-  $.get("/api/user_data", function(data) {
+  $.get("/api/user_data", function (data) {
     console.log(data);
   }).then(data => {
     myID = data;
   });
-  setTimeout(function() {
-    $.get(`/api/mydata/${myID.id}`, function(data) {
+  setTimeout(function () {
+    $.get(`/api/mydata/${myID.id}`, function (data) {
       console.log(data);
     }).then(data => {
       mySet = data;
     });
   }, 150);
 
-  setTimeout(function() {
+  setTimeout(function () {
     $("#caroTitle").html(mySet.userName);
     $("#caroInfo").html(mySet.bio);
     for (var i = 0; i < 5; i++) {
