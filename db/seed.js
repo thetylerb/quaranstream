@@ -27,7 +27,7 @@ const users = [
 const userPrefs = [
   {
     userName: "User 1",
-    avatarImg: "photo",
+    avatarImg: "./assets/gamer.jpg",
     bio: "Hi Im User 1 and I love Quaranstream!",
     enjoyMovieTV: true,
     enjoyMusic: true,
@@ -46,7 +46,7 @@ const userPrefs = [
   },
   {
     userName: "User 2",
-    avatarImg: "photo",
+    avatarImg: "./assets/gamergirl.jpg",
     bio: "Hi Im User 2 and I love Quaranstream!",
     enjoyMovieTV: true,
     enjoyMusic: true,
@@ -65,7 +65,7 @@ const userPrefs = [
   },
   {
     userName: "User 3",
-    avatarImg: "photo",
+    avatarImg: "./assets/musicstaff.jpg",
     bio: "Hi Im User 3 and I love Quaranstream!",
     enjoyMovieTV: true,
     enjoyMusic: true,
@@ -84,8 +84,8 @@ const userPrefs = [
   },
   {
     userName: "User 4",
-    avatarImg: "photo",
-    bio: "Hi Im User 1 and I love Quaranstream!",
+    avatarImg: "./assets/popcorn.jpg",
+    bio: "Hi Im User 4 and I love Quaranstream!",
     enjoyMovieTV: true,
     enjoyMusic: true,
     enjoyGame: true,
@@ -103,7 +103,7 @@ const userPrefs = [
   },
   {
     userName: "User 5",
-    avatarImg: "photo",
+    avatarImg: "./assets/virus.jpg",
     bio: "Hi Im User 5 and I love Quaranstream!",
     enjoyMovieTV: true,
     enjoyMusic: true,

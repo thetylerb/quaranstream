@@ -52,6 +52,13 @@ $(document).ready(function() {
     id = info.id;
   });
 
+  let photoPath;
+
+  $(".material-icons").on("click", function() {
+    photoPath = $(this).data("path");
+    // console.log("Clicked!");
+    // console.log(photoPath);
+  });
 
   $("#submitBtn").on("click", function() {
     event.preventDefault();
@@ -76,7 +83,7 @@ $(document).ready(function() {
       userName: $("#alias")
         .val()
         .trim(),
-      avatarImg: "photo",
+      avatarImg: photoPath,
       bio: $("#bio")
         .val()
         .trim(),

@@ -19,7 +19,24 @@ content:"search";
 .material-icons.md1:hover::before{
 content:"navigate_next"; 
 }
-
+#navEmail {
+  font-size: 18px;
+}
+#navName {
+  font-size: 22px;
+  padding-bottom: 10px;
+}
+#navMusic, #navVideo, #navGame, #navInfo {
+  padding-left: 32px;
+}
+#navInfo {
+  color: grey;
+  line-height: normal;
+}
+#navPic {
+  height: 100px;
+  width: 100px;
+}
 .kappa {
 height:200px;
 width: 50%;
@@ -36,6 +53,9 @@ background-color: rgba(0,0,0,0.5) !important;
 
 .collection-header {
 background-color: rgba(0,0,0,0.5) !important;
+}
+.card {
+  bottom: 60px
 }
 
 .carousel .carousel-item {
