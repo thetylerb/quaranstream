@@ -7,3 +7,9 @@ html, body, header,
 .navbar {    
   background-color: black;
 }
+
+.logo {
+  max-height: 200px;
+  text-align: center;
+  margin: 0 auto;
+}
