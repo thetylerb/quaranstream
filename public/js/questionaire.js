@@ -1,6 +1,12 @@
 $(document).ready(function() {
   $("select").formSelect();
 
+  $(".carousel").carousel({
+    dist: -50,
+    shift: 0,
+    padding: 20
+  });
+
   $("#gameCheck").on("change", function() {
     if ($(this).is(":checked")) {
       $("#gameDrop1").removeClass("invis");
