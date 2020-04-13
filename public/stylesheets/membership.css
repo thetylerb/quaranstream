@@ -54,6 +54,9 @@ background-color: rgba(0,0,0,0.5) !important;
 .collection-header {
 background-color: rgba(0,0,0,0.5) !important;
 }
+.card {
+  bottom: 60px
+}
 
 .carousel .carousel-item {
 width:300px !important;

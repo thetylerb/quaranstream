@@ -125,7 +125,6 @@ $(document).ready(function() {
     });
   }, 150);
 
-  
   var genGenre = function(navId, title, bool, data) {
     if (bool) {
       $(navId).html(`Favorite ${title} Genre(s):`);
@@ -138,12 +137,12 @@ $(document).ready(function() {
       }
       $(navId).append(newOl);
     } else {
-      if(title === "Music") {
-        $(navId).html(`I dont like music.`);
+      if (title === "Music") {
+        $(navId).html("I dont like music.");
       } else if (title === "Movie and Show") {
-        $(navId).html(`I dont like movies or shows.`);
+        $(navId).html("I dont like movies or shows.");
       } else {
-        $(navId).html(`I dont like playing games.`);
+        $(navId).html("I dont like playing games.");
       }
     }
   };
@@ -158,11 +157,17 @@ $(document).ready(function() {
     };
     $("#caroTitle").html(mySet.userName);
     $("#caroInfo").html(mySet.bio);
-    // $("#navPic").attr("src", mySet.avatarImg);
+    $("#caroImg").attr("src", mySet.avatarImg);
+    $("#navPic").attr("src", mySet.avatarImg);
     $("#navName").html(mySet.userName);
     $("#navEmail").html(myID.email);
     genGenre("#navMusic", "Music", genreData.listenBool, genreData.listenGenre);
-    genGenre("#navVideo", "Movie and Show", genreData.watchBool, genreData.watchGenre);
+    genGenre(
+      "#navVideo",
+      "Movie and Show",
+      genreData.watchBool,
+      genreData.watchGenre
+    );
     genGenre("#navGame", "Video Game", genreData.playBool, genreData.playGenre);
     $("#navInfo").html(mySet.bio);
     for (var i = 0; i < 5; i++) {
@@ -178,10 +183,7 @@ $(document).ready(function() {
       );
       var newImg = $("<img>")
         .addClass("activator")
-        .attr(
-          "src",
-          "https://images.pexels.com/photos/160699/girl-dandelion-yellow-flowers-160699.jpeg?h=350&auto=compress&cs=tinysrgb"
-        );
+        .attr("src", profPic);
       imgDiv.append(newImg);
       var contentDiv = $("<div>").addClass("card-content");
       var newSpan = $("<span>")
