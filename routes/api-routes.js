@@ -1,6 +1,8 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
+const orm = require("../config/orm.js");
+
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -18,28 +20,11 @@ module.exports = function(app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", function(req, res) {
-    db.User.create({
-      email: req.body.email,
-      password: req.body.password
-    })
-      .then(function() {
-        res.redirect(307, "/api/login");
-      })
-      .catch(function(err) {
-        res.status(401).json(err);
-      });
+    orm.signUp(req, res);
   });
 
   app.post("/api/userprefs", function(req, res) {
-    db.UserPref.create(req.body)
-      .then(function(data) {
-        // res.redirect(307, "/api/login");
-        console.log("Success!");
-        res.json(data);
-      })
-      .catch(function(err) {
-        res.status(401).json(err);
-      });
+    orm.sendUserPrefs(req, res);
   });
 
   // Route for logging user out
@@ -49,16 +34,11 @@ module.exports = function(app) {
   });
 
   app.get("/api/users", function(req, res) {
-    db.UserPref.findAll({ raw: true }).then(users => {
-      res.json(users);
-    });
+    orm.getUsers(req, res);
   });
 
   app.get("/api/mydata/:id", function(req, res) {
-    console.log(req.params.id);
-    db.UserPref.findOne({ where: { UserId: req.params.id } }).then(data => {
-      res.json(data);
-    });
+    orm.getMyData(req, res);
   });
 
   // Route for getting some data about our user to be used client side
