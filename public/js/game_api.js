@@ -23,7 +23,7 @@ function getPopularGames(genreId, platformId, cb) {
     method: "POST",
     headers: {
       Accept: "application/json",
-      "user-key": "898f9a6bd19c44b6ab2b68966a66df4b"
+      "user-key": ""
     },
     data: criteria
   })
@@ -60,7 +60,7 @@ function findGameId(gameName) {
     method: "POST",
     headers: {
       Accept: "application/json",
-      "user-key": process.env.gameApiKey
+      "user-key": ""
     }
   })
     .then(function(response) {
@@ -91,7 +91,7 @@ function getGameById(gameId) {
     method: "POST",
     headers: {
       Accept: "application/json",
-      "user-key": process.env.gameApiKey
+      "user-key": ""
     },
     data: criteria
   })

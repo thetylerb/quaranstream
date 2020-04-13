@@ -31,7 +31,7 @@ function getPopularVideos(genreId, type, cb) {
   request.setRequestHeader("trakt-api-version", "2");
   request.setRequestHeader(
     "trakt-api-key",
-    "d2fda7b3aa19f98b6e6247cb2d5574011b431d8a41de201f4ee1de3cf0da3763"
+    ""
   );
 
   request.onreadystatechange = function() {
@@ -88,7 +88,7 @@ function videoInfo(name, type) {
 
   request.setRequestHeader("Content-Type", "application/json");
   request.setRequestHeader("trakt-api-version", "2");
-  request.setRequestHeader("trakt-api-key", process.env.videoApiKey);
+  request.setRequestHeader("trakt-api-key", "");
 
   request.onreadystatechange = function() {
     tvGenreArray = [];

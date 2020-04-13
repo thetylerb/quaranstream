@@ -12,13 +12,13 @@ function getPopularArtists(genre, cb) {
   console.log(genre);
   var queryURL =
     "http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=" +
-    "eb468e00eb576b259b24d5682bafa312" +
+    "" +
     "&format=json";
   if (genre !== "0") {
     queryURL = "http://ws.audioscrobbler.com/2.0/?method=tag.gettopartists";
     queryURL += "&tag=" + genre;
     queryURL +=
-      "&api_key=" + "eb468e00eb576b259b24d5682bafa312" + "&format=json";
+      "&api_key=" + "" + "&format=json";
   }
   console.log(queryURL);
 
@@ -48,7 +48,7 @@ function getPopularArtists(genre, cb) {
 function artistInfo(artist) {
   var queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo";
   queryURL += "&artist=" + artist;
-  queryURL += "&api_key=" + process.env.musicApiKey + "&format=json";
+  queryURL += "&api_key=" + "" + "&format=json";
 
   axios({
     url: queryURL,
