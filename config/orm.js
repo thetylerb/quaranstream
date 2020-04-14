@@ -35,5 +35,16 @@ module.exports = {
       .catch(function(err) {
         res.status(401).json(err);
       });
+  },
+  updateUserPrefs: function(req, res) {
+    console.log("it hit the ORM");
+    db.UserPref.update(req.body, { where: { UserId: req.params.id } })
+      .then(data => {
+        res.json(data);
+        console.log("update Success");
+      })
+      .catch(function(err) {
+        res.status(401).json(err);
+      });
   }
 };

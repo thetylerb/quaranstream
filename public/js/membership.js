@@ -15,14 +15,16 @@ $(document).ready(function() {
     gameData = result;
     buildGames(gameData);
   });
-  getPopularVideos(dataObj.watch1.toLowerCase(), "movie", function(result) {
-    movieData = result;
-    buildMovies(movieData);
-  });
-  getPopularVideos(dataObj.watch1.toLowerCase(), "show", function(result) {
-    showData = result;
-    buildShows(showData);
-  });
+  if (dataObj.watch1) {
+    getPopularVideos(dataObj.watch1.toLowerCase(), "movie", function(result) {
+      movieData = result;
+      buildMovies(movieData);
+    });
+    getPopularVideos(dataObj.watch1.toLowerCase(), "show", function(result) {
+      showData = result;
+      buildShows(showData);
+    });
+  }
 
   function buildMusic(musicData) {
     if (dataObj.listen1 !== "0") {
