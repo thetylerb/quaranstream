@@ -1,30 +1,16 @@
 $(document).ready(function() {
   var dataObj = JSON.parse(localStorage.getItem("dataObj"));
-  var gameGenre1 = localStorage.getItem("gameGenre1");
-  var gameGenre2 = localStorage.getItem("gameGenre2");
-  var gameGenre3 = localStorage.getItem("gameGenre3");
-  var platform = localStorage.getItem("platform");
   console.log(dataObj);
+  var gameGen = localStorage.getItem("gameGenre1");
+  var gameGenre1 = localStorage.getItem("gameObj");
+  buildGames(JSON.parse(gameGenre1))
+  var musicGenre1 = localStorage.getItem("musicObj");
+  buildMusic(JSON.parse(musicGenre1))
+  var showGenre1 = localStorage.getItem("showObj");
+  buildShows(JSON.parse(showGenre1))
+  var movieGenre1 = localStorage.getItem("movieObj");
+  buildMovies(JSON.parse(movieGenre1))
 
-  getPopularArtists(dataObj.listen1, function(result) {
-    const musicDataAll = result;
-    musicData = musicDataAll.slice(0, 5);
-    buildMusic(musicData);
-  });
-  getPopularGames(gameGenre1, platform, function(result) {
-    gameData = result;
-    buildGames(gameData);
-  });
-  if (dataObj.watch1) {
-    getPopularVideos(dataObj.watch1.toLowerCase(), "movie", function(result) {
-      movieData = result;
-      buildMovies(movieData);
-    });
-    getPopularVideos(dataObj.watch1.toLowerCase(), "show", function(result) {
-      showData = result;
-      buildShows(showData);
-    });
-  }
 
   function buildMusic(musicData) {
     if (dataObj.listen1 !== "0") {
@@ -39,7 +25,6 @@ $(document).ready(function() {
     console.log(musicData);
   }
 
-  console.log(dataObj);
   function buildMovies(movieData) {
     console.log(dataObj.watch1);
     console.log(movieData);
@@ -77,25 +62,24 @@ $(document).ready(function() {
 
   function buildGames(gameData) {
     console.log(gameData);
-    var gd1 = gameData[1].rating;
-    console.log(gd1);
-    console.log(gd1.toFixed(2));
-    if (gameGenre1 !== "0") {
+    if (gameGen !== "0") {
       $("#gameGenre")
         .text("Top Game Picks - " + dataObj.play1)
         .css("color", "black");
     } else {
-      $("#gameGenre")
-        .text("Top Game Picks")
-        .css("color", "black");
+      $("#gameGenre").text("Top Game Picks").css("color", "black");
     }
     for (let i = 0; i < 5; i++) {
       $(`#game${i + 1}`).text(gameData[i].name);
+      if(gameData[i].rating) {
       $(`#gameRating${i + 1}`).text(":  " + gameData[i].rating.toFixed(2));
+      }
       $(`#gameSummary${i + 1}`).text(":  " + gameData[i].summary);
       $();
     }
   }
+
+  
   $(".carousel").carousel({
     dist: -50,
     shift: 0,
