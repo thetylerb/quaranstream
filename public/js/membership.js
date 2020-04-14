@@ -101,14 +101,105 @@ $(document).ready(function() {
     console.log(data);
   }).then(data => {
     myID = data;
-  });
-  setTimeout(function() {
     $.get(`/api/mydata/${myID.id}`, function(data) {
       console.log(data);
     }).then(data => {
       mySet = data;
+      buildSuggestions(mySet);
+      genreData = {
+        listenBool: mySet.enjoyMusic,
+        watchBool: mySet.enjoyMovieTV,
+        playBool: mySet.enjoyGame,
+        listenGenre: [mySet.listen1, mySet.listen2, mySet.listen3],
+        watchGenre: [mySet.watch1, mySet.watch2, mySet.watch3],
+        playGenre: [mySet.play1, mySet.play2, mySet.play3]
+      };
+      $("#caroTitle").html(mySet.userName);
+      $("#caroInfo").html(mySet.bio);
+      $("#caroImg").attr("src", mySet.avatarImg);
+      $("#navPic").attr("src", mySet.avatarImg);
+      $("#navName").html(mySet.userName);
+      $("#navEmail").html(myID.email);
+      genGenre(
+        "#navMusic",
+        "Music",
+        genreData.listenBool,
+        genreData.listenGenre
+      );
+      genGenre(
+        "#navVideo",
+        "Movie and Show",
+        genreData.watchBool,
+        genreData.watchGenre
+      );
+      genGenre(
+        "#navGame",
+        "Video Game",
+        genreData.playBool,
+        genreData.playGenre
+      );
+      $("#navInfo").html(mySet.bio);
+      for (var i = 0; i < 5; i++) {
+        var alias = set[i].userName;
+        var profPic = set[i].avatarImg;
+        var info = set[i].bio;
+        // console.log(alias);
+        // console.log(info);
+        var carouselDiv = $("<div>").addClass("carousel-item");
+        var cardDiv = $("<div>").addClass("card");
+        var imgDiv = $("<div>").addClass(
+          "card-image waves-effect waves-block waves-light"
+        );
+        var newImg = $("<img>")
+          .addClass("activator")
+          .attr("src", profPic);
+        imgDiv.append(newImg);
+        var contentDiv = $("<div>").addClass("card-content");
+        var newSpan = $("<span>")
+          .addClass("card-title activator grey-text text-darken-4")
+          .html(alias);
+        var newI = $("<i>")
+          .addClass("material-icons right")
+          .html("more_vert");
+        var newP = $("<p>");
+        // var newLink = $("<a>")
+        //   .attr("href", "#")
+        //   .html("this is a link");
+        newSpan.append(newI);
+        // newP.append(newLink);
+        contentDiv.append(newSpan, newP);
+        var newReveal = $("<div>").addClass("card-reveal");
+        var revSpan = $("<span>")
+          .addClass("card-title grey-text text-darken-4")
+          .html("About Me");
+        var revI = $("<i>")
+          .addClass("material-icons right")
+          .html("close");
+        var newText = $("<p>")
+          .addClass("cardText")
+          .html(info);
+        var list = $("<ul>").addClass("genreInfo");
+        genOthersGenre(set[i].enjoyMusic, set[i].listen1, "Music", list);
+        genOthersGenre(
+          set[i].enjoyMovieTV,
+          set[i].watch1,
+          "Movie and Show",
+          list
+        );
+        genOthersGenre(set[i].enjoyGame, set[i].play1, "Game", list);
+        revSpan.append(revI);
+        newReveal.append(revSpan, newText, list);
+        cardDiv.append(imgDiv, contentDiv, newReveal);
+        carouselDiv.append(cardDiv);
+        $(".carousel").append(carouselDiv);
+        $(".carousel").removeClass("initialized");
+        $(".carousel").carousel();
+      }
     });
-  }, 150);
+  });
+  // setTimeout(function() {
+
+  // }, 150);
 
   var buildSuggestions = function(mySet) {
     //game Api call
@@ -200,83 +291,7 @@ $(document).ready(function() {
     }
     list.append(newLi);
   };
-  setTimeout(function() {
-    buildSuggestions(mySet);
-    genreData = {
-      listenBool: mySet.enjoyMusic,
-      watchBool: mySet.enjoyMovieTV,
-      playBool: mySet.enjoyGame,
-      listenGenre: [mySet.listen1, mySet.listen2, mySet.listen3],
-      watchGenre: [mySet.watch1, mySet.watch2, mySet.watch3],
-      playGenre: [mySet.play1, mySet.play2, mySet.play3]
-    };
-    $("#caroTitle").html(mySet.userName);
-    $("#caroInfo").html(mySet.bio);
-    $("#caroImg").attr("src", mySet.avatarImg);
-    $("#navPic").attr("src", mySet.avatarImg);
-    $("#navName").html(mySet.userName);
-    $("#navEmail").html(myID.email);
-    genGenre("#navMusic", "Music", genreData.listenBool, genreData.listenGenre);
-    genGenre(
-      "#navVideo",
-      "Movie and Show",
-      genreData.watchBool,
-      genreData.watchGenre
-    );
-    genGenre("#navGame", "Video Game", genreData.playBool, genreData.playGenre);
-    $("#navInfo").html(mySet.bio);
-    for (var i = 0; i < 5; i++) {
-      var alias = set[i].userName;
-      var profPic = set[i].avatarImg;
-      var info = set[i].bio;
-      // console.log(alias);
-      // console.log(info);
-      var carouselDiv = $("<div>").addClass("carousel-item");
-      var cardDiv = $("<div>").addClass("card");
-      var imgDiv = $("<div>").addClass(
-        "card-image waves-effect waves-block waves-light"
-      );
-      var newImg = $("<img>")
-        .addClass("activator")
-        .attr("src", profPic);
-      imgDiv.append(newImg);
-      var contentDiv = $("<div>").addClass("card-content");
-      var newSpan = $("<span>")
-        .addClass("card-title activator grey-text text-darken-4")
-        .html(alias);
-      var newI = $("<i>")
-        .addClass("material-icons right")
-        .html("more_vert");
-      var newP = $("<p>");
-      // var newLink = $("<a>")
-      //   .attr("href", "#")
-      //   .html("this is a link");
-      newSpan.append(newI);
-      // newP.append(newLink);
-      contentDiv.append(newSpan, newP);
-      var newReveal = $("<div>").addClass("card-reveal");
-      var revSpan = $("<span>")
-        .addClass("card-title grey-text text-darken-4")
-        .html("About Me");
-      var revI = $("<i>")
-        .addClass("material-icons right")
-        .html("close");
-      var newText = $("<p>")
-        .addClass("cardText")
-        .html(info);
-      var list = $("<ul>").addClass("genreInfo");
-      genOthersGenre(set[i].enjoyMusic, set[i].listen1, "Music", list);
-      genOthersGenre(set[i].enjoyMovieTV, set[i].watch1, "Movie and Show", list);
-      genOthersGenre(set[i].enjoyGame, set[i].play1, "Game", list);
-      revSpan.append(revI);
-      newReveal.append(revSpan, newText, list);
-      cardDiv.append(imgDiv, contentDiv, newReveal);
-      carouselDiv.append(cardDiv);
-      $(".carousel").append(carouselDiv);
-      $(".carousel").removeClass("initialized");
-      $(".carousel").carousel();
-    }
-  }, 300);
+  // setTimeout(function() {}, 300);
 
   const images = [
     { id: "f0heeiu-Ec0", caption: "Flower #1" },
