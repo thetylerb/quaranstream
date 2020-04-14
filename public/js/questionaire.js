@@ -2,6 +2,7 @@ $(document).ready(function() {
   $("select").formSelect();
   $(".materialboxed").materialbox();
   $(".slider").slider();
+  $('.sidenav').sidenav();
 
   $(".carousel").carousel({
     dist: -50,
