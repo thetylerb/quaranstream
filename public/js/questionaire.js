@@ -58,6 +58,7 @@ $(document).ready(function() {
 
   $(".material-icons").on("click", function() {
     photoPath = $(this).data("path");
+    $(this).html("check_box");
     // console.log("Clicked!");
     // console.log(photoPath);
   });

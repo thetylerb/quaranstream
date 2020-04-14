@@ -117,7 +117,7 @@ $(document).ready(function() {
       genreId: mySet.play1ID
     })
       .then(function(data) {
-        console.log(data);
+        // console.log(data);
         buildGames(data, mySet);
       })
       .catch(function(error) {
@@ -129,7 +129,7 @@ $(document).ready(function() {
       videoGenre: mySet.watch1
     })
       .then(function(data) {
-        console.log(data);
+        // console.log(data);
         buildMovies(data, mySet);
       })
       .catch(function(error) {
@@ -141,7 +141,7 @@ $(document).ready(function() {
       videoGenre: mySet.watch1
     })
       .then(function(data) {
-        console.log(data);
+        // console.log(data);
         buildShows(data, mySet);
       })
       .catch(function(error) {
@@ -153,7 +153,7 @@ $(document).ready(function() {
       musicGenre: mySet.listen1
     })
       .then(function(data) {
-        console.log(data);
+        // console.log(data);
         buildMusic(data, mySet);
       })
       .catch(function(error) {
@@ -166,7 +166,7 @@ $(document).ready(function() {
       $(navId).html(`Favorite ${title} Genre(s):`);
       var newOl = $("<ol>");
       for (i = 0; i < 3; i++) {
-        if (data[i]) {
+        if (data[i] !== "0") {
           var newLi = $("<li>").html(data[i]);
           newOl.append(newLi);
         }
@@ -181,6 +181,24 @@ $(document).ready(function() {
         $(navId).html("I dont like playing games.");
       }
     }
+  };
+
+  var genOthersGenre = function(bool, data, title, list) {
+    newLi = $("<li>");
+    if (bool && data !== "0") {
+      newLi.html(`Fav ${title} Genre: ${data}`);
+      console.log(`Fav ${title} Genre: ${data}`);
+    } else {
+      console.log(`no ${title}`);
+      if (title === "Music") {
+        newLi.html("I dont like music.");
+      } else if (title === "Movie and Show") {
+        newLi.html("I dont like movies or shows.");
+      } else {
+        newLi.html("I dont like playing games.");
+      }
+    }
+    list.append(newLi);
   };
   setTimeout(function() {
     buildSuggestions(mySet);
@@ -246,8 +264,12 @@ $(document).ready(function() {
       var newText = $("<p>")
         .addClass("cardText")
         .html(info);
+      var list = $("<ul>").addClass("genreInfo");
+      genOthersGenre(set[i].enjoyMusic, set[i].listen1, "Music", list);
+      genOthersGenre(set[i].enjoyMovieTV, set[i].watch1, "Movie and Show", list);
+      genOthersGenre(set[i].enjoyGame, set[i].play1, "Game", list);
       revSpan.append(revI);
-      newReveal.append(revSpan, newText);
+      newReveal.append(revSpan, newText, list);
       cardDiv.append(imgDiv, contentDiv, newReveal);
       carouselDiv.append(cardDiv);
       $(".carousel").append(carouselDiv);
