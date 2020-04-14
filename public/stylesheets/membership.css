@@ -43,6 +43,11 @@ width: 50%;
 background-color:black !important;
 }
 
+.side-nav{
+  top: 65px;
+  width: 250px;
+}
+
 p, h4, .title {
 color:white;
 }
@@ -96,6 +101,11 @@ footer, .page-footer {
     background-color:#282828;
 }
 
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+}
 
 @media only screen and (max-width: 767px) {
 /* For mobile: */

@@ -19,6 +19,8 @@ $(document).ready(function() {
   });
 });
 
+$('.carousel').carousel()
+
 WOW().init();
 $(function() {
   $("#mdb-lightbox-ui").load("../mdb-addons/mdb-lightbox-ui.html");
