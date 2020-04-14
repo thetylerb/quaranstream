@@ -109,16 +109,16 @@ $(document).ready(function() {
   let myID;
 
   $.get("/api/users", function(data) {
-    console.log(data);
+    // console.log(data);
   }).then(data => {
     set = data;
   });
   $.get("/api/user_data", function(data) {
-    console.log(data);
+    // console.log(data);
   }).then(data => {
     myID = data;
     $.get(`/api/mydata/${myID.id}`, function(data) {
-      console.log(data);
+      // console.log(data);
     }).then(data => {
       mySet = data;
       buildSuggestions(mySet);

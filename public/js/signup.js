@@ -15,7 +15,7 @@ $(document).ready(function() {
         .val()
         .trim()
     };
-    console.log(userData);
+    // console.log(userData);
 
     if (!userData.email || !userData.password) {
       return;

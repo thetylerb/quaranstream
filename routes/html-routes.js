@@ -7,17 +7,17 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = function(app) {
   app.get("/", function(req, res) {
     // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/membership");
-    }
+    // if (req.user) {
+    //   res.redirect("/membership");
+    // }
     res.sendFile(path.join(__dirname, "../public/landing.html"));
   });
 
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/membership");
-    }
+    // if (req.user) {
+    //   res.redirect("/membership");
+    // }
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
