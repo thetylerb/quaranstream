@@ -4,6 +4,10 @@ body {
   flex-direction: column;
 }
 
+.carousel {
+  height: 500px;
+}
+
 .card-image.img
 {
 height:150px !important;

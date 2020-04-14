@@ -11,9 +11,9 @@ $(document).ready(function() {
   // var movieGenre1 = localStorage.getItem("movieObj");
   // buildMovies(JSON.parse(movieGenre1))
   $("select").formSelect();
-  $('.materialboxed').materialbox();
-  $('.slider').slider();
-  $('.sidenav').sidenav();
+  $(".materialboxed").materialbox();
+  $(".slider").slider();
+  $(".sidenav").sidenav();
 
   function buildMusic(musicData, mySet) {
     if (mySet.listen1 !== "0") {
@@ -78,8 +78,20 @@ $(document).ready(function() {
       if (gameData[i].rating) {
         $(`#gameRating${i + 1}`).text(":  " + gameData[i].rating.toFixed(2));
       }
-      $(`#gameSummary${i + 1}`).text(":  " + gameData[i].summary);
-      $();
+      var title = gameData[i].summary;
+
+      var shortText =
+        jQuery
+          .trim(title)
+          .substring(0, 200)
+          .split(" ")
+          .slice(0, -1)
+          .join(" ") + "...";
+
+      $(`#gameSummary${i + 1}`).text(":  " + shortText);
+      $(`#gameURL${i + 1}`).html(
+        `<a href = "${gameData[i].url}">:  Game Info Link</a>`
+      );
     }
   }
 
@@ -97,16 +109,16 @@ $(document).ready(function() {
   let myID;
 
   $.get("/api/users", function(data) {
-    console.log(data);
+    // console.log(data);
   }).then(data => {
     set = data;
   });
   $.get("/api/user_data", function(data) {
-    console.log(data);
+    // console.log(data);
   }).then(data => {
     myID = data;
     $.get(`/api/mydata/${myID.id}`, function(data) {
-      console.log(data);
+      // console.log(data);
     }).then(data => {
       mySet = data;
       buildSuggestions(mySet);
@@ -201,9 +213,6 @@ $(document).ready(function() {
       }
     });
   });
-  // setTimeout(function() {
-
-  // }, 150);
 
   var buildSuggestions = function(mySet) {
     //game Api call
@@ -212,7 +221,7 @@ $(document).ready(function() {
       genreId: mySet.play1ID
     })
       .then(function(data) {
-        // console.log(data);
+        console.log(data);
         buildGames(data, mySet);
       })
       .catch(function(error) {
