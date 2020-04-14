@@ -13,24 +13,36 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING
       },
       enjoyMovieTV: {
-        type: DataTypes.BOOLEAN,
+        type: DataTypes.BOOLEAN
       },
       enjoyMusic: {
-        type: DataTypes.BOOLEAN,
+        type: DataTypes.BOOLEAN
       },
       enjoyGame: {
-        type: DataTypes.BOOLEAN,
+        type: DataTypes.BOOLEAN
       },
       platform: {
+        type: DataTypes.STRING
+      },
+      platformID: {
         type: DataTypes.STRING
       },
       play1: {
         type: DataTypes.STRING
       },
+      play1ID: {
+        type: DataTypes.STRING
+      },
       play2: {
         type: DataTypes.STRING
       },
+      play2ID: {
+        type: DataTypes.STRING
+      },
       play3: {
+        type: DataTypes.STRING
+      },
+      play3ID: {
         type: DataTypes.STRING
       },
       watch1: {

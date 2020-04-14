@@ -1,7 +1,7 @@
-$(document).ready(function () {
+$(document).ready(function() {
   $("select").formSelect();
-  $('.materialboxed').materialbox();
-  $('.slider').slider();
+  $(".materialboxed").materialbox();
+  $(".slider").slider();
 
   $(".carousel").carousel({
     dist: -50,
@@ -9,7 +9,7 @@ $(document).ready(function () {
     padding: 20
   });
 
-  $("#gameCheck").on("change", function () {
+  $("#gameCheck").on("change", function() {
     if ($(this).is(":checked")) {
       $("#gameDrop1").removeClass("invis");
       $("#gameDrop2").removeClass("invis");
@@ -23,7 +23,7 @@ $(document).ready(function () {
     }
   });
 
-  $("#musicCheck").on("change", function () {
+  $("#musicCheck").on("change", function() {
     if ($(this).is(":checked")) {
       $("#musicDrop1").removeClass("invis");
       $("#musicDrop2").removeClass("invis");
@@ -35,7 +35,7 @@ $(document).ready(function () {
     }
   });
 
-  $("#movieCheck").on("change", function () {
+  $("#movieCheck").on("change", function() {
     if ($(this).is(":checked")) {
       $("#teleDrop1").removeClass("invis");
       $("#teleDrop2").removeClass("invis");
@@ -49,75 +49,27 @@ $(document).ready(function () {
 
   var id;
 
-  $.get("/api/user_data", function (info) {
+  $.get("/api/user_data", function(info) {
     console.log(info);
     id = info.id;
   });
 
   let photoPath;
 
-  $(".material-icons").on("click", function () {
+  $(".material-icons").on("click", function() {
     photoPath = $(this).data("path");
     // console.log("Clicked!");
     // console.log(photoPath);
   });
 
-  $("#submitBtn").on("click", function () {
+  $("#submitBtn").on("click", function() {
     event.preventDefault();
-    
-    $.post("/api/game_genres", {
-      platformId: $("#console").val(),
-      genreId: $("#gameGenre1").val()
-    }).then(function (data) {
-      console.log(data);
-      localStorage.setItem("gameObj", JSON.stringify(data));
-      
-    })
-      .catch(function (error) {
-        console.log(error);
-      });
 
-    //movie Api call
-    $.post("/api/movie_genres", {
-      videoGenre: $("#videoGenre1").val(),
-    }).then(function (data) {
-      console.log(data);
-      localStorage.setItem("movieObj", JSON.stringify(data));
-    })
-      .catch(function (error) {
-        console.log(error);
-      });
-
-    //TV Api call
-    $.post("/api/show_genres", {
-      videoGenre: $("#videoGenre1").val(),
-    }).then(function (data) {
-      console.log(data);
-      localStorage.setItem("showObj", JSON.stringify(data));
-    })
-      .catch(function (error) {
-        console.log(error);
-      });
-
-    //music genre Api call
-    $.post("/api/music_genres", {
-      musicGenre: $("#musicGenre1").val(),
-    }).then(function (data) {
-      console.log(data);
-      localStorage.setItem("musicObj", JSON.stringify(data));
-    })
-      .catch(function (error) {
-        console.log(error);
-      });
-
-
-    localStorage.setItem("gameGenre1", $("#gameGenre1").val());
-    localStorage.setItem("gameGenre2", $("#gameGenre2").val());
-    localStorage.setItem("gameGenre3", $("#gameGenre3").val());
-    console.log($("#console").val());
-    localStorage.setItem("platform", $("#console").val());
-
-
+    // localStorage.setItem("gameGenre1", $("#gameGenre1").val());
+    // localStorage.setItem("gameGenre2", $("#gameGenre2").val());
+    // localStorage.setItem("gameGenre3", $("#gameGenre3").val());
+    // console.log($("#console").val());
+    // localStorage.setItem("platform", $("#console").val());
 
     var newUser = {
       userName: $("#alias")
@@ -130,18 +82,22 @@ $(document).ready(function () {
       enjoyMovieTV: $("#movieCheck").is(":checked"),
       enjoyMusic: $("#musicCheck").is(":checked"),
       enjoyGame: $("#gameCheck").is(":checked"),
-      platform: $("#console")
+      platform: $("#platform")
         .find(":selected")
         .data("name"),
+      platformID: $("#platform").val(),
       play1: $("#gameGenre1")
         .find(":selected")
         .data("name"),
+      play1ID: $("#gameGenre1").val(),
       play2: $("#gameGenre2")
         .find(":selected")
         .data("name"),
+      play2ID: $("#gameGenre2").val(),
       play3: $("#gameGenre3")
         .find(":selected")
         .data("name"),
+      play3ID: $("#gameGenre3").val(),
       watch1: $("#videoGenre1").val(),
       watch2: $("#videoGenre2").val(),
       watch3: $("#videoGenre3").val(),
@@ -153,11 +109,11 @@ $(document).ready(function () {
 
     console.log(newUser);
     console.log(id);
-    localStorage.setItem("gameGenre1", $("#gameGenre1").val());
-    localStorage.setItem("gameGenre2", $("#gameGenre2").val());
-    localStorage.setItem("gameGenre3", $("#gameGenre3").val());
-    console.log($("#console").val());
-    localStorage.setItem("platform", $("#console").val());
+    // localStorage.setItem("gameGenre1", $("#gameGenre1").val());
+    // localStorage.setItem("gameGenre2", $("#gameGenre2").val());
+    // localStorage.setItem("gameGenre3", $("#gameGenre3").val());
+    // console.log($("#console").val());
+    // localStorage.setItem("platform", $("#console").val());
 
     addUserPref(
       newUser.userName,
@@ -167,9 +123,13 @@ $(document).ready(function () {
       newUser.enjoyMusic,
       newUser.enjoyGame,
       newUser.platform,
+      newUser.platformID,
       newUser.play1,
+      newUser.play1ID,
       newUser.play2,
+      newUser.play2ID,
       newUser.play3,
+      newUser.play3ID,
       newUser.watch1,
       newUser.watch2,
       newUser.watch3,
@@ -188,9 +148,13 @@ $(document).ready(function () {
     enjoyMusic,
     enjoyGame,
     platform,
+    platformID,
     play1,
+    play1ID,
     play2,
+    play2ID,
     play3,
+    play3ID,
     watch1,
     watch2,
     watch3,
@@ -207,9 +171,13 @@ $(document).ready(function () {
       enjoyMusic: enjoyMusic,
       enjoyGame: enjoyGame,
       platform: platform,
+      platformID: platformID,
       play1: play1,
+      play1ID: play1ID,
       play2: play2,
+      play2ID: play2ID,
       play3: play3,
+      play3ID: play3ID,
       watch1: watch1,
       watch2: watch2,
       watch3: watch3,
@@ -217,15 +185,15 @@ $(document).ready(function () {
       listen2: listen2,
       listen3: listen3,
       UserId: UserId
-    }).then(function (data) {
-      console.log("the then part works");
-      window.location = "/membership";
-      localStorage.setItem("dataObj", JSON.stringify(data));
-      console.log(data.userName, data.enjoyMovieTV);
     })
-      .catch(function (error) {
+      .then(function(data) {
+        console.log("the then part works");
+        window.location = "/membership";
+        localStorage.setItem("dataObj", JSON.stringify(data));
+        console.log(data.userName, data.enjoyMovieTV);
+      })
+      .catch(function(error) {
         console.log(error);
       });
   }
 });
-

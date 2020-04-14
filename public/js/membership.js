@@ -1,20 +1,19 @@
 $(document).ready(function() {
-  var dataObj = JSON.parse(localStorage.getItem("dataObj"));
-  console.log(dataObj);
-  var gameGen = localStorage.getItem("gameGenre1");
-  var gameGenre1 = localStorage.getItem("gameObj");
-  buildGames(JSON.parse(gameGenre1))
-  var musicGenre1 = localStorage.getItem("musicObj");
-  buildMusic(JSON.parse(musicGenre1))
-  var showGenre1 = localStorage.getItem("showObj");
-  buildShows(JSON.parse(showGenre1))
-  var movieGenre1 = localStorage.getItem("movieObj");
-  buildMovies(JSON.parse(movieGenre1))
+  // var dataObj = JSON.parse(localStorage.getItem("dataObj"));
+  // console.log(dataObj);
+  // var gameGen = localStorage.getItem("gameGenre1");
+  // var gameGenre1 = localStorage.getItem("gameObj");
+  // buildGames(JSON.parse(gameGenre1))
+  // var musicGenre1 = localStorage.getItem("musicObj");
+  // buildMusic(JSON.parse(musicGenre1))
+  // var showGenre1 = localStorage.getItem("showObj");
+  // buildShows(JSON.parse(showGenre1))
+  // var movieGenre1 = localStorage.getItem("movieObj");
+  // buildMovies(JSON.parse(movieGenre1))
 
-
-  function buildMusic(musicData) {
-    if (dataObj.listen1 !== "0") {
-      $("#musicGenre").text(" - " + dataObj.listen1);
+  function buildMusic(musicData, mySet) {
+    if (mySet.listen1 !== "0") {
+      $("#musicGenre").text(" - " + mySet.listen1);
     }
     for (let i = 0; i < 5; i++) {
       $(`#artist${i + 1}`).text(":  " + musicData[i].name);
@@ -25,11 +24,10 @@ $(document).ready(function() {
     console.log(musicData);
   }
 
-  function buildMovies(movieData) {
-    console.log(dataObj.watch1);
+  function buildMovies(movieData, mySet) {
     console.log(movieData);
-    if (dataObj.watch1 !== "0") {
-      $("#movieGenre").text(" - " + dataObj.watch1);
+    if (mySet.watch1 !== "0") {
+      $("#movieGenre").text(" - " + mySet.watch1);
     }
     for (let i = 0; i < 5; i++) {
       $(`#movie${i + 1}`).text(":  " + movieData[i].movie.title);
@@ -44,10 +42,10 @@ $(document).ready(function() {
     }
   }
 
-  function buildShows(showData) {
+  function buildShows(showData, mySet) {
     console.log(showData);
-    if (dataObj.watch1 !== "0") {
-      $("#showGenre").text(" - " + dataObj.watch1);
+    if (mySet.watch1 !== "0") {
+      $("#showGenre").text(" - " + mySet.watch1);
     }
     for (let i = 0; i < 5; i++) {
       $(`#show${i + 1}`).text(":  " + showData[i].show.title);
@@ -60,26 +58,27 @@ $(document).ready(function() {
     }
   }
 
-  function buildGames(gameData) {
+  function buildGames(gameData, mySet) {
     console.log(gameData);
-    if (gameGen !== "0") {
+    if (mySet.play1 !== "0") {
       $("#gameGenre")
-        .text("Top Game Picks - " + dataObj.play1)
+        .text("Top Game Picks - " + mySet.play1)
         .css("color", "black");
     } else {
-      $("#gameGenre").text("Top Game Picks").css("color", "black");
+      $("#gameGenre")
+        .text("Top Game Picks")
+        .css("color", "black");
     }
     for (let i = 0; i < 5; i++) {
       $(`#game${i + 1}`).text(gameData[i].name);
-      if(gameData[i].rating) {
-      $(`#gameRating${i + 1}`).text(":  " + gameData[i].rating.toFixed(2));
+      if (gameData[i].rating) {
+        $(`#gameRating${i + 1}`).text(":  " + gameData[i].rating.toFixed(2));
       }
       $(`#gameSummary${i + 1}`).text(":  " + gameData[i].summary);
       $();
     }
   }
 
-  
   $(".carousel").carousel({
     dist: -50,
     shift: 0,
@@ -111,6 +110,57 @@ $(document).ready(function() {
     });
   }, 150);
 
+  var buildSuggestions = function(mySet) {
+    //game Api call
+    $.post("/api/game_genres", {
+      platformId: mySet.platformID,
+      genreId: mySet.play1ID
+    })
+      .then(function(data) {
+        console.log(data);
+        buildGames(data, mySet);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+
+    //movie Api call
+    $.post("/api/movie_genres", {
+      videoGenre: mySet.watch1
+    })
+      .then(function(data) {
+        console.log(data);
+        buildMovies(data, mySet);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+
+    //TV Api call
+    $.post("/api/show_genres", {
+      videoGenre: mySet.watch1
+    })
+      .then(function(data) {
+        console.log(data);
+        buildShows(data, mySet);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+
+    //music genre Api call
+    $.post("/api/music_genres", {
+      musicGenre: mySet.listen1
+    })
+      .then(function(data) {
+        console.log(data);
+        buildMusic(data, mySet);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  };
+
   var genGenre = function(navId, title, bool, data) {
     if (bool) {
       $(navId).html(`Favorite ${title} Genre(s):`);
@@ -133,6 +183,7 @@ $(document).ready(function() {
     }
   };
   setTimeout(function() {
+    buildSuggestions(mySet);
     genreData = {
       listenBool: mySet.enjoyMusic,
       watchBool: mySet.enjoyMovieTV,
