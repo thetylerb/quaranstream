@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   $("select").formSelect();
   $('.materialboxed').materialbox();
   $('.slider').slider();
@@ -9,7 +9,7 @@ $(document).ready(function() {
     padding: 20
   });
 
-  $("#gameCheck").on("change", function() {
+  $("#gameCheck").on("change", function () {
     if ($(this).is(":checked")) {
       $("#gameDrop1").removeClass("invis");
       $("#gameDrop2").removeClass("invis");
@@ -23,7 +23,7 @@ $(document).ready(function() {
     }
   });
 
-  $("#musicCheck").on("change", function() {
+  $("#musicCheck").on("change", function () {
     if ($(this).is(":checked")) {
       $("#musicDrop1").removeClass("invis");
       $("#musicDrop2").removeClass("invis");
@@ -35,7 +35,7 @@ $(document).ready(function() {
     }
   });
 
-  $("#movieCheck").on("change", function() {
+  $("#movieCheck").on("change", function () {
     if ($(this).is(":checked")) {
       $("#teleDrop1").removeClass("invis");
       $("#teleDrop2").removeClass("invis");
@@ -49,37 +49,75 @@ $(document).ready(function() {
 
   var id;
 
-  $.get("/api/user_data", function(info) {
+  $.get("/api/user_data", function (info) {
     console.log(info);
     id = info.id;
   });
 
   let photoPath;
 
-  $(".material-icons").on("click", function() {
+  $(".material-icons").on("click", function () {
     photoPath = $(this).data("path");
     // console.log("Clicked!");
     // console.log(photoPath);
   });
 
-  $("#submitBtn").on("click", function() {
+  $("#submitBtn").on("click", function () {
     event.preventDefault();
-    // console.log($("#alias").val());
-    // console.log($("#videoGenre").val());
-    // console.log($("#musicGenre").val());
-    // console.log($("#gameGenre").val());
-    // console.log(
-    //   $("#gameGenre")
-    //     .find(":selected")
-    //     .data("name")
-    // );
+    
+    $.post("/api/game_genres", {
+      platformId: $("#console").val(),
+      genreId: $("#gameGenre1").val()
+    }).then(function (data) {
+      console.log(data);
+      localStorage.setItem("gameObj", JSON.stringify(data));
+      
+    })
+      .catch(function (error) {
+        console.log(error);
+      });
 
-    // console.log($("#console").val());
-    // console.log(
-    //   $("#console")
-    //     .find(":selected")
-    //     .data("name")
-    // );
+    //movie Api call
+    $.post("/api/movie_genres", {
+      videoGenre: $("#videoGenre1").val(),
+    }).then(function (data) {
+      console.log(data);
+      localStorage.setItem("movieObj", JSON.stringify(data));
+    })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    //TV Api call
+    $.post("/api/show_genres", {
+      videoGenre: $("#videoGenre1").val(),
+    }).then(function (data) {
+      console.log(data);
+      localStorage.setItem("showObj", JSON.stringify(data));
+    })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    //music genre Api call
+    $.post("/api/music_genres", {
+      musicGenre: $("#musicGenre1").val(),
+    }).then(function (data) {
+      console.log(data);
+      localStorage.setItem("musicObj", JSON.stringify(data));
+    })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+
+    localStorage.setItem("gameGenre1", $("#gameGenre1").val());
+    localStorage.setItem("gameGenre2", $("#gameGenre2").val());
+    localStorage.setItem("gameGenre3", $("#gameGenre3").val());
+    console.log($("#console").val());
+    localStorage.setItem("platform", $("#console").val());
+
+
 
     var newUser = {
       userName: $("#alias")
@@ -179,14 +217,15 @@ $(document).ready(function() {
       listen2: listen2,
       listen3: listen3,
       UserId: UserId
-    }).then(function(data) {
+    }).then(function (data) {
       console.log("the then part works");
       window.location = "/membership";
       localStorage.setItem("dataObj", JSON.stringify(data));
       console.log(data.userName, data.enjoyMovieTV);
     })
-    .catch(function(error) {
-      console.log(error);
-    });
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 });
+
