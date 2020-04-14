@@ -10,6 +10,10 @@ $(document).ready(function() {
   // buildShows(JSON.parse(showGenre1))
   // var movieGenre1 = localStorage.getItem("movieObj");
   // buildMovies(JSON.parse(movieGenre1))
+  $("select").formSelect();
+  $('.materialboxed').materialbox();
+  $('.slider').slider();
+  $('.sidenav').sidenav();
 
   function buildMusic(musicData, mySet) {
     if (mySet.listen1 !== "0") {

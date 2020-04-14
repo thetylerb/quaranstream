@@ -22,6 +22,12 @@ height:200px;
   height:200px !important;
   }
 
+  .logo2 {
+    width:600px;
+    height:600px;
+    padding-bottom:250px;
+    }
+
   
 .card-content {
   text-align:center;
@@ -80,12 +86,13 @@ main {
 }
 
 nav {
-    background-color:#FFC312;
+  background-color: rgba(0,0,0,0.5) !important;
+  color:white;
 }
 
 footer, .page-footer {
   margin-top:50px;
-    background-color:#282828;
+  background-color:#282828;
 }
 
 body {
