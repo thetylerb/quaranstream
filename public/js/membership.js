@@ -1,15 +1,5 @@
 $(document).ready(function() {
-  // var dataObj = JSON.parse(localStorage.getItem("dataObj"));
-  // console.log(dataObj);
-  // var gameGen = localStorage.getItem("gameGenre1");
-  // var gameGenre1 = localStorage.getItem("gameObj");
-  // buildGames(JSON.parse(gameGenre1))
-  // var musicGenre1 = localStorage.getItem("musicObj");
-  // buildMusic(JSON.parse(musicGenre1))
-  // var showGenre1 = localStorage.getItem("showObj");
-  // buildShows(JSON.parse(showGenre1))
-  // var movieGenre1 = localStorage.getItem("movieObj");
-  // buildMovies(JSON.parse(movieGenre1))
+
   $("select").formSelect();
   $(".materialboxed").materialbox();
   $(".slider").slider();
@@ -155,7 +145,7 @@ $(document).ready(function() {
         genreData.playGenre
       );
       $("#navInfo").html(mySet.bio);
-      for (var i = 0; i < 5; i++) {
+      for (var i = 3; i < 8; i++) {
         var alias = set[i].userName;
         var profPic = set[i].avatarImg;
         var info = set[i].bio;
