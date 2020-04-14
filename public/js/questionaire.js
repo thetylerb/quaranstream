@@ -1,5 +1,7 @@
 $(document).ready(function() {
   $("select").formSelect();
+  $('.materialboxed').materialbox();
+  $('.slider').slider();
 
   $(".carousel").carousel({
     dist: -50,
