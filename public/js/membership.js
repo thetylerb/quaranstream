@@ -1,4 +1,8 @@
 $(document).ready(function() {
+  $("select").formSelect();
+  $('.materialboxed').materialbox();
+  $('.slider').slider();
+  $('.sidenav').sidenav();
   var dataObj = JSON.parse(localStorage.getItem("dataObj"));
   var gameGenre1 = localStorage.getItem("gameGenre1");
   var gameGenre2 = localStorage.getItem("gameGenre2");

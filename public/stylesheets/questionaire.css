@@ -17,6 +17,13 @@ width:200px;
 height:200px;
 }
 
+
+.logo2 {
+  width:600px;
+  height:600px;
+  padding-bottom:100px;
+  }
+
 .carousel .carousel-item {
   width:200px !important;
   height:200px !important;
@@ -79,8 +86,13 @@ main {
   max-height:50px;
 }
 
-nav {
-    background-color:#FFC312;
+nav, .sidenav {
+    background-color: rgba(0,0,0,0.5) !important;
+    color:white;
+}
+
+li {
+  color:white;
 }
 
 footer, .page-footer {
