@@ -80,13 +80,13 @@ module.exports = function(app) {
     // do your api call here using axios
     // console.log(platformId, genreId);
     criteria =
-      "fields aggregated_rating,genres,name,platforms,rating,similar_games,summary; limit 5; sort popularity desc; where rating > 50;";
+      "fields aggregated_rating,genres,name,platforms,rating,similar_games,summary,url; limit 5; sort popularity desc; where rating > 50;";
     
     if (genreId !== "0") {
-      gameUrl = `https://api-v3.igdb.com/games?fields=name,platforms,popularity,rating,genres&filter[genres][eq]=${genreId}&order=popularity:desc'`
+      gameUrl = `https://api-v3.igdb.com/games?fields=name,platforms,popularity,rating,genres,summary,url&filter[genres][eq]=${genreId}&order=popularity:desc'`
     }
     else {
-      gameUrl = `https://api-v3.igdb.com/games?fields=name,platforms,popularity,rating,genres&order=popularity:desc'`
+      gameUrl = `https://api-v3.igdb.com/games?fields=name,platforms,popularity,rating,genres,summary,url&order=popularity:desc'`
     }
   
   
