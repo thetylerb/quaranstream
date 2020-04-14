@@ -27,6 +27,10 @@ module.exports = function(app) {
     orm.sendUserPrefs(req, res);
   });
 
+  app.post("/api/updateuserprefs/:id", function(req, res) {
+    orm.updateUserPrefs(req, res);
+  });
+
   // Route for logging user out
   app.get("/logout", function(req, res) {
     req.logout();

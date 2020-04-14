@@ -36,4 +36,11 @@ module.exports = function(app) {
     }
     res.sendFile(path.join(__dirname, "../public/questionaire.html"));
   });
+
+  app.get("/update", isAuthenticated, function(req, res) {
+    if (!req.user) {
+      res.redirect("/");
+    }
+    res.sendFile(path.join(__dirname, "../public/update.html"));
+  });
 };
