@@ -3,3 +3,23 @@ html, body, header,
   height: 100%;
   min-height: 100%;
 }
+
+.navbar {    
+  background-color: black;
+}
+
+.about {
+  font-size:24px;
+  font-weight:bold;
+}
+
+p {
+    font-weight:bold;
+}
+
+.logo {
+  max-height: 300px;
+  text-align: center;
+  margin: 0 auto;
+} 
+

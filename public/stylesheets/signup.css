@@ -36,6 +36,10 @@ cursor: pointer;
 color: white;
 }
 
+.logo {
+    max-width: 200px;
+}
+
 .social_icon{
 position: absolute;
 right: 20px;

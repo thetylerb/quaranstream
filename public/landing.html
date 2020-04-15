@@ -2,10 +2,11 @@
 <html lang="en">
 
 <head>
+  <link rel="icon" href="assets/transparent.png">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Material Design Bootstrap</title>
+  <title>Home</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
   <!-- Bootstrap core CSS -->
@@ -24,6 +25,32 @@
 <body class="band-lp">
 
   <header>
+     <!-- Navbar -->
+     <nav class="navbar navbar-expand-lg navbar-dark fixed-top sticky-top scrolling-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto smooth-scroll">
+            <li class="nav-item">
+              <a class="nav-link" href="#home"></a>
+            </li>
+          </ul>
+          <!-- Social Icons -->
+          <ul class="navbar-nav nav-flex-icons">
+            <li class="nav-item">
+              <a class="nav-link" href="/landing.html"><i class="fas fa-sign-out-alt"></i>Logout</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login"><i class="fas fa-sign-out-alt"></i>Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <div id="home" class="view jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url(https://images.pexels.com/photos/2111015/pexels-photo-2111015.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
       <div class="mask rgba-black-strong">
@@ -32,9 +59,24 @@
             <div class="col-md-12">
               <div class="text-center text-white">
                 <div class="wow fadeInDown" data-wow-delay=".2s">
-                  <h2 class="font-weight-bold display-3 mb-0">Quaranstream</h2>
+                  <img src="assets/tans2.png" class="img-fluid logo" alt="My responsive image.">
                   <hr class="hr-light my-3 clearfix d-none d-md-block">
-                  <h4 class="pt-2 pb-3">Connect to people across the globe, get trending media suggestions that's tailored to you, and join our community!</h4>
+                  <h4 class="pt-2 pb-3">Get trending media suggestions that are tailored to you and join the QuaranStream community!</h4>
+                  <br>
+                  <!-- <a href="questionaire.html" class="btn btn-default btn-lg">Get Started!</a> -->
+                  <a href="signup.html" class="btn btn-pink-blue btn-rounded text-uppercase wow fadeInUp" data-wow-delay=".2s" href="#tour" data-offset="100">
+                    <i class="fas fa-arrow-right"></i>
+                    <span>Get Started</span>
+                  </a>
+
+                  <a href="/membership" class="btn btn-pink-blue btn-rounded text-uppercase wow fadeInUp" data-wow-delay=".2s" href="#tour" data-offset="100">
+                    <i class="fas fa-user"></i>
+                    <span>Your Profile</span>
+
+                  <a href="#news" class="btn btn-pink-blue btn-rounded text-uppercase wow fadeInUp" data-wow-delay=".2s" href="#tour" data-offset="100">
+                    <i class="fas fa-arrow-down"></i>
+                    <span> Get News</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -59,20 +101,22 @@
 
           <div class="col-lg-5 col-md-12 mb-2 mr-auto wow fadeIn" data-wow-delay=".4s">
 
-            <img src="https://mdbootstrap.com/img/Others/landings/band.jpg" class="img-fluid z-depth-1-half" alt="My photo">
+            <img src="assets/landing.svg" class="img-fluid z-depth-1-half" alt="My photo">
 
           </div>
  
           <div class="col-lg-6 col-md-12 mb-4 wow fadeIn" data-wow-delay=".4s">
 
-            <p align="justify" class="grey-text-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo animi
-              soluta ratione quisquam, dicta ab cupiditate iure eaque? Repellendus voluptatum, magni impedit delectus,
-              beatae maxime temporibus maiores quibusdam.<br><br>Rem magnam ad perferendis iusto sint tempora ea
-              voluptatibus iure, animi excepturi modi aut possimus in hic molestias repellendus illo ullam odit quia
-              velit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br><br>Incidunt eligendi mollitia labore
-              ipsum ex fugit explicabo saepe error neque beatae in, expedita eveniet quae aliquam assumenda
-              voluptatibus! Iure dolorum, itaque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta
-              expedita, maiores omnis culpa voluptatem ipsum eius.</p>
+            <p align="justify" class="grey-text-3 about">Stuck at your home? Spending countless hours on Netflix trying to
+              find the right show? Need new song suggestions now that you're stuck at home, bored, like many others around
+              the world? Well fear no more, Quaranstream is here! Connect with people stuck in the same boat as you and
+              discover more of your favorite entertainment!<br>
+
+              <br>Quaranstream is your way to connect with all of your favorite streaming options whether it be TV, Music, TV/Movies, AND Video Games!!              
+
+              <br>
+            
+            </p>
 
           </div>
 
@@ -82,20 +126,15 @@
     
       <section>
 
-        <h2 class="pink-text text-uppercase font-weight-bold mt-5 mb-2 wow fadeIn" data-wow-delay=".2s">Get connected</h2>
+        <h2 class="pink-text text-uppercase font-weight-bold mt-5 mb-2 wow fadeIn" data-wow-delay=".2s">Live NBC News</h2>
 
         <hr class="mb-5">
 
        <div class="col-lg-12 col-md-12 mb-4 wow fadeIn" data-wow-delay=".4s">
 
-        <p align="justify" class="grey-text-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo animi
-          soluta ratione quisquam, dicta ab cupiditate iure eaque? Repellendus voluptatum, magni impedit delectus,
-          beatae maxime temporibus maiores quibusdam.<br><br>Rem magnam ad perferendis iusto sint tempora ea
-          voluptatibus iure, animi excepturi modi aut possimus in hic molestias repellendus illo ullam odit quia
-          velit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br><br>Incidunt eligendi mollitia labore
-          ipsum ex fugit explicabo saepe error neque beatae in, expedita eveniet quae aliquam assumenda
-          voluptatibus! Iure dolorum, itaque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta
-          expedita, maiores omnis culpa voluptatem ipsum eius.</p>
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="1200" height="700" src="https://www.youtube.com/embed/live_stream?channel=UCeY0bbntWzzVIaj2z3QigXg" frameborder="0" allowfullscreen></iframe>
+        </div>
 
       </div>
 
@@ -124,60 +163,61 @@
           <div class="col-md-4 mb-4 wow fadeIn" data-wow-delay=".4s">
 
             <div class="avatar mx-auto mb-3">
-              <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" class="img-fluid z-depth-1-half">
+              <img src="assets/keshav.jpg" class="img-fluid z-depth-1-half">
             </div>
             <h4 class="font-weight-bold">Keshav</h4>
-            <h5 class="mb-3">Web Developer</h5>
+            <h5 class="mb-3">Backend Developer</h5>
 
-            <a class="p-2 m-2 fa-lg tw-ic"><i class="fab fa-github"> </i></a>
+            <a href="https://github.com/keshavsavva" class="p-2 m-2 fa-lg tw-ic"><i class="fab fa-github"> </i></a>
 
           </div>
         
           <div class="col-md-4 mb-4 wow fadeIn" data-wow-delay=".4s">
 
             <div class="avatar mx-auto mb-3">
-              <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(8).jpg" class="img-fluid z-depth-1-half">
+              <img src="assets/alex.jpg" class="img-fluid z-depth-1-half">
             </div>
             <h4 class="font-weight-bold">Alex</h4>
-            <h5 class="mb-3">Web Developer</h5>
+            <h5 class="mb-3">Backend Developer</h5>
+            
 
-            <a class="p-2 m-2 fa-lg tw-ic"><i class="fab fa-github"> </i></a>
+            <a href="https://github.com/alexcoulter" class="p-2 m-2 fa-lg tw-ic"><i class="fab fa-github"> </i></a>
 
           </div>
         
           <div class="col-md-4 mb-4 wow fadeIn" data-wow-delay=".4s">
 
             <div class="avatar mx-auto mb-3">
-              <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(8).jpg" class="img-fluid z-depth-1-half">
+              <img src="assets/diantai.jpg" class="img-fluid z-depth-1-half">
             </div>
             <h4 class="font-weight-bold">Diantai</h4>
-            <h5 class="mb-3">Web Developer</h5>
+            <h5 class="mb-3">Frontend Developer</h5>
 
-            <a class="p-2 m-2 fa-lg tw-ic"><i class="fab fa-github"> </i></a>
+            <a href="https://github.com/Alteredskull" class="p-2 m-2 fa-lg tw-ic"><i class="fab fa-github"> </i></a>
 
           </div>
        
           <div class="col-md-4 mb-4 wow fadeIn" data-wow-delay=".4s">
 
             <div class="avatar mx-auto mb-3">
-              <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(8).jpg" class="img-fluid z-depth-1-half">
+              <img src="assets/tyler.jpg" class="img-fluid z-depth-1-half">
             </div>
             <h4 class="font-weight-bold">Tyler</h4>
-            <h5 class="mb-3">Web Developer</h5>
+            <h5 class="mb-3">Frontend Developer</h5>
 
-            <a class="p-2 m-2 fa-lg tw-ic"><i class="fab fa-github"> </i></a>
+            <a href="https://github.com/thetylerb" class="p-2 m-2 fa-lg tw-ic"><i class="fab fa-github"> </i></a>
 
           </div>
       
           <div class="col-md-4 mb-4 wow fadeIn" data-wow-delay=".4s">
 
             <div class="avatar mx-auto mb-3">
-              <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(5).jpg" class="img-fluid z-depth-1-half">
+              <img src="assets/jonathan.jpg" class="img-fluid z-depth-1-half">
             </div>
             <h4 class="font-weight-bold">Jonathan</h4>
             <h5 class="mb-3">Web Developer</h5>
 
-            <a class="p-2 m-2 fa-lg tw-ic"><i class="fab fa-github"> </i></a>
+            <a href="https://github.com/jhandy4" class="p-2 m-2 fa-lg tw-ic"><i class="fab fa-github"> </i></a>
 
           </div>
 
@@ -291,8 +331,8 @@
   <div class="streak streak-photo streak-md" style="background-image: url('https://mdbootstrap.com/img/Others/landings/concert.jpg');">
     <div class="mask flex-center rgba-black-strong">
       <div class="text-center white-text smooth-scroll wow fadeIn" data-wow-delay=".4s">
-        <h2 class="h2-responsive font-weight-bold mb-3">Click Here To Get Started!</h2>
-        <a href="questionaire.html" class="btn btn-white-red btn-rounded"><i class="fas  fa-hand-cloud-music"></i>WELCOME</a>
+        <h2 class="h2-responsive font-weight-bold mb-3"> Back to the Top!</h2>
+        <a href="#home" class="btn btn-white-red btn-rounded"><i class="fas fa-angle-double-up"></i></a>
       </div>
     </div>
   </div>
@@ -307,12 +347,14 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/js/mdb.min.js"></script>
 
   <!-- Custom scripts -->
-  <script>
+<script src="js/landing.js"></script>
+  <!-- <script>
+
     new WOW().init();
     $(function () {
       $("#mdb-lightbox-ui").load("../mdb-addons/mdb-lightbox-ui.html");
     });
-  </script>
+  </script> -->
 
 </body>
 
