@@ -19,7 +19,7 @@
 
 ## Description
 
-This application supplies users with activities to occupy their time during the Corona Virus Quarantine.  It will give you recommendations for music, tv shows, movies, and video games that you may like and provides information and links so that you may learn about these recommendations.  You can also connect with other users and see what types of media they are interested in.
+This application supplies users with activities to occupy their time during the Coronavirus quarantine.  It will give you recommendations for music, tv shows, movies, and video games that you may like and provides information and links so that you may learn about these recommendations.  You can also connect with other users and see what types of media they are interested in.
 
  * This full-stack application is deployed on Heroku : https://limitless-chamber-20765.herokuapp.com/landing.html#home
 
