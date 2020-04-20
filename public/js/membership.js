@@ -1,15 +1,4 @@
-$(document).ready(function() {
-  // var dataObj = JSON.parse(localStorage.getItem("dataObj"));
-  // console.log(dataObj);
-  // var gameGen = localStorage.getItem("gameGenre1");
-  // var gameGenre1 = localStorage.getItem("gameObj");
-  // buildGames(JSON.parse(gameGenre1))
-  // var musicGenre1 = localStorage.getItem("musicObj");
-  // buildMusic(JSON.parse(musicGenre1))
-  // var showGenre1 = localStorage.getItem("showObj");
-  // buildShows(JSON.parse(showGenre1))
-  // var movieGenre1 = localStorage.getItem("movieObj");
-  // buildMovies(JSON.parse(movieGenre1))
+$(document).ready(function () {
   $("select").formSelect();
   $(".materialboxed").materialbox();
   $(".slider").slider();
@@ -20,12 +9,35 @@ $(document).ready(function() {
       $("#musicGenre").text(" - " + mySet.listen1);
     }
     for (let i = 0; i < 5; i++) {
-      $(`#artist${i + 1}`).text(":  " + musicData[i].name);
-      $(`#artistLink${i + 1}`).html(
-        `<a href = "${musicData[i].url}">:  Artist Radio Link</a>`
-      );
+      $(`#artist${i + 1}`).text(musicData[i].name);
+      $(`#artistLink${i + 1}`).html(`<span>Link: </span>
+        <a href = "${musicData[i].url}">Artist Radio</a>`);
+      $(`#artistExtra${i + 1}`).html("<p></p>");
+      $(`#artistExtra${i + 1}`).hide();
+
+      $(`#artist${i + 1}Add`).on("click", function () {
+        $(`#artistExtra${i + 1}`).toggle("slow");
+
+        $.post("/api/music_solo", {
+          artist: musicData[i].name,
+        })
+          .then(function (data) {
+            console.log("*****************");
+            console.log(data);
+            $(`#artistExtra${i + 1}`).html(`<br>
+            <p>${data.bio.content}</p><br>
+            <p><u>Similar Artists: </p></u>
+            <p>${data.similar.artist[0].name}   \u00A0\u00A0\u00A0\u00A0<a href = "${data.similar.artist[0].url}">Artist Radio</a></p>
+            <p>${data.similar.artist[1].name}   \u00A0\u00A0\u00A0\u00A0<a href = "${data.similar.artist[1].url}">Artist Radio</a></p>
+            <p>${data.similar.artist[2].name}   \u00A0\u00A0\u00A0\u00A0<a href = "${data.similar.artist[2].url}">Artist Radio</a></p>
+            <p>${data.similar.artist[3].name}   \u00A0\u00A0\u00A0\u00A0<a href = "${data.similar.artist[3].url}">Artist Radio</a></p>
+            <p>${data.similar.artist[4].name}   \u00A0\u00A0\u00A0\u00A0<a href = "${data.similar.artist[4].url}">Artist Radio</a></p>`);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      });
     }
-    console.log(musicData);
   }
 
   function buildMovies(movieData, mySet) {
@@ -34,15 +46,28 @@ $(document).ready(function() {
       $("#movieGenre").text(" - " + mySet.watch1);
     }
     for (let i = 0; i < 5; i++) {
-      $(`#movie${i + 1}`).text(":  " + movieData[i].movie.title);
-      $(`#movieTag${i + 1}`).text(":  " + movieData[i].movie.overview);
-      $(`#movieYear${i + 1}`).text(":  " + movieData[i].movie.year);
-      $(`#movieRating${i + 1}`).text(
-        ":  " + movieData[i].movie.rating.toFixed(2)
+      $(`#movie${i + 1}`).text(
+        movieData[i].movie.title + "  (" + movieData[i].movie.year + ")"
       );
+      // $(`#movieTag${i + 1}`).text(movieData[i].movie.overview);
+      // $(`#movieRating${i + 1}`).text(
+      //   "Rating:  " + movieData[i].movie.rating.toFixed(2)
+      // );
       $(`#movieTrailer${i + 1}`).html(
-        `<a href = "${movieData[i].movie.trailer}">:  Movie Trailer Link</a>`
+        `<span>Link: </span><a href = "${movieData[i].movie.trailer}">Movie Trailer</a>`
       );
+
+      $(`#movieExtra${i + 1}`).html("<p></p>");
+      $(`#movieExtra${i + 1}`).hide();
+      $(`#movie${i + 1}Add`).on("click", function () {
+        $(`#movieExtra${i + 1}`).toggle("slow");
+        console.log(i);
+        $(`#movieExtra${i + 1}`).html(`
+        <p>${movieData[i].movie.overview}</p>
+        <p>Certification: ${movieData[i].movie.certification}</p>
+        <p>Runtime: ${movieData[i].movie.runtime} Minutes</p>
+        <p>Rating:   ${movieData[i].movie.rating.toFixed(2)}</p>`);
+      });
     }
   }
 
@@ -52,13 +77,25 @@ $(document).ready(function() {
       $("#showGenre").text(" - " + mySet.watch1);
     }
     for (let i = 0; i < 5; i++) {
-      $(`#show${i + 1}`).text(":  " + showData[i].show.title);
-      $(`#showTag${i + 1}`).text(":  " + showData[i].show.overview);
-      $(`#showYear${i + 1}`).text(":  " + showData[i].show.year);
-      $(`#showRating${i + 1}`).text(":  " + showData[i].show.rating.toFixed(2));
-      $(`#showTrailer${i + 1}`).html(
-        `<a href = "${showData[i].show.trailer}">:  TV Show Trailer Link</a>`
+      $(`#show${i + 1}`).text(
+        showData[i].show.title + "  (" + showData[i].show.year + ")"
       );
+
+      $(`#showTrailer${i + 1}`).html(
+        `<span>Link: </span><a href = "${showData[i].show.trailer}">TV Show Trailer</a>`
+      );
+
+      $(`#showExtra${i + 1}`).html("<p></p>");
+      $(`#showExtra${i + 1}`).hide();
+      $(`#show${i + 1}Add`).on("click", function () {
+        $(`#showExtra${i + 1}`).toggle("slow");
+        console.log(i);
+        $(`#showExtra${i + 1}`).html(`<p>${showData[i].show.overview}</p>
+        <p>Network: ${showData[i].show.network}</p>
+        <p>Certification: ${showData[i].show.certification}</p>
+        <p>Runtime: ${showData[i].show.runtime} Minutes</p>
+        <p>Rating:   ${showData[i].show.rating.toFixed(2)}</p>`);
+      });
     }
   }
 
@@ -67,38 +104,49 @@ $(document).ready(function() {
     if (mySet.play1 !== "0") {
       $("#gameGenre")
         .text("Top Game Picks - " + mySet.play1)
-        .css("color", "black");
+        .css("color", "white");
     } else {
-      $("#gameGenre")
-        .text("Top Game Picks")
-        .css("color", "black");
+      $("#gameGenre").text("Top Game Picks").css("color", "white");
     }
     for (let i = 0; i < 5; i++) {
       $(`#game${i + 1}`).text(gameData[i].name);
-      if (gameData[i].rating) {
-        $(`#gameRating${i + 1}`).text(":  " + gameData[i].rating.toFixed(2));
-      }
-      var title = gameData[i].summary;
 
-      var shortText =
-        jQuery
-          .trim(title)
-          .substring(0, 200)
-          .split(" ")
-          .slice(0, -1)
-          .join(" ") + "...";
-
-      $(`#gameSummary${i + 1}`).text(":  " + shortText);
       $(`#gameURL${i + 1}`).html(
-        `<a href = "${gameData[i].url}">:  Game Info Link</a>`
+        `<span>Link: </span><a href = "${gameData[i].url}">Game Info</a>`
       );
+      $(`#gameExtra${i + 1}`).html("<p></p>");
+      $(`#gameExtra${i + 1}`).hide();
+      $(`#game${i + 1}Add`).on("click", function () {
+        $(`#gameExtra${i + 1}`).toggle("slow");
+
+        $.post("/api/game_solo", {
+          gameId: gameData[i].id,
+        })
+          .then(function (data) {
+            // console.log("********************");
+            // console.log(data);
+            if (gameData[i].rating) {
+              gameRating = `<p>Rating:  ${gameData[i].rating.toFixed(2)}</p>`;
+            } else {
+              gameRating = "";
+            }
+
+            $(`#gameExtra${i + 1}`).html(`<p>${gameData[i].summary}</p>
+            ${gameRating}
+            <p>Screenshot:</p>
+            <img src = "https://images.igdb.com/igdb/image/upload/t_screenshot_huge/${data[0].screenshots[0].image_id}.jpg" width = "90%">`);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      });
     }
   }
 
   $(".carousel").carousel({
     dist: -50,
     shift: 0,
-    padding: 20
+    padding: 20,
   });
 
   $(".sidenav").sidenav();
@@ -108,18 +156,18 @@ $(document).ready(function() {
   let mySet;
   let myID;
 
-  $.get("/api/users", function(data) {
+  $.get("/api/users", function (data) {
     // console.log(data);
-  }).then(data => {
+  }).then((data) => {
     set = data;
   });
-  $.get("/api/user_data", function(data) {
+  $.get("/api/user_data", function (data) {
     // console.log(data);
-  }).then(data => {
+  }).then((data) => {
     myID = data;
-    $.get(`/api/mydata/${myID.id}`, function(data) {
+    $.get(`/api/mydata/${myID.id}`, function (data) {
       // console.log(data);
-    }).then(data => {
+    }).then((data) => {
       mySet = data;
       buildSuggestions(mySet);
       genreData = {
@@ -128,7 +176,7 @@ $(document).ready(function() {
         playBool: mySet.enjoyGame,
         listenGenre: [mySet.listen1, mySet.listen2, mySet.listen3],
         watchGenre: [mySet.watch1, mySet.watch2, mySet.watch3],
-        playGenre: [mySet.play1, mySet.play2, mySet.play3]
+        playGenre: [mySet.play1, mySet.play2, mySet.play3],
       };
       $("#caroTitle").html(mySet.userName);
       $("#caroInfo").html(mySet.bio);
@@ -166,17 +214,13 @@ $(document).ready(function() {
         var imgDiv = $("<div>").addClass(
           "card-image waves-effect waves-block waves-light"
         );
-        var newImg = $("<img>")
-          .addClass("activator")
-          .attr("src", profPic);
+        var newImg = $("<img>").addClass("activator").attr("src", profPic);
         imgDiv.append(newImg);
         var contentDiv = $("<div>").addClass("card-content");
         var newSpan = $("<span>")
           .addClass("card-title activator grey-text text-darken-4")
           .html(alias);
-        var newI = $("<i>")
-          .addClass("material-icons right")
-          .html("more_vert");
+        var newI = $("<i>").addClass("material-icons right").html("more_vert");
         var newP = $("<p>");
         // var newLink = $("<a>")
         //   .attr("href", "#")
@@ -188,12 +232,8 @@ $(document).ready(function() {
         var revSpan = $("<span>")
           .addClass("card-title grey-text text-darken-4")
           .html("About Me");
-        var revI = $("<i>")
-          .addClass("material-icons right")
-          .html("close");
-        var newText = $("<p>")
-          .addClass("cardText")
-          .html(info);
+        var revI = $("<i>").addClass("material-icons right").html("close");
+        var newText = $("<p>").addClass("cardText").html(info);
         var list = $("<ul>").addClass("genreInfo");
         genOthersGenre(set[i].enjoyMusic, set[i].listen1, "Music", list);
         genOthersGenre(
@@ -214,58 +254,58 @@ $(document).ready(function() {
     });
   });
 
-  var buildSuggestions = function(mySet) {
+  var buildSuggestions = function (mySet) {
     //game Api call
     $.post("/api/game_genres", {
       platformId: mySet.platformID,
-      genreId: mySet.play1ID
+      genreId: mySet.play1ID,
     })
-      .then(function(data) {
-        console.log(data);
+      .then(function (data) {
+        // console.log(data);
         buildGames(data, mySet);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
 
     //movie Api call
     $.post("/api/movie_genres", {
-      videoGenre: mySet.watch1
+      videoGenre: mySet.watch1,
     })
-      .then(function(data) {
+      .then(function (data) {
         // console.log(data);
         buildMovies(data, mySet);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
 
     //TV Api call
     $.post("/api/show_genres", {
-      videoGenre: mySet.watch1
+      videoGenre: mySet.watch1,
     })
-      .then(function(data) {
+      .then(function (data) {
         // console.log(data);
         buildShows(data, mySet);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
 
     //music genre Api call
     $.post("/api/music_genres", {
-      musicGenre: mySet.listen1
+      musicGenre: mySet.listen1,
     })
-      .then(function(data) {
+      .then(function (data) {
         // console.log(data);
         buildMusic(data, mySet);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   };
 
-  var genGenre = function(navId, title, bool, data) {
+  var genGenre = function (navId, title, bool, data) {
     if (bool) {
       $(navId).html(`Favorite ${title} Genre(s):`);
       var newOl = $("<ol>");
@@ -287,11 +327,11 @@ $(document).ready(function() {
     }
   };
 
-  var genOthersGenre = function(bool, data, title, list) {
+  var genOthersGenre = function (bool, data, title, list) {
     newLi = $("<li>");
     if (bool && data !== "0") {
       newLi.html(`Fav ${title} Genre: ${data}`);
-      console.log(`Fav ${title} Genre: ${data}`);
+      // console.log(`Fav ${title} Genre: ${data}`);
     } else {
       console.log(`no ${title}`);
       if (title === "Music") {
@@ -311,7 +351,7 @@ $(document).ready(function() {
     { id: "5lRxNLHfZOY", caption: "Flower #2" },
     { id: "aolmXcUxr7Y", caption: "Flower #3" },
     { id: "TORI6YW1fHE", caption: "Flower #4" },
-    { id: "7NBO76G5JsE", caption: "Flower #5" }
+    { id: "7NBO76G5JsE", caption: "Flower #5" },
   ];
 
   const build = () => {
@@ -335,12 +375,12 @@ $(document).ready(function() {
   const carouselOptions = {
     duration: 100,
     dist: -50,
-    spacing: 2
+    spacing: 2,
   };
 
   const materialBoxOptions = {
     inDuration: 150,
-    outDuration: 150
+    outDuration: 150,
   };
 
   jQuery(document).ready(() => {
@@ -351,7 +391,7 @@ $(document).ready(function() {
     $(".carousel").carousel({
       dist: 0,
       shift: 0,
-      padding: 20
+      padding: 20,
     });
   });
 });

@@ -1,6 +1,6 @@
 /* eslint-disable quotes */
-$(document).ready(function() {
-  $('a[href^="#news"]').on("click", function(e) {
+$(document).ready(function () {
+  $('a[href^="#news"]').on("click", function (e) {
     e.preventDefault();
     var target = this.hash,
       $target = $(target);
@@ -8,20 +8,20 @@ $(document).ready(function() {
       .stop()
       .animate(
         {
-          scrollTop: $target.offset().top
+          scrollTop: $target.offset().top,
         },
         900,
         "swing",
-        function() {
+        function () {
           window.location.hash = target;
         }
       );
   });
 });
 
-$('.carousel').carousel()
+$(".carousel").carousel();
 
-WOW().init();
-$(function() {
+// WOW().init();
+$(function () {
   $("#mdb-lightbox-ui").load("../mdb-addons/mdb-lightbox-ui.html");
 });

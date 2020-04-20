@@ -1,16 +1,16 @@
-$(document).ready(function() {
+$(document).ready(function () {
   $("select").formSelect();
   $(".materialboxed").materialbox();
   $(".slider").slider();
-  $('.sidenav').sidenav();
+  $(".sidenav").sidenav();
 
   $(".carousel").carousel({
     dist: -50,
     shift: 0,
-    padding: 20
+    padding: 20,
   });
 
-  $("#gameCheck").on("change", function() {
+  $("#gameCheck").on("change", function () {
     if ($(this).is(":checked")) {
       $("#gameDrop1").removeClass("invis");
       $("#gameDrop2").removeClass("invis");
@@ -24,7 +24,7 @@ $(document).ready(function() {
     }
   });
 
-  $("#musicCheck").on("change", function() {
+  $("#musicCheck").on("change", function () {
     if ($(this).is(":checked")) {
       $("#musicDrop1").removeClass("invis");
       $("#musicDrop2").removeClass("invis");
@@ -36,7 +36,7 @@ $(document).ready(function() {
     }
   });
 
-  $("#movieCheck").on("change", function() {
+  $("#movieCheck").on("change", function () {
     if ($(this).is(":checked")) {
       $("#teleDrop1").removeClass("invis");
       $("#teleDrop2").removeClass("invis");
@@ -50,21 +50,21 @@ $(document).ready(function() {
 
   var id;
 
-  $.get("/api/user_data", function(info) {
+  $.get("/api/user_data", function (info) {
     console.log(info);
     id = info.id;
   });
 
   let photoPath;
 
-  $(".material-icons").on("click", function() {
+  $(".material-icons").on("click", function () {
     photoPath = $(this).data("path");
     $(this).html("check_box");
     // console.log("Clicked!");
     // console.log(photoPath);
   });
 
-  $("#submitBtn").on("click", function() {
+  $("#submitBtn").on("click", function () {
     event.preventDefault();
 
     // localStorage.setItem("gameGenre1", $("#gameGenre1").val());
@@ -74,31 +74,19 @@ $(document).ready(function() {
     // localStorage.setItem("platform", $("#console").val());
 
     var newUser = {
-      userName: $("#alias")
-        .val()
-        .trim(),
+      userName: $("#alias").val().trim(),
       avatarImg: photoPath,
-      bio: $("#bio")
-        .val()
-        .trim(),
+      bio: $("#bio").val().trim(),
       enjoyMovieTV: $("#movieCheck").is(":checked"),
       enjoyMusic: $("#musicCheck").is(":checked"),
       enjoyGame: $("#gameCheck").is(":checked"),
-      platform: $("#platform")
-        .find(":selected")
-        .data("name"),
+      platform: $("#platform").find(":selected").data("name"),
       platformID: $("#platform").val(),
-      play1: $("#gameGenre1")
-        .find(":selected")
-        .data("name"),
+      play1: $("#gameGenre1").find(":selected").data("name"),
       play1ID: $("#gameGenre1").val(),
-      play2: $("#gameGenre2")
-        .find(":selected")
-        .data("name"),
+      play2: $("#gameGenre2").find(":selected").data("name"),
       play2ID: $("#gameGenre2").val(),
-      play3: $("#gameGenre3")
-        .find(":selected")
-        .data("name"),
+      play3: $("#gameGenre3").find(":selected").data("name"),
       play3ID: $("#gameGenre3").val(),
       watch1: $("#videoGenre1").val(),
       watch2: $("#videoGenre2").val(),
@@ -106,7 +94,7 @@ $(document).ready(function() {
       listen1: $("#musicGenre1").val(),
       listen2: $("#musicGenre2").val(),
       listen3: $("#musicGenre3").val(),
-      UserId: id
+      UserId: id,
     };
 
     console.log(newUser);
@@ -186,15 +174,14 @@ $(document).ready(function() {
       listen1: listen1,
       listen2: listen2,
       listen3: listen3,
-      UserId: UserId
+      UserId: UserId,
     })
-      .then(function(data) {
-        console.log("the then part works");
+      .then(function (data) {
+        console.log("questionaire then");
         window.location = "/membership";
-        localStorage.setItem("dataObj", JSON.stringify(data));
         console.log(data.userName, data.enjoyMovieTV);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   }

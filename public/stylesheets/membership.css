@@ -95,6 +95,27 @@ main {
 
 .title, .bio, .link, .tagline, .year, .rating, .trailer, .overview, .platform, .summary {
   color:white;
+  padding-bottom: 6px;
+}
+
+.card-title, .title {
+  text-emphasis: bold;
+  padding-bottom: 8px;
+  font-style: italic;
+  color: #ed1c24;
+}
+
+.expand p {
+  padding-bottom: 8px;
+}
+
+#artist1, #artist2, #artist3, #artist4,#artist5 {
+  color: white;
+}
+  .card-title {
+    font-family: Georgia, Times, 'Times New Roman', serif !important;
+  font-weight: bolder !important;
+  font-style: italic !important;
 }
 
 nav {
