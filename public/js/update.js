@@ -63,6 +63,25 @@ $(document).ready(function () {
 
   $("#submitBtn").on("click", function () {
     event.preventDefault();
+
+    console.log($("#gameGenre1").find(":selected").data("name"));
+
+    if ($("#gameGenre1").find(":selected").data("name")) {
+      play1 = $("#gameGenre1").find(":selected").data("name");
+    } else {
+      play1 = "0";
+    }
+    if ($("#gameGenre2").find(":selected").data("name")) {
+      play2 = $("#gameGenre2").find(":selected").data("name");
+    } else {
+      play2 = "0";
+    }
+    if ($("#gameGenre3").find(":selected").data("name")) {
+      play3 = $("#gameGenre3").find(":selected").data("name");
+    } else {
+      play3 = "0";
+    }
+
     var newUser = {
       userName: $("#alias").val().trim(),
       avatarImg: photoPath,
@@ -70,13 +89,11 @@ $(document).ready(function () {
       enjoyMovieTV: $("#movieCheck").is(":checked"),
       enjoyMusic: $("#musicCheck").is(":checked"),
       enjoyGame: $("#gameCheck").is(":checked"),
-      platform: $("#platform").find(":selected").data("name"),
-      platformID: $("#platform").val(),
-      play1: $("#gameGenre1").find(":selected").data("name"),
+      play1: play1,
       play1ID: $("#gameGenre1").val(),
-      play2: $("#gameGenre2").find(":selected").data("name"),
+      play2: play2,
       play2ID: $("#gameGenre2").val(),
-      play3: $("#gameGenre3").find(":selected").data("name"),
+      play3: play3,
       play3ID: $("#gameGenre3").val(),
       watch1: $("#videoGenre1").val(),
       watch2: $("#videoGenre2").val(),
@@ -96,9 +113,8 @@ $(document).ready(function () {
       data: newUser,
     })
       .then(function (data) {
-        console.log("update then");
         window.location = "/membership";
-        console.log(data.userName, data.enjoyMovieTV);
+        console.log(data);
       })
       .catch(function (error) {
         console.log(error);

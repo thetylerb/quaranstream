@@ -81,6 +81,7 @@ function videoApi(genreId, type, callback) {
       // console.log("Status:", this.status);
       // console.log("Headers:", this.getAllResponseHeaders());
       // console.log("Body:", this.responseText);
+      // console.log(this.responseText);
       var res = JSON.parse(this.responseText);
       // console.log(res);
       callback(res);

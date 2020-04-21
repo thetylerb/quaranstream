@@ -22,8 +22,7 @@ $(document).ready(function () {
           artist: musicData[i].name,
         })
           .then(function (data) {
-            console.log("*****************");
-            console.log(data);
+            // console.log(data);
             $(`#artistExtra${i + 1}`).html(`<br>
             <p>${data.bio.content}</p><br>
             <p><u>Similar Artists: </p></u>
@@ -41,7 +40,7 @@ $(document).ready(function () {
   }
 
   function buildMovies(movieData, mySet) {
-    console.log(movieData);
+    // console.log(movieData);
     if (mySet.watch1 !== "0") {
       $("#movieGenre").text(" - " + mySet.watch1);
     }
@@ -61,7 +60,6 @@ $(document).ready(function () {
       $(`#movieExtra${i + 1}`).hide();
       $(`#movie${i + 1}Add`).on("click", function () {
         $(`#movieExtra${i + 1}`).toggle("slow");
-        console.log(i);
         $(`#movieExtra${i + 1}`).html(`
         <p>${movieData[i].movie.overview}</p>
         <p>Certification: ${movieData[i].movie.certification}</p>
@@ -72,7 +70,7 @@ $(document).ready(function () {
   }
 
   function buildShows(showData, mySet) {
-    console.log(showData);
+    // console.log(showData);
     if (mySet.watch1 !== "0") {
       $("#showGenre").text(" - " + mySet.watch1);
     }
@@ -89,7 +87,6 @@ $(document).ready(function () {
       $(`#showExtra${i + 1}`).hide();
       $(`#show${i + 1}Add`).on("click", function () {
         $(`#showExtra${i + 1}`).toggle("slow");
-        console.log(i);
         $(`#showExtra${i + 1}`).html(`<p>${showData[i].show.overview}</p>
         <p>Network: ${showData[i].show.network}</p>
         <p>Certification: ${showData[i].show.certification}</p>
@@ -100,7 +97,7 @@ $(document).ready(function () {
   }
 
   function buildGames(gameData, mySet) {
-    console.log(gameData);
+    console.log(mySet);
     if (mySet.play1 !== "0") {
       $("#gameGenre")
         .text("Top Game Picks - " + mySet.play1)
@@ -123,7 +120,6 @@ $(document).ready(function () {
           gameId: gameData[i].id,
         })
           .then(function (data) {
-            // console.log("********************");
             // console.log(data);
             if (gameData[i].rating) {
               gameRating = `<p>Rating:  ${gameData[i].rating.toFixed(2)}</p>`;
@@ -333,7 +329,7 @@ $(document).ready(function () {
       newLi.html(`Fav ${title} Genre: ${data}`);
       // console.log(`Fav ${title} Genre: ${data}`);
     } else {
-      console.log(`no ${title}`);
+      // console.log(`no ${title}`);
       if (title === "Music") {
         newLi.html("I dont like music.");
       } else if (title === "Movie and Show") {

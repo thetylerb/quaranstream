@@ -112,11 +112,11 @@ main {
 #artist1, #artist2, #artist3, #artist4,#artist5 {
   color: white;
 }
-  .card-title {
+  /* .card-title {
     font-family: Georgia, Times, 'Times New Roman', serif !important;
   font-weight: bolder !important;
   font-style: italic !important;
-}
+} */
 
 nav {
   background-color: rgba(0,0,0,0.5) !important;
