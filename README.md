@@ -1,11 +1,5 @@
 # QuaranStream
 
-## Keshav Avva
-
-![IMAGE](https://avatars2.githubusercontent.com/u/58408384?v=4)
-
-email: keshav.s.avva@gmail.com
-
 ## Description
 
 This application supplies users with activities to occupy their time during the Corona Virus Quarantine.
@@ -39,7 +33,7 @@ none
 
 ## License
 
-Copyright Keshav Avva
+Copyright 2020
 
 
 ## Badges
