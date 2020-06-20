@@ -76,17 +76,17 @@ MIT: ![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgr
 
 **Keshav Avva**
 <img src= "https://avatars1.githubusercontent.com/u/58408384?v=4" style="border-radius: 18px" width="30px" style = "border: 2px solid green" />     
-- Email : [keshav.s.avva@gmail.com](keshavsavva)
+- Email : [keshav.s.avva@gmail.com](keshav.s.avva@gmail.com)
 - Github : [@keshavsavva](https://github.com/keshavsavva)
 
 **Alex Coulter**
 <img src= "https://avatars1.githubusercontent.com/u/19214549?v=4" style="border-radius: 18px" width="30px" style = "border: 2px solid green" />    
-- Email : [alexcoulter.unc@gmail.com](alexcoulter)
+- Email : [alexcoulter.unc@gmail.com](alexcoulter.unc@gmail.com)
 - Github : [@alexcoulter](https://github.com/alexcoulter)
 
 **Diantai Johnson**
 <img src= "https://avatars1.githubusercontent.com/u/23248472?v=4" style="border-radius: 18px" width="30px" style = "border: 2px solid green" />    
-- Email : [johnson.diantai@gmail.com](Alteredskull)
+- Email : [johnson.diantai@gmail.com](johnson.diantai@gmail.com)
 - Github : [@Alteredskull](https://github.com/Alteredskull)
 
 **Tyler Buck**
