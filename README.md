@@ -33,7 +33,7 @@ Inspired by a time of immense boredom caused by the Corona Virus Stay-At-Home or
 
   ## Usage
   
-  * Once you have this application running on your local machine or Heroku you will be directed to the landing page. Next, ............
+  * Once you have this application running on your local machine or Heroku you will be directed to the landing page. From there press the button that says *'Get Started'*.  This will redirect you to the sign-in Page where you must enter a valid email address and password to proceed.  This will redirect you to the questionaire page where you can select an avatar image, an alias, and write a short bio.  You can also choose your genre preferences for video games, music, tv, and movies.  Press the *'Submit'* button to save these preferences and see your media suggestions.  If you ever want to update your preferences just click the button in the top-left corner of the screen and a sidebar will slide out.  Scroll down to the bottom and select the link that says *'Update User Preferences'*.  This will take you to a page where you can change any of your user information. 
   
   ## Screenshots
 * Landing Page
@@ -76,17 +76,17 @@ MIT: ![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgr
 
 **Keshav Avva**
 <img src= "https://avatars1.githubusercontent.com/u/58408384?v=4" style="border-radius: 18px" width="30px" style = "border: 2px solid green" />     
-- Email : [keshav.s.avva@gmail.com](keshav.s.avva@gmail.com)
+- Email : keshav.s.avva@gmail.com
 - Github : [@keshavsavva](https://github.com/keshavsavva)
 
 **Alex Coulter**
 <img src= "https://avatars1.githubusercontent.com/u/19214549?v=4" style="border-radius: 18px" width="30px" style = "border: 2px solid green" />    
-- Email : [alexcoulter.unc@gmail.com](alexcoulter.unc@gmail.com)
+- Email : alexcoulter.unc@gmail.com
 - Github : [@alexcoulter](https://github.com/alexcoulter)
 
 **Diantai Johnson**
 <img src= "https://avatars1.githubusercontent.com/u/23248472?v=4" style="border-radius: 18px" width="30px" style = "border: 2px solid green" />    
-- Email : [johnson.diantai@gmail.com](johnson.diantai@gmail.com)
+- Email : johnson.diantai@gmail.com
 - Github : [@Alteredskull](https://github.com/Alteredskull)
 
 **Tyler Buck**
