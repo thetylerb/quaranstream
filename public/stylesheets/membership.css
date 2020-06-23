@@ -58,6 +58,11 @@ color:white;
 
 .collection-item {
 background-color: rgba(0,0,0,0.5) !important;
+padding:2% !important;
+}
+
+.title, .link, .url, .rating {
+  padding-left: 75px;
 }
 
 .collection-header {
@@ -95,7 +100,28 @@ main {
 
 .title, .bio, .link, .tagline, .year, .rating, .trailer, .overview, .platform, .summary {
   color:white;
+  padding-bottom: 6px;
 }
+
+.card-title, .title {
+  text-emphasis: bold;
+  padding-bottom: 8px;
+  font-style: italic;
+  color: #ed1c24;
+}
+
+.expand p {
+  padding-bottom: 8px;
+}
+
+#artist1, #artist2, #artist3, #artist4,#artist5 {
+  color: white;
+}
+  /* .card-title {
+    font-family: Georgia, Times, 'Times New Roman', serif !important;
+  font-weight: bolder !important;
+  font-style: italic !important;
+} */
 
 nav {
   background-color: rgba(0,0,0,0.5) !important;
@@ -114,7 +140,11 @@ footer, .page-footer {
 
 @media only screen and (max-width: 767px) {
 /* For mobile: */
-.col-6 {
+.col-6, .container {
   width: 100% !important;
 }
+iframe {
+  height: 250px;
+}
+
 }
