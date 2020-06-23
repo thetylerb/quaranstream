@@ -75,22 +75,22 @@ MIT: ![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgr
 * Contributing Team Members
 
 **Keshav Avva**
-<img src= "https://avatars1.githubusercontent.com/u/58408384?v=4" style="border-radius: 18px" width="30px" style = "border: 2px solid green" />     
+<img src= "https://avatars1.githubusercontent.com/u/58408384?v=4" style="border-radius: 18px" width="100px" style = "border: 2px solid green" />     
 - Email : [keshav.s.avva@gmail.com](keshav.s.avva@gmail.com)
 - Github : [@keshavsavva](https://github.com/keshavsavva)
 
 **Alex Coulter**
-<img src= "https://avatars1.githubusercontent.com/u/19214549?v=4" style="border-radius: 18px" width="30px" style = "border: 2px solid green" />    
+<img src= "https://avatars1.githubusercontent.com/u/19214549?v=4" style="border-radius: 18px" width="100px" style = "border: 2px solid green" />    
 - Email : [alexcoulter.unc@gmail.com](alexcoulter.unc@gmail.com)
 - Github : [@alexcoulter](https://github.com/alexcoulter)
 
 **Diantai Johnson**
-<img src= "https://avatars1.githubusercontent.com/u/23248472?v=4" style="border-radius: 18px" width="30px" style = "border: 2px solid green" />    
+<img src= "https://avatars1.githubusercontent.com/u/23248472?v=4" style="border-radius: 18px" width="100px" style = "border: 2px solid green" />    
 - Email : [johnson.diantai@gmail.com](johnson.diantai@gmail.com)
 - Github : [@Alteredskull](https://github.com/Alteredskull)
 
 **Tyler Buck**
-<img src= "https://avatars0.githubusercontent.com/u/57814333?s=400&u=cbb62b2755a93573bf3414c3f92e10e8f1868368&v=4" style="border-radius: 18px" width="30px" style = "border: 2px solid green" />     
+<img src= "https://avatars0.githubusercontent.com/u/57814333?s=400&u=cbb62b2755a93573bf3414c3f92e10e8f1868368&v=4" style="border-radius: 18px" width="100px" style = "border: 2px solid green" />     
 - Github : [@thetylerb](https://github.com/thetylerb) 
 
 Give a :star: or follow me if this project helped you.
