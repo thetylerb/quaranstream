@@ -16,20 +16,20 @@ function getPopularGames(genreId, platformId, cb) {
   }
   criteria += ";";
 
-  console.log(criteria);
+  // console.log(criteria);
 
   $.ajax({
     url: "https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/games",
     method: "POST",
     headers: {
       Accept: "application/json",
-      "user-key": ""
+      "user-key": "",
     },
-    data: criteria
+    data: criteria,
   })
-    .then(function(response) {
+    .then(function (response) {
       res = response;
-      console.log(res);
+      // console.log(res);
       cb(res);
 
       // for (var i = 0; i < res.length; i++) {
@@ -41,7 +41,7 @@ function getPopularGames(genreId, platformId, cb) {
       //other relevant outputs = genre, platform, rating, similar games id
       // }
     })
-    .catch(function(err) {
+    .catch(function (err) {
       console.error(err);
     });
 }
@@ -60,18 +60,16 @@ function findGameId(gameName) {
     method: "POST",
     headers: {
       Accept: "application/json",
-      "user-key": ""
-    }
+      "user-key": "",
+    },
   })
-    .then(function(response) {
+    .then(function (response) {
       // console.log(response.data);
-
-      console.log(response.data);
       var gameObject = response.data;
       return gameObject;
       // console.log(gameObject[0].name);
     })
-    .catch(function(err) {
+    .catch(function (err) {
       console.error(err);
     });
 }
@@ -84,25 +82,25 @@ function getGameById(gameId) {
   var criteria =
     "fields screenshots.*,aggregated_rating,genres,name,platforms,rating,screenshots,similar_games,slug,summary,total_rating,total_rating_count; limit 1;";
   criteria += " where id = " + gameId + ";";
-  console.log(criteria);
+  // console.log(criteria);
 
   axios({
     url: "https://api-v3.igdb.com/games/",
     method: "POST",
     headers: {
       Accept: "application/json",
-      "user-key": ""
+      "user-key": "",
     },
-    data: criteria
+    data: criteria,
   })
-    .then(function(response) {
+    .then(function (response) {
       var res = response.data;
-      console.log(res);
-      console.log(
-        "https://images.igdb.com/igdb/image/upload/t_screenshot_huge/" +
-          res[0].screenshots[0].image_id +
-          ".jpg"
-      );
+      // console.log(res);
+      // console.log(
+      //   "https://images.igdb.com/igdb/image/upload/t_screenshot_huge/" +
+      //     res[0].screenshots[0].image_id +
+      //     ".jpg"
+      // );
       return res;
       //   console.log("Name: " + res[0].name);
       //   console.log("Rating: " + res[0].rating);
@@ -112,7 +110,7 @@ function getGameById(gameId) {
       //   console.log("Similar Games: " + res[0].similar_games);
       //   console.log("************************************");
     })
-    .catch(function(err) {
+    .catch(function (err) {
       console.error(err);
     });
 }

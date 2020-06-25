@@ -33,14 +33,6 @@
       </div>
     </nav>
     <ul id="slide-out" class="sidenav sidenav">
-      <nav>
-        <div class="nav-wrapper">
-          <ul class="right hide-on-med-and-down">
-            <li><a class="nav-link" href="/landing.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-            <li><a class="nav-link" href="/login"><i class="fas fa-sign-out-alt"></i>Login</a></li>
-          </ul>
-        </div>
-      </nav>
       <li>
         <div class="user-view">
           <div class="background">
@@ -62,10 +54,10 @@
       <li id="navMusic"></li>
       <li id="navVideo"></li>
       <li id="navGame"></li>
-      <li><a class="waves-effect" href="update.html">Update User Preferences</a></li>
+      <li><button class="btn" id = "updateBtn"><a class="waves-effect" href="update.html">Update User Preferences</a></button></li>
       </a>
     </ul>
-    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <a href="#" data-target="slide-out" class="sidenav-trigger menuIcon"><i class="material-icons">menu</i></a>
   </header>
   <main>
     <div class="container">
@@ -95,7 +87,7 @@
 
       <div class="row">
         <div class="col s12 m12">
-          <ul class="collection with-header">
+          <ul class="collection with-header" id="game-section">
             <li class="collection-header">
               <h4><span id="gameGenre"></span></h4>
             </li>
@@ -103,7 +95,7 @@
               <i class="material-icons circle red">gamepad</i>
               <p class="title"><span id="game1"></span></p>
               <p class="url"><span id="gameURL1"></span></p>
-              <a href="#!" class="secondary-content" id="game1Add"><i class="material-icons">add_circle</i></a>
+              <span class="secondary-content" id="game1Add"><i class="material-icons">add_circle</i></span>
               <div class="expand" id="gameExtra1"></div>
             </li>
             <li class="collection-item avatar">
@@ -139,7 +131,7 @@
 
         <div class="row">
           <div class="col s12 m12">
-            <ul class="collection with-header">
+            <ul class="collection with-header" id="music-section">
               <li class="collection-header">
                 <h4>Top Artist Picks<span id="musicGenre"></span></h4>
               </li>
@@ -184,7 +176,7 @@
 
           <div class="row">
             <div class="col s12 m12">
-              <ul class="collection with-header">
+              <ul class="collection with-header"  id= "movie-section">
                 <li class="collection-header">
                   <h4>Top Movie Picks<span id="movieGenre"></span></h4>
                 </li>
@@ -227,7 +219,7 @@
             </div>
 
             <div class="col s12 m12">
-              <ul class="collection with-header">
+              <ul class="collection with-header" id= "show-section">
                 <li class="collection-header">
                   <h4>Top Television Picks<span id="showGenre"></span></h4>
                 </li>
