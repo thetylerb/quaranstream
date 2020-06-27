@@ -9,7 +9,6 @@
 
 //top artists
 function getPopularArtists(genre, cb) {
-  console.log(genre);
   var queryURL =
     "http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=" +
     "" +
@@ -17,15 +16,13 @@ function getPopularArtists(genre, cb) {
   if (genre !== "0") {
     queryURL = "http://ws.audioscrobbler.com/2.0/?method=tag.gettopartists";
     queryURL += "&tag=" + genre;
-    queryURL +=
-      "&api_key=" + "" + "&format=json";
+    queryURL += "&api_key=" + "" + "&format=json";
   }
-  console.log(queryURL);
 
   $.ajax({
     url: queryURL,
-    method: "GET"
-  }).then(function(response) {
+    method: "GET",
+  }).then(function (response) {
     if (genre !== "0") {
       var res = response.topartists.artist;
     } else {
@@ -52,10 +49,10 @@ function artistInfo(artist) {
 
   axios({
     url: queryURL,
-    method: "GET"
-  }).then(function(response) {
+    method: "GET",
+  }).then(function (response) {
     var res = response.data.artist;
-    console.log(res);
+    // console.log(res);
     return res;
     // console.log(res.url);
     // console.log(res.bio.summary);

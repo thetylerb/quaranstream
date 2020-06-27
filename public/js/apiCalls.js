@@ -33,7 +33,7 @@ function gameApi(platformId, genreId, callback) {
 }
 
 function musicApi(genre, callback) {
-  console.log(genre);
+  // console.log(genre);
   var queryURL =
     "http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=" +
     process.env.musicApiKey +
@@ -43,7 +43,7 @@ function musicApi(genre, callback) {
     queryURL += "&tag=" + genre;
     queryURL += "&api_key=" + process.env.musicApiKey + "&format=json";
   }
-  console.log(queryURL);
+  // console.log(queryURL);
 
   axios({
     url: queryURL,
@@ -61,12 +61,10 @@ function musicApi(genre, callback) {
 }
 
 function videoApi(genreId, type, callback) {
-  console.log(genreId);
   var url = `https://api.trakt.tv/${type}s/trending?limit=5&extended=full`;
   if (genreId !== "0") {
     url += "&genres=" + genreId;
   }
-  console.log(url);
 
   var request = new XMLHttpRequest();
 
@@ -94,7 +92,7 @@ function gameApiSolo(gameId, callback) {
   var criteria =
     "fields screenshots.*,aggregated_rating,genres,name,platforms,rating,screenshots,similar_games,slug,summary,total_rating,total_rating_count; limit 1;";
   criteria += " where id = " + gameId + ";";
-  console.log(criteria);
+  // console.log(criteria);
 
   axios({
     url: "https://api-v3.igdb.com/games/",
@@ -107,7 +105,7 @@ function gameApiSolo(gameId, callback) {
   })
     .then(function (response) {
       var res = response.data;
-      console.log(res);
+      // console.log(res);
       // console.log(
       //   "https://images.igdb.com/igdb/image/upload/t_screenshot_huge/" +
       //     res[0].screenshots[0].image_id +
@@ -137,7 +135,7 @@ function musicApiSolo(artist, callback) {
     method: "GET",
   }).then(function (response) {
     var res = response.data.artist;
-    console.log(res);
+    // console.log(res);
     callback(res);
     // console.log(res.url);
     // console.log(res.bio.summary);

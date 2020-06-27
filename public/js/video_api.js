@@ -21,7 +21,6 @@ function getPopularVideos(genreId, type, cb) {
   if (genreId !== "0") {
     url += "&genres=" + genreId;
   }
-  console.log(url);
 
   var request = new XMLHttpRequest();
 
@@ -102,7 +101,7 @@ function videoInfo(name, type) {
       } else if (type === "movie") {
         var res = response[0].movie;
       }
-      console.log(res);
+      // console.log(res);
       return res;
       // console.log("Title: " + re.title);
       // console.log("Year: " + re.year);

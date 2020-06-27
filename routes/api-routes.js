@@ -74,7 +74,7 @@ module.exports = function (app) {
     // res.json(req.body);
     // console.log(req.body);
     apiCalls.gameApi(platformId, genreId, (data) => {
-      console.log(data);
+      // console.log(data);
       res.json(data);
     });
   });
@@ -85,18 +85,18 @@ module.exports = function (app) {
     // res.json(req.body);
     // console.log(req.body);
     apiCalls.gameApiSolo(gameId, (data) => {
-      console.log(data);
+      // console.log(data);
       res.json(data);
     });
   });
 
   //music Route / Api call
   app.post("/api/music_genres", function (req, res) {
-    console.log(req.body.musicGenre);
+    // console.log(req.body.musicGenre);
     var musicGenre = req.body.musicGenre;
     apiCalls.musicApi(musicGenre, (data) => {
       data.slice(0, 5);
-      console.log(data);
+      // console.log(data);
       res.json(data);
     });
   });
@@ -107,7 +107,7 @@ module.exports = function (app) {
     // res.json(req.body);
     // console.log(req.body);
     apiCalls.musicApiSolo(artist, (data) => {
-      console.log(data);
+      // console.log(data);
       res.json(data);
     });
   });
@@ -124,7 +124,7 @@ module.exports = function (app) {
   //TV Show Route / Api call
   app.post("/api/show_genres", function (req, res) {
     var videoGenre = req.body.videoGenre;
-    console.log(req.body);
+    // console.log(req.body);
     apiCalls.videoApi(videoGenre.toLowerCase(), "show", (data) => {
       // console.log(data);
       res.json(data);

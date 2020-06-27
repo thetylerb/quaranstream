@@ -102,57 +102,9 @@ $(document).ready(function () {
       UserId: id,
     };
 
-    console.log(newUser);
-    console.log(id);
+    // console.log(newUser);
+    // console.log(id);
 
-    //   addUserPref(
-    //     newUser.userName,
-    //     newUser.avatarImg,
-    //     newUser.bio,
-    //     newUser.enjoyMovieTV,
-    //     newUser.enjoyMusic,
-    //     newUser.enjoyGame,
-    //     newUser.platform,
-    //     newUser.platformID,
-    //     newUser.play1,
-    //     newUser.play1ID,
-    //     newUser.play2,
-    //     newUser.play2ID,
-    //     newUser.play3,
-    //     newUser.play3ID,
-    //     newUser.watch1,
-    //     newUser.watch2,
-    //     newUser.watch3,
-    //     newUser.listen1,
-    //     newUser.listen2,
-    //     newUser.listen3,
-    //     newUser.UserId
-    //   );
-    // });
-
-    // function addUserPref(
-    //   userName,
-    //   avatarImg,
-    //   bio,
-    //   enjoyMovieTV,
-    //   enjoyMusic,
-    //   enjoyGame,
-    //   platform,
-    //   platformID,
-    //   play1,
-    //   play1ID,
-    //   play2,
-    //   play2ID,
-    //   play3,
-    //   play3ID,
-    //   watch1,
-    //   watch2,
-    //   watch3,
-    //   listen1,
-    //   listen2,
-    //   listen3,
-    //   UserId
-    // ) {
     $.post("/api/userprefs", newUser)
       .then(function (data) {
         window.location = "/membership";

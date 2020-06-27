@@ -52,12 +52,26 @@ background-color:black !important;
   width: 250px;
 }
 
+#updateBtn {
+  background-color: rgb(86,135,232);
+  margin-left: 32px;
+  margin-bottom:30px;
+  margin-top: 10px;
+}
+
+#updateBtn a {
+  color: white !important;
+}
+#navInfo, #navMusic, #navVideo, #navGame {
+  padding-right: 32px;
+}
+
 p, h4, .title {
 color:white;
 }
 
 .collection-item {
-background-color: rgba(0,0,0,0.5) !important;
+background-color: rgba(0,0,0,0.7) !important;
 padding:2% !important;
 }
 
@@ -66,7 +80,7 @@ padding:2% !important;
 }
 
 .collection-header {
-background-color: rgba(0,0,0,0.5) !important;
+background-color: rgba(0,0,0,0.7) !important;
 }
 .card {
   bottom: 60px
@@ -85,9 +99,15 @@ body {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../assets/oriental-tiles.png") repeat; 
   /* background-repeat: repeat; */
 /* -webkit-background-size: cover; */
+/* -moz-background-size: cover;
+-o-background-size: cover; */
+/* background-size: cover; */
+  /* background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("https://images.pexels.com/photos/3661650/pexels-photo-3661650.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260")  no-repeat center center fixed;
+-webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
-/* background-size: cover; */
+background-size: cover; */
+
 }
 
 main {
@@ -127,6 +147,45 @@ main {
 nav {
   background-color: rgba(0,0,0,0.5) !important;
   color:white;
+}
+
+#game-section {
+  margin-top: 50px;
+}
+
+ #gameGenre i, #musicGenre i, #movieGenre i, #showGenre i {
+  float: right;
+  font-size: 40px;
+  color: #26a69a;
+}
+
+#gameNumber, #musicNumber, #movieNumber, #showNumber {
+  font-size: 40px;
+  color: #26a69a;
+}
+
+
+#gameGenre i:hover, #musicGenre i:hover, #movieGenre i:hover, #showGenre i:hover {
+  color: whitesmoke;
+  margin-right: -4px;
+  cursor: pointer;
+}
+
+#gameClose {
+  float: right;
+  margin-top: -55px;
+  color: red;
+}
+
+#gameClose:hover {
+  cursor: pointer;
+}
+
+.menuIcon {
+  margin-left: 30px;
+  margin-top: 80px;
+  position: absolute;
+  top: -60px;
 }
 
 footer, .page-footer {
