@@ -21,7 +21,6 @@
     "no-multi-spaces": "warn",
     "no-unused-vars": "warn",
     "camelcase": "warn",
-    "indent": ["warn", 2],
     "quotes": ["warn", "double"],
     "semi": ["warn", "always"],
     "prettier/prettier": "warn"
